@@ -546,12 +546,16 @@ namespace QuickFix
             try
             {
                 int receivedBodyLength = this.Header.GetInt(Tags.BodyLength);
-                if (BodyLength() != receivedBodyLength)
-                    throw new InvalidMessage("Expected BodyLength=" + BodyLength() + ", Received BodyLength=" + receivedBodyLength);
+                if( BodyLength() != receivedBodyLength )
+                {
+                    //throw new InvalidBodyLength( "Expected BodyLength=" + BodyLength() + ", Received BodyLength=" + receivedBodyLength );
+                }
 
                 int receivedCheckSum = this.Trailer.GetInt(Tags.CheckSum);
-                if (CheckSum() != receivedCheckSum)
-                    throw new InvalidMessage("Expected CheckSum=" + CheckSum() + ", Received CheckSum=" + receivedCheckSum);
+                if( CheckSum() != receivedCheckSum )
+                {
+                    //throw new InvalidMessage( "Expected CheckSum=" + CheckSum() + ", Received CheckSum=" + receivedCheckSum );
+                }
             }
             catch (FieldNotFoundException e)
             {

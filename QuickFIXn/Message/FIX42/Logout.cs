@@ -46,67 +46,36 @@ namespace QuickFix
             { 
                 return IsSetField(Tags.Text);
             }
-            public QuickFix.Fields.EncodedTextLen EncodedTextLen
+            public QuickFix.Fields.ForceLogout ForceLogout
             { 
                 get 
                 {
-                    QuickFix.Fields.EncodedTextLen val = new QuickFix.Fields.EncodedTextLen();
+                    QuickFix.Fields.ForceLogout val = new QuickFix.Fields.ForceLogout();
                     GetField(val);
                     return val;
                 }
                 set { SetField(value); }
             }
             
-            public void Set(QuickFix.Fields.EncodedTextLen val) 
+            public void Set(QuickFix.Fields.ForceLogout val) 
             { 
-                this.EncodedTextLen = val;
+                this.ForceLogout = val;
             }
             
-            public QuickFix.Fields.EncodedTextLen Get(QuickFix.Fields.EncodedTextLen val) 
+            public QuickFix.Fields.ForceLogout Get(QuickFix.Fields.ForceLogout val) 
             { 
                 GetField(val);
                 return val;
             }
             
-            public bool IsSet(QuickFix.Fields.EncodedTextLen val) 
+            public bool IsSet(QuickFix.Fields.ForceLogout val) 
             { 
-                return IsSetEncodedTextLen();
+                return IsSetForceLogout();
             }
             
-            public bool IsSetEncodedTextLen() 
+            public bool IsSetForceLogout() 
             { 
-                return IsSetField(Tags.EncodedTextLen);
-            }
-            public QuickFix.Fields.EncodedText EncodedText
-            { 
-                get 
-                {
-                    QuickFix.Fields.EncodedText val = new QuickFix.Fields.EncodedText();
-                    GetField(val);
-                    return val;
-                }
-                set { SetField(value); }
-            }
-            
-            public void Set(QuickFix.Fields.EncodedText val) 
-            { 
-                this.EncodedText = val;
-            }
-            
-            public QuickFix.Fields.EncodedText Get(QuickFix.Fields.EncodedText val) 
-            { 
-                GetField(val);
-                return val;
-            }
-            
-            public bool IsSet(QuickFix.Fields.EncodedText val) 
-            { 
-                return IsSetEncodedText();
-            }
-            
-            public bool IsSetEncodedText() 
-            { 
-                return IsSetField(Tags.EncodedText);
+                return IsSetField(Tags.ForceLogout);
             }
 
         }

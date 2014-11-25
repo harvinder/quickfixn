@@ -15,10 +15,12 @@ namespace QuickFix
             }
 
             public BusinessMessageReject(
+                    QuickFix.Fields.RefSeqNum aRefSeqNum,
                     QuickFix.Fields.RefMsgType aRefMsgType,
                     QuickFix.Fields.BusinessRejectReason aBusinessRejectReason
                 ) : this()
             {
+                this.RefSeqNum = aRefSeqNum;
                 this.RefMsgType = aRefMsgType;
                 this.BusinessRejectReason = aBusinessRejectReason;
             }
@@ -177,68 +179,6 @@ namespace QuickFix
             public bool IsSetText() 
             { 
                 return IsSetField(Tags.Text);
-            }
-            public QuickFix.Fields.EncodedTextLen EncodedTextLen
-            { 
-                get 
-                {
-                    QuickFix.Fields.EncodedTextLen val = new QuickFix.Fields.EncodedTextLen();
-                    GetField(val);
-                    return val;
-                }
-                set { SetField(value); }
-            }
-            
-            public void Set(QuickFix.Fields.EncodedTextLen val) 
-            { 
-                this.EncodedTextLen = val;
-            }
-            
-            public QuickFix.Fields.EncodedTextLen Get(QuickFix.Fields.EncodedTextLen val) 
-            { 
-                GetField(val);
-                return val;
-            }
-            
-            public bool IsSet(QuickFix.Fields.EncodedTextLen val) 
-            { 
-                return IsSetEncodedTextLen();
-            }
-            
-            public bool IsSetEncodedTextLen() 
-            { 
-                return IsSetField(Tags.EncodedTextLen);
-            }
-            public QuickFix.Fields.EncodedText EncodedText
-            { 
-                get 
-                {
-                    QuickFix.Fields.EncodedText val = new QuickFix.Fields.EncodedText();
-                    GetField(val);
-                    return val;
-                }
-                set { SetField(value); }
-            }
-            
-            public void Set(QuickFix.Fields.EncodedText val) 
-            { 
-                this.EncodedText = val;
-            }
-            
-            public QuickFix.Fields.EncodedText Get(QuickFix.Fields.EncodedText val) 
-            { 
-                GetField(val);
-                return val;
-            }
-            
-            public bool IsSet(QuickFix.Fields.EncodedText val) 
-            { 
-                return IsSetEncodedText();
-            }
-            
-            public bool IsSetEncodedText() 
-            { 
-                return IsSetField(Tags.EncodedText);
             }
 
         }

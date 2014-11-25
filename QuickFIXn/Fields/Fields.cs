@@ -324,6 +324,7 @@ namespace QuickFix.Fields
         public const string STAY_ON_OFFERSIDE = "0";
         public const string MID_PRICE = "M";
         public const string FIXED_PEG = "T";
+        public const string UNKNOWN = "0";
         public const string DO_NOT_INCREASE_DNI = "E";
         public const string DO_NOT_REDUCE_DNR = "F";
         public const string ALL_OR_NONE_AON = "G";
@@ -382,6 +383,8 @@ namespace QuickFix.Fields
         public const char AUTOMATED_EXECUTION_ORDER_PRIVATE = '1';
         public const char AUTOMATED_EXECUTION_ORDER_PUBLIC = '2';
         public const char MANUAL_ORDER = '3';
+        public const char AutomatedPrivate = '1';
+        public const char Manual = '3';
     }
 
 
@@ -404,8 +407,6 @@ namespace QuickFix.Fields
         public const string RIC_CODE = "5";
         public const string ISO_CURRENCY_CODE = "6";
         public const string ISO_COUNTRY_CODE = "7";
-        public const string EXCHANGE_SYMBOL = "8";
-        public const string CONSOLIDATED_TAPE_ASSOCIATION = "9";
     }
 
 
@@ -885,6 +886,7 @@ namespace QuickFix.Fields
         public const char ACCEPTED_FOR_BIDDING = 'D';
         public const char PENDING_REPLACE = 'E';
         public const char REPLACED = '5';
+        public const char UNKNOWN = 'U';
         public const char PENDING_CANCELREPLACE = '6';
     }
 
@@ -926,6 +928,16 @@ namespace QuickFix.Fields
         public const char PEGGED = 'P';
         public const char COUNTER_ORDER_SELECTION = 'Q';
         public const char MARKET_WITH_LEFTOVER_AS_LIMIT = 'K';
+        public const char CROSS = '8';
+        public const char LIMIT_STOP_MARKET = 'O';
+        public const char MARKET_LIMIT = 'Q';
+        public const char MARKET_TO_LIMIT = 'R';
+        public const char STOP_MARKET_TO_LIMIT = 'S';
+        public const char MARKET_TO_LIMIT_IF_TOUCHED = 'T';
+        public const char BEST_LIMIT = 'U';
+        public const char STOP_BEST_LIMIT = 'V';
+        public const char LIMIT_IF_TOUCHED = 'W';
+        public const char BEST_LIMIT_IF_TOUCHED = 'X';
         public const char FOREX = 'C';
     }
 
@@ -1069,9 +1081,11 @@ namespace QuickFix.Fields
         public const char TRANSACTIONS_UNAFFILIATED_MEMBER = 'T';
         public const char SHORT_EXEMPT_NOT_AFFILIATED = 'X';
         public const char SHORT_EXEMPT_NONMEMBER = 'Z';
+        public const char REGISTERED_EQUITY_MARKET_MAKER_TRADES = 'E';
+        public const char GIVEUP = 'W';
+        public const char UNKNOWN = '0';
         public const char PROGRAM_ORDER_NONINDEX_ARB_FOR_MEMBER_FIRMORG = 'C';
         public const char PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRMORG = 'D';
-        public const char REGISTERED_EQUITY_MARKET_MAKER_TRADES = 'E';
         public const char PROGRAM_ORDER_NONINDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'K';
         public const char PROGRAM_ORDER_NONINDEX_ARB_FOR_OTHER_MEMBER = 'N';
         public const char COMPETING_DEALER_TRADES_O = 'O';
@@ -1138,11 +1152,11 @@ namespace QuickFix.Fields
     /// <summary>
     /// Shares Field
     /// </summary>/
-    public sealed class Shares : DecimalField
+    public sealed class Shares : IntField
     {
         public Shares()
             :base(Tags.Shares) {}
-        public Shares(Decimal val)
+        public Shares(int val)
             :base(Tags.Shares, val) {}
 
     }
@@ -1255,6 +1269,8 @@ namespace QuickFix.Fields
         public const char AT_THE_CLOSE = '7';
         public const char GOOD_THROUGH_CROSSING = '8';
         public const char AT_CROSSING = '9';
+        public const char GOOD_TILL_DAY = '0';
+        public const char GOOD_IN_SESSION = '8';
     }
 
 
@@ -1535,6 +1551,7 @@ namespace QuickFix.Fields
         // Field Enumerations
         public const char OPEN = 'O';
         public const char CLOSE = 'C';
+        public const char FIFO = 'F';
     }
 
 
@@ -1567,11 +1584,11 @@ namespace QuickFix.Fields
     /// <summary>
     /// AllocShares Field
     /// </summary>/
-    public sealed class AllocShares : DecimalField
+    public sealed class AllocShares : IntField
     {
         public AllocShares()
             :base(Tags.AllocShares) {}
-        public AllocShares(Decimal val)
+        public AllocShares(int val)
             :base(Tags.AllocShares, val) {}
 
     }
@@ -1944,6 +1961,8 @@ namespace QuickFix.Fields
         public const int DUPLICATE_CLORDID_RECEIVED = 6;
         public const int ALREADY_PENDING = 3;
         public const int BROKER_OPTION = 2;
+        public const int BROKERTEC_TOO_EARLY_TO_CANCEL = 4;
+        public const int TIMED_OUT = 100;
     }
 
 
@@ -1981,7 +2000,8 @@ namespace QuickFix.Fields
         public const int BROKER_EXCHANGE_OPTION = 0;
         public const int BROKER_OPTION = 0;
         public const int DUPLICATE_VERBAL = 7;
-        public const int DUPLICATE_VERBALYES = 7;
+        public const int INSUFFICIENT_TTUS_PERMISSIONS = 99;
+        public const int TIMED_OUT = 100;
     }
 
 
@@ -3100,18 +3120,22 @@ namespace QuickFix.Fields
         public const string REPURCHASE_AGREEMENT = "RP";
         public const string REVERSE_REPURCHASE_AGREEMENT = "RVRP";
         public const string AGENCY_POOLS = "POOL";
+        public const string TREASURIES_PLUS_AGENCY_DEBENTURE = "GOVT";
+        public const string INDEX = "IDX";
+        public const string MULTI_LEG = "MLEG";
+        public const string ENERGY = "NRG";
+        public const string NDF = "FXNDF";
         public const string COLLATERALIZE_MORTGAGE_OBLIGATION = "CMO";
         public const string FEDERAL_HOUSING_AUTHORITY = "FHA";
         public const string FEDERAL_HOME_LOAN = "FHL";
         public const string FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION = "FN";
         public const string GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION = "GN";
-        public const string TREASURIES_PLUS_AGENCY_DEBENTURE = "GOVT";
+        public const string MORTGAGE_PRINCIPLE_ONLY = "MPO";
         public const string MISCELLANEOUS_PASSTHRU = "MPT";
         public const string MUNICIPAL_BOND = "MUNI";
         public const string NO_ISITC_SECURITY_TYPE = "NONE";
         public const string STUDENT_LOAN_MARKETING_ASSOCIATION = "SL";
         public const string CATS_TIGERS = "ZOO";
-        public const string MORTGAGE_PRINCIPLE_ONLY = "MPO";
     }
 
 
@@ -3628,6 +3652,13 @@ namespace QuickFix.Fields
         // Field Enumerations
         public const int CUSTOMER = 0;
         public const int FIRM = 1;
+        public const int THIRD_AGENT_ACCOUNT_OR_GIVEUP_OR_SYSTEM_ALLOCATION = 2;
+        public const int FOURTH_AGENT_ACCOUNT = 3;
+        public const int FIFTH_AGENT_ACCOUNT = 4;
+        public const int SIXTH_AGENT_ACCOUNT = 5;
+        public const int SEVENTH_AGENT_ACCOUNT = 6;
+        public const int EIGHTH_AGENT_ACCOUNT = 7;
+        public const int NINTH_AGENT_ACCOUNT = 8;
     }
 
 
@@ -3734,167 +3765,46 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// TotNoOrders Field
+    /// SettlType Field
     /// </summary>/
-    public sealed class TotNoOrders : IntField
+    public sealed class SettlType : StringField
     {
-        public TotNoOrders()
-            :base(Tags.TotNoOrders) {}
-        public TotNoOrders(int val)
-            :base(Tags.TotNoOrders, val) {}
-
-    }
-
-
-    /// <summary>
-    /// XmlDataLen Field
-    /// </summary>/
-    public sealed class XmlDataLen : IntField
-    {
-        public XmlDataLen()
-            :base(Tags.XmlDataLen) {}
-        public XmlDataLen(int val)
-            :base(Tags.XmlDataLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// XmlData Field
-    /// </summary>/
-    public sealed class XmlData : StringField
-    {
-        public XmlData()
-            :base(Tags.XmlData) {}
-        public XmlData(string val)
-            :base(Tags.XmlData, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SettlInstRefID Field
-    /// </summary>/
-    public sealed class SettlInstRefID : StringField
-    {
-        public SettlInstRefID()
-            :base(Tags.SettlInstRefID) {}
-        public SettlInstRefID(string val)
-            :base(Tags.SettlInstRefID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoRoutingIDs Field
-    /// </summary>/
-    public sealed class NoRoutingIDs : IntField
-    {
-        public NoRoutingIDs()
-            :base(Tags.NoRoutingIDs) {}
-        public NoRoutingIDs(int val)
-            :base(Tags.NoRoutingIDs, val) {}
-
-    }
-
-
-    /// <summary>
-    /// RoutingType Field
-    /// </summary>/
-    public sealed class RoutingType : IntField
-    {
-        public RoutingType()
-            :base(Tags.RoutingType) {}
-        public RoutingType(int val)
-            :base(Tags.RoutingType, val) {}
+        public SettlType()
+            :base(Tags.SettlType) {}
+        public SettlType(string val)
+            :base(Tags.SettlType, val) {}
 
 
         // Field Enumerations
-        public const int TARGET_FIRM = 1;
-        public const int TARGET_LIST = 2;
-        public const int BLOCK_FIRM = 3;
-        public const int BLOCK_LIST = 4;
+        public const string REGULAR = "0";
+        public const string CASH = "1";
+        public const string NEXT_DAY = "2";
+        public const string T_PLUS_2 = "3";
+        public const string T_PLUS_3 = "4";
+        public const string T_PLUS_4 = "5";
+        public const string FUTURE = "6";
+        public const string WHEN_AND_IF_ISSUED = "7";
+        public const string SELLERS_OPTION = "8";
+        public const string T_PLUS_5 = "9";
+        public const string FX_SPOT_NEXT_SETTLEMENT = "C";
+        public const string BROKEN_DATE = "B";
     }
 
 
     /// <summary>
-    /// RoutingID Field
+    /// PossResendFlag Field
     /// </summary>/
-    public sealed class RoutingID : StringField
+    public sealed class PossResendFlag : BooleanField
     {
-        public RoutingID()
-            :base(Tags.RoutingID) {}
-        public RoutingID(string val)
-            :base(Tags.RoutingID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SpreadToBenchmark Field
-    /// </summary>/
-    public sealed class SpreadToBenchmark : DecimalField
-    {
-        public SpreadToBenchmark()
-            :base(Tags.SpreadToBenchmark) {}
-        public SpreadToBenchmark(Decimal val)
-            :base(Tags.SpreadToBenchmark, val) {}
-
-    }
-
-
-    /// <summary>
-    /// Benchmark Field
-    /// </summary>/
-    public sealed class Benchmark : CharField
-    {
-        public Benchmark()
-            :base(Tags.Benchmark) {}
-        public Benchmark(char val)
-            :base(Tags.Benchmark, val) {}
+        public PossResendFlag()
+            :base(Tags.PossResendFlag) {}
+        public PossResendFlag(Boolean val)
+            :base(Tags.PossResendFlag, val) {}
 
 
         // Field Enumerations
-        public const char CURVE = '1';
-        public const char VAL_5YR = '2';
-        public const char OLD5 = '3';
-        public const char VAL_10YR = '4';
-        public const char OLD10 = '5';
-        public const char VAL_30YR = '6';
-        public const char OLD30 = '7';
-        public const char VAL_3MOLIBOR = '8';
-        public const char VAL_6MOLIBOR = '9';
-        public const char FIVEYR = '2';
-        public const char TENYR = '4';
-        public const char THIRTYYR = '6';
-        public const char THREEMOLIBOR = '8';
-        public const char SIXMOLIBOR = '9';
-    }
-
-
-    /// <summary>
-    /// CouponRate Field
-    /// </summary>/
-    public sealed class CouponRate : DecimalField
-    {
-        public CouponRate()
-            :base(Tags.CouponRate) {}
-        public CouponRate(Decimal val)
-            :base(Tags.CouponRate, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ContractMultiplier Field
-    /// </summary>/
-    public sealed class ContractMultiplier : DecimalField
-    {
-        public ContractMultiplier()
-            :base(Tags.ContractMultiplier) {}
-        public ContractMultiplier(Decimal val)
-            :base(Tags.ContractMultiplier, val) {}
-
+        public const Boolean POSSIBLE_RESEND = true;
+        public const Boolean ORIGINAL_TRANSMISSION = false;
     }
 
 
@@ -3940,6 +3850,10 @@ namespace QuickFix.Fields
         public MarketDepth(int val)
             :base(Tags.MarketDepth, val) {}
 
+
+        // Field Enumerations
+        public const int FULL_BOOK = 0;
+        public const int TOP_OF_BOOK = 1;
     }
 
 
@@ -3975,7 +3889,6 @@ namespace QuickFix.Fields
         public const Boolean YES = true;
         public const Boolean NO = false;
         public const Boolean ONE_BOOK_ENTRY_PER_SIDE_PER_PRICE = true;
-        public const Boolean MULTIPLE_ENTRIES_PER_SIDE_PER_PRICE_ALLOWED = false;
     }
 
 
@@ -4053,6 +3966,22 @@ namespace QuickFix.Fields
         public const char RECOVERY_RATE_FOR_SHORT = 'a';
         public const char FIXING_PRICE = 'W';
         public const char CASH_RATE = 'X';
+        public const char INDICATIVE_OPEN = 'p';
+        public const char INDICATIVE_CLOSE = 'q';
+        public const char MARKET_BID = 'n';
+        public const char MARKET_ASK = 'o';
+        public const char INDICATIVE_BID = 'r';
+        public const char INDICATIVE_ASK = 's';
+        public const char INDICATIVE_SETTLE = 't';
+        public const char LOCAL_BID = 'u';
+        public const char LOCAL_OFFER = 'v';
+        public const char DEALABLE_REGULAR_BID = 'w';
+        public const char DEALABLE_REGULAR_OFFER = 'x';
+        public const char NON_CREDIT_SCREENED_BID = 'y';
+        public const char NON_CREDIT_SCREENED_OFFER = 'z';
+        public const char WORKUP_PRICE = 'P';
+        public const char IMPLIED_BID = 'Y';
+        public const char IMPLIED_ASK = 'Z';
     }
 
 
@@ -4107,118 +4036,6 @@ namespace QuickFix.Fields
         public MDEntryTime(DateTime val, bool showMilliseconds)
 	    :base(Tags.MDEntryTime, val, showMilliseconds) {}
 
-    }
-
-
-    /// <summary>
-    /// TickDirection Field
-    /// </summary>/
-    public sealed class TickDirection : CharField
-    {
-        public TickDirection()
-            :base(Tags.TickDirection) {}
-        public TickDirection(char val)
-            :base(Tags.TickDirection, val) {}
-
-
-        // Field Enumerations
-        public const char PLUS_TICK = '0';
-        public const char ZERO_PLUS_TICK = '1';
-        public const char MINUS_TICK = '2';
-        public const char ZERO_MINUS_TICK = '3';
-        public const char ZEROPLUS_TICK = '1';
-        public const char ZEROMINUS_TICK = '3';
-    }
-
-
-    /// <summary>
-    /// MDMkt Field
-    /// </summary>/
-    public sealed class MDMkt : StringField
-    {
-        public MDMkt()
-            :base(Tags.MDMkt) {}
-        public MDMkt(string val)
-            :base(Tags.MDMkt, val) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteCondition Field
-    /// </summary>/
-    public sealed class QuoteCondition : StringField
-    {
-        public QuoteCondition()
-            :base(Tags.QuoteCondition) {}
-        public QuoteCondition(string val)
-            :base(Tags.QuoteCondition, val) {}
-
-
-        // Field Enumerations
-        public const string OPEN_ACTIVE = "A";
-        public const string CLOSED_INACTIVE = "B";
-        public const string EXCHANGE_BEST = "C";
-        public const string CONSOLIDATED_BEST = "D";
-        public const string LOCKED = "E";
-        public const string CROSSED = "F";
-        public const string DEPTH = "G";
-        public const string FAST_TRADING = "H";
-        public const string NON_FIRM = "I";
-        public const string MANUAL_SLOW_QUOTE = "L";
-        public const string OUTRIGHT_PRICE = "J";
-        public const string IMPLIED_PRICE = "K";
-        public const string DEPTH_ON_OFFER = "M";
-        public const string DEPTH_ON_BID = "N";
-        public const string CLOSING = "O";
-        public const string NEWS_DISSEMINATION = "P";
-        public const string TRADING_RANGE = "Q";
-        public const string ORDER_INFLUX = "R";
-        public const string DUE_TO_RELATED = "S";
-        public const string NEWS_PENDING = "T";
-        public const string ADDITIONAL_INFO = "U";
-        public const string ADDITIONAL_INFO_DUE_TO_RELATED = "V";
-        public const string RESUME = "W";
-        public const string VIEW_OF_COMMON = "X";
-        public const string VOLUME_ALERT = "Y";
-        public const string ORDER_IMBALANCE = "Z";
-        public const string EQUIPMENT_CHANGEOVER = "a";
-        public const string NO_OPEN = "b";
-        public const string REGULAR_ETH = "c";
-        public const string AUTOMATIC_EXECUTION = "d";
-        public const string AUTOMATIC_EXECUTION_ETH = "e";
-        public const string FAST_MARKET_ETH = "f ";
-        public const string INACTIVE_ETH = "g";
-        public const string ROTATION = "h";
-        public const string ROTATION_ETH = "i";
-        public const string HALT = "j";
-        public const string HALT_ETH = "k";
-        public const string DUE_TO_NEWS_DISSEMINATION = "l";
-        public const string DUE_TO_NEWS_PENDING = "m";
-        public const string TRADING_RESUME = "n";
-        public const string OUT_OF_SEQUENCE = "o";
-        public const string BID_SPECIALIST = "p";
-        public const string OFFER_SPECIALIST = "q";
-        public const string BID_OFFER_SPECIALIST = "r";
-        public const string END_OF_DAY_SAM = "s";
-        public const string FORBIDDEN_SAM = "t";
-        public const string FROZEN_SAM = "u";
-        public const string PREOPENING_SAM = "v";
-        public const string OPENING_SAM = "w";
-        public const string OPEN_SAM = "x";
-        public const string SURVEILLANCE_SAM = "y";
-        public const string SUSPENDED_SAM = "z";
-        public const string RESERVED_SAM = "0";
-        public const string NO_ACTIVE_SAM = "1";
-        public const string RESTRICTED = "2";
-        public const string REST_OF_BOOK_VWAP = "3";
-        public const string BETTER_PRICES_IN_CONDITIONAL_ORDERS = "4";
-        public const string MEDIAN_PRICE = "5";
-        public const string FULL_CURVE = "6";
-        public const string FLAT_CURVE = "7";
-        public const string OPEN = "A";
-        public const string CLOSED = "B";
-        public const string NONFIRM = "I";
     }
 
 
@@ -4316,6 +4133,7 @@ namespace QuickFix.Fields
         public const string RULE127 = "G";
         public const string RULE155 = "H";
         public const string OPENING = "E";
+        public const string BROKERTEC_SELF_TRADE = "S";
     }
 
 
@@ -4354,141 +4172,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// MDEntryRefID Field
-    /// </summary>/
-    public sealed class MDEntryRefID : StringField
-    {
-        public MDEntryRefID()
-            :base(Tags.MDEntryRefID) {}
-        public MDEntryRefID(string val)
-            :base(Tags.MDEntryRefID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// MDReqRejReason Field
-    /// </summary>/
-    public sealed class MDReqRejReason : CharField
-    {
-        public MDReqRejReason()
-            :base(Tags.MDReqRejReason) {}
-        public MDReqRejReason(char val)
-            :base(Tags.MDReqRejReason, val) {}
-
-
-        // Field Enumerations
-        public const char UNKNOWN_SYMBOL = '0';
-        public const char DUPLICATE_MDREQID = '1';
-        public const char INSUFFICIENT_BANDWIDTH = '2';
-        public const char INSUFFICIENT_PERMISSIONS = '3';
-        public const char UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE = '4';
-        public const char UNSUPPORTED_MARKETDEPTH = '5';
-        public const char UNSUPPORTED_MDUPDATETYPE = '6';
-        public const char UNSUPPORTED_AGGREGATEDBOOK = '7';
-        public const char UNSUPPORTED_MDENTRYTYPE = '8';
-        public const char UNSUPPORTED_TRADINGSESSIONID = '9';
-        public const char UNSUPPORTED_SCOPE = 'A';
-        public const char UNSUPPORTED_OPENCLOSESETTLEFLAG = 'B';
-        public const char UNSUPPORTED_MDIMPLICITDELETE = 'C';
-        public const char INSUFFICIENT_CREDIT = 'D';
-    }
-
-
-    /// <summary>
-    /// MDEntryOriginator Field
-    /// </summary>/
-    public sealed class MDEntryOriginator : StringField
-    {
-        public MDEntryOriginator()
-            :base(Tags.MDEntryOriginator) {}
-        public MDEntryOriginator(string val)
-            :base(Tags.MDEntryOriginator, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LocationID Field
-    /// </summary>/
-    public sealed class LocationID : StringField
-    {
-        public LocationID()
-            :base(Tags.LocationID) {}
-        public LocationID(string val)
-            :base(Tags.LocationID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// DeskID Field
-    /// </summary>/
-    public sealed class DeskID : StringField
-    {
-        public DeskID()
-            :base(Tags.DeskID) {}
-        public DeskID(string val)
-            :base(Tags.DeskID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// DeleteReason Field
-    /// </summary>/
-    public sealed class DeleteReason : CharField
-    {
-        public DeleteReason()
-            :base(Tags.DeleteReason) {}
-        public DeleteReason(char val)
-            :base(Tags.DeleteReason, val) {}
-
-
-        // Field Enumerations
-        public const char CANCELLATION = '0';
-        public const char ERROR = '1';
-        public const char CANCELATION_TRADE_BUST = '0';
-        public const char CANCELATION = '0';
-    }
-
-
-    /// <summary>
-    /// OpenCloseSettleFlag Field
-    /// </summary>/
-    public sealed class OpenCloseSettleFlag : StringField
-    {
-        public OpenCloseSettleFlag()
-            :base(Tags.OpenCloseSettleFlag) {}
-        public OpenCloseSettleFlag(string val)
-            :base(Tags.OpenCloseSettleFlag, val) {}
-
-
-        // Field Enumerations
-        public const string DAILY_OPEN = "0";
-        public const string SESSION_OPEN = "1";
-        public const string DELIVERY_SETTLEMENT_PRICE = "2";
-        public const string EXPECTED_PRICE = "3";
-        public const string PRICE_FROM_PREVIOUS_BUSINESS_DAY = "4";
-        public const string DAILY_OPEN_CLOSE__SETTLEMENT_PRICE = "0";
-        public const string SESSION_OPEN_CLOSE__SETTLEMENT_PRICE = "1";
-    }
-
-
-    /// <summary>
-    /// SellerDays Field
-    /// </summary>/
-    public sealed class SellerDays : IntField
-    {
-        public SellerDays()
-            :base(Tags.SellerDays) {}
-        public SellerDays(int val)
-            :base(Tags.SellerDays, val) {}
-
-    }
-
-
-    /// <summary>
     /// MDEntryBuyer Field
     /// </summary>/
     public sealed class MDEntryBuyer : StringField
@@ -4523,302 +4206,6 @@ namespace QuickFix.Fields
             :base(Tags.MDEntryPositionNo) {}
         public MDEntryPositionNo(int val)
             :base(Tags.MDEntryPositionNo, val) {}
-
-    }
-
-
-    /// <summary>
-    /// FinancialStatus Field
-    /// </summary>/
-    public sealed class FinancialStatus : StringField
-    {
-        public FinancialStatus()
-            :base(Tags.FinancialStatus) {}
-        public FinancialStatus(string val)
-            :base(Tags.FinancialStatus, val) {}
-
-
-        // Field Enumerations
-        public const string BANKRUPT = "1";
-        public const string PENDING_DELISTING = "2";
-        public const string RESTRICTED = "3";
-    }
-
-
-    /// <summary>
-    /// CorporateAction Field
-    /// </summary>/
-    public sealed class CorporateAction : StringField
-    {
-        public CorporateAction()
-            :base(Tags.CorporateAction) {}
-        public CorporateAction(string val)
-            :base(Tags.CorporateAction, val) {}
-
-
-        // Field Enumerations
-        public const string EX_DIVIDEND = "A";
-        public const string EX_DISTRIBUTION = "B";
-        public const string EX_RIGHTS = "C";
-        public const string NEW = "D";
-        public const string EX_INTEREST = "E";
-        public const string CASH_DIVIDEND = "F";
-        public const string STOCK_DIVIDEND = "G";
-        public const string NON_INTEGER_STOCK_SPLIT = "H";
-        public const string REVERSE_STOCK_SPLIT = "I";
-        public const string STANDARD_INTEGER_STOCK_SPLIT = "J";
-        public const string POSITION_CONSOLIDATION = "K";
-        public const string LIQUIDATION_REORGANIZATION = "L";
-        public const string MERGER_REORGANIZATION = "M";
-        public const string RIGHTS_OFFERING = "N";
-        public const string SHAREHOLDER_MEETING = "O";
-        public const string SPINOFF = "P";
-        public const string TENDER_OFFER = "Q";
-        public const string WARRANT = "R";
-        public const string SPECIAL_ACTION = "S";
-        public const string SYMBOL_CONVERSION = "T";
-        public const string CUSIP = "U";
-        public const string LEAP_ROLLOVER = "V";
-        public const string SUCCESSION_EVENT = "W";
-        public const string EXDIVIDEND = "A";
-        public const string EXDISTRIBUTION = "B";
-        public const string EXRIGHTS = "C";
-        public const string EXINTEREST = "E";
-    }
-
-
-    /// <summary>
-    /// DefBidSize Field
-    /// </summary>/
-    public sealed class DefBidSize : DecimalField
-    {
-        public DefBidSize()
-            :base(Tags.DefBidSize) {}
-        public DefBidSize(Decimal val)
-            :base(Tags.DefBidSize, val) {}
-
-    }
-
-
-    /// <summary>
-    /// DefOfferSize Field
-    /// </summary>/
-    public sealed class DefOfferSize : DecimalField
-    {
-        public DefOfferSize()
-            :base(Tags.DefOfferSize) {}
-        public DefOfferSize(Decimal val)
-            :base(Tags.DefOfferSize, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoQuoteEntries Field
-    /// </summary>/
-    public sealed class NoQuoteEntries : IntField
-    {
-        public NoQuoteEntries()
-            :base(Tags.NoQuoteEntries) {}
-        public NoQuoteEntries(int val)
-            :base(Tags.NoQuoteEntries, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoQuoteSets Field
-    /// </summary>/
-    public sealed class NoQuoteSets : IntField
-    {
-        public NoQuoteSets()
-            :base(Tags.NoQuoteSets) {}
-        public NoQuoteSets(int val)
-            :base(Tags.NoQuoteSets, val) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteAckStatus Field
-    /// </summary>/
-    public sealed class QuoteAckStatus : IntField
-    {
-        public QuoteAckStatus()
-            :base(Tags.QuoteAckStatus) {}
-        public QuoteAckStatus(int val)
-            :base(Tags.QuoteAckStatus, val) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteCancelType Field
-    /// </summary>/
-    public sealed class QuoteCancelType : IntField
-    {
-        public QuoteCancelType()
-            :base(Tags.QuoteCancelType) {}
-        public QuoteCancelType(int val)
-            :base(Tags.QuoteCancelType, val) {}
-
-
-        // Field Enumerations
-        public const int CANCEL_FOR_ONE_OR_MORE_SECURITIES = 1;
-        public const int CANCEL_FOR_SECURITY_TYPE = 2;
-        public const int CANCEL_FOR_UNDERLYING_SECURITY = 3;
-        public const int CANCEL_ALL_QUOTES = 4;
-        public const int CANCEL_QUOTE_SPECIFIED_IN_QUOTEID = 5;
-        public const int CANCEL_BY_QUOTETYPE = 6;
-        public const int CANCEL_FOR_SECURITY_ISSUER = 7;
-        public const int CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY = 8;
-        public const int CANCEL_FOR_SYMBOL = 1;
-        public const int CANCEL_FOR_UNDERLYING_SYMBOL = 3;
-    }
-
-
-    /// <summary>
-    /// QuoteEntryID Field
-    /// </summary>/
-    public sealed class QuoteEntryID : StringField
-    {
-        public QuoteEntryID()
-            :base(Tags.QuoteEntryID) {}
-        public QuoteEntryID(string val)
-            :base(Tags.QuoteEntryID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteRejectReason Field
-    /// </summary>/
-    public sealed class QuoteRejectReason : IntField
-    {
-        public QuoteRejectReason()
-            :base(Tags.QuoteRejectReason) {}
-        public QuoteRejectReason(int val)
-            :base(Tags.QuoteRejectReason, val) {}
-
-
-        // Field Enumerations
-        public const int UNKNOWN_SYMBOL = 1;
-        public const int EXCHANGE = 2;
-        public const int QUOTE_REQUEST_EXCEEDS_LIMIT = 3;
-        public const int TOO_LATE_TO_ENTER = 4;
-        public const int UNKNOWN_QUOTE = 5;
-        public const int DUPLICATE_QUOTE = 6;
-        public const int INVALID_BID_ASK_SPREAD = 7;
-        public const int INVALID_PRICE = 8;
-        public const int NOT_AUTHORIZED_TO_QUOTE_SECURITY = 9;
-        public const int OTHER = 99;
-        public const int PRICE_EXCEEDS_CURRENT_PRICE_BAND = 10;
-        public const int QUOTE_LOCKED = 11;
-        public const int INVALID_OR_UNKNOWN_SECURITY_ISSUER = 12;
-        public const int INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY = 13;
-        public const int EXCHANGE_CLOSED = 2;
-        public const int DUPLICATE_QUOTE_7 = 6;
-    }
-
-
-    /// <summary>
-    /// QuoteResponseLevel Field
-    /// </summary>/
-    public sealed class QuoteResponseLevel : IntField
-    {
-        public QuoteResponseLevel()
-            :base(Tags.QuoteResponseLevel) {}
-        public QuoteResponseLevel(int val)
-            :base(Tags.QuoteResponseLevel, val) {}
-
-
-        // Field Enumerations
-        public const int NO_ACKNOWLEDGEMENT = 0;
-        public const int ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES = 1;
-        public const int ACKNOWLEDGE_EACH_QUOTE_MESSAGE = 2;
-        public const int SUMMARY_ACKNOWLEDGEMENT = 3;
-        public const int ACKNOWLEDGE_EACH_QUOTE_MESSAGES = 2;
-    }
-
-
-    /// <summary>
-    /// QuoteSetID Field
-    /// </summary>/
-    public sealed class QuoteSetID : StringField
-    {
-        public QuoteSetID()
-            :base(Tags.QuoteSetID) {}
-        public QuoteSetID(string val)
-            :base(Tags.QuoteSetID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteRequestType Field
-    /// </summary>/
-    public sealed class QuoteRequestType : IntField
-    {
-        public QuoteRequestType()
-            :base(Tags.QuoteRequestType) {}
-        public QuoteRequestType(int val)
-            :base(Tags.QuoteRequestType, val) {}
-
-
-        // Field Enumerations
-        public const int MANUAL = 1;
-        public const int AUTOMATIC = 2;
-    }
-
-
-    /// <summary>
-    /// TotQuoteEntries Field
-    /// </summary>/
-    public sealed class TotQuoteEntries : IntField
-    {
-        public TotQuoteEntries()
-            :base(Tags.TotQuoteEntries) {}
-        public TotQuoteEntries(int val)
-            :base(Tags.TotQuoteEntries, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingIDSource Field
-    /// </summary>/
-    public sealed class UnderlyingIDSource : StringField
-    {
-        public UnderlyingIDSource()
-            :base(Tags.UnderlyingIDSource) {}
-        public UnderlyingIDSource(string val)
-            :base(Tags.UnderlyingIDSource, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingIssuer Field
-    /// </summary>/
-    public sealed class UnderlyingIssuer : StringField
-    {
-        public UnderlyingIssuer()
-            :base(Tags.UnderlyingIssuer) {}
-        public UnderlyingIssuer(string val)
-            :base(Tags.UnderlyingIssuer, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingSecurityDesc Field
-    /// </summary>/
-    public sealed class UnderlyingSecurityDesc : StringField
-    {
-        public UnderlyingSecurityDesc()
-            :base(Tags.UnderlyingSecurityDesc) {}
-        public UnderlyingSecurityDesc(string val)
-            :base(Tags.UnderlyingSecurityDesc, val) {}
 
     }
 
@@ -4876,19 +4263,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// UnderlyingSymbolSfx Field
-    /// </summary>/
-    public sealed class UnderlyingSymbolSfx : StringField
-    {
-        public UnderlyingSymbolSfx()
-            :base(Tags.UnderlyingSymbolSfx) {}
-        public UnderlyingSymbolSfx(string val)
-            :base(Tags.UnderlyingSymbolSfx, val) {}
-
-    }
-
-
-    /// <summary>
     /// UnderlyingMaturityMonthYear Field
     /// </summary>/
     public sealed class UnderlyingMaturityMonthYear : StringField
@@ -4915,6 +4289,19 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// UnderlyingStrikePrice Field
+    /// </summary>/
+    public sealed class UnderlyingStrikePrice : DecimalField
+    {
+        public UnderlyingStrikePrice()
+            :base(Tags.UnderlyingStrikePrice) {}
+        public UnderlyingStrikePrice(Decimal val)
+            :base(Tags.UnderlyingStrikePrice, val) {}
+
+    }
+
+
+    /// <summary>
     /// UnderlyingPutOrCall Field
     /// </summary>/
     public sealed class UnderlyingPutOrCall : IntField
@@ -4928,19 +4315,6 @@ namespace QuickFix.Fields
         // Field Enumerations
         public const int PUT = 0;
         public const int CALL = 1;
-    }
-
-
-    /// <summary>
-    /// UnderlyingStrikePrice Field
-    /// </summary>/
-    public sealed class UnderlyingStrikePrice : DecimalField
-    {
-        public UnderlyingStrikePrice()
-            :base(Tags.UnderlyingStrikePrice) {}
-        public UnderlyingStrikePrice(Decimal val)
-            :base(Tags.UnderlyingStrikePrice, val) {}
-
     }
 
 
@@ -5018,6 +4392,7 @@ namespace QuickFix.Fields
         public const int TRADINGSESSIONID = 7;
         public const int ALL_SECURITIES = 8;
         public const int MARKETID_OR_MARKETID_PLUS_MARKETSEGMENTID = 9;
+        public const int REQUEST_ID_FOR_SPECS = 1;
     }
 
 
@@ -5053,6 +4428,7 @@ namespace QuickFix.Fields
         public const int REJECT_SECURITY_PROPOSAL = 5;
         public const int CANNOT_MATCH_SELECTION_CRITERIA = 6;
         public const int CAN_NOT_MATCH_SELECTION_CRITERIA = 6;
+        public const int REJECT = 5;
     }
 
 
@@ -5084,7 +4460,6 @@ namespace QuickFix.Fields
         public const Boolean NO = false;
         public const Boolean YES = true;
         public const Boolean MESSAGE_IS_BEING_SENT_UNSOLICITED = true;
-        public const Boolean MESSAGE_IS_BEING_SENT_AS_A_RESULT_OF_A_PRIOR_REQUEST = false;
     }
 
 
@@ -5130,319 +4505,10 @@ namespace QuickFix.Fields
         public const int NOT_ASSIGNED = 11;
         public const int READY_TO_TRADE_START_OF_SESSION = 17;
         public const int NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION = 18;
-        public const int NO_OPENNO_RESUME = 4;
-        public const int ITS_PREOPENING = 14;
-    }
-
-
-    /// <summary>
-    /// HaltReason Field
-    /// </summary>/
-    public sealed class HaltReason : CharField
-    {
-        public HaltReason()
-            :base(Tags.HaltReason) {}
-        public HaltReason(char val)
-            :base(Tags.HaltReason, val) {}
-
-
-        // Field Enumerations
-        public const char ORDER_IMBALANCE = 'I';
-        public const char EQUIPMENT_CHANGEOVER = 'X';
-        public const char NEWS_PENDING = 'P';
-        public const char NEWS_DISSEMINATION = 'D';
-        public const char ORDER_INFLUX = 'E';
-        public const char ADDITIONAL_INFORMATION = 'M';
-    }
-
-
-    /// <summary>
-    /// InViewOfCommon Field
-    /// </summary>/
-    public sealed class InViewOfCommon : BooleanField
-    {
-        public InViewOfCommon()
-            :base(Tags.InViewOfCommon) {}
-        public InViewOfCommon(Boolean val)
-            :base(Tags.InViewOfCommon, val) {}
-
-
-        // Field Enumerations
-        public const Boolean NO = false;
-        public const Boolean YES = true;
-        public const Boolean HALT_WAS_DUE_TO_COMMON_STOCK_BEING_HALTED = true;
-        public const Boolean HALT_WAS_NOT_RELATED_TO_A_HALT_OF_THE_COMMON_STOCK = false;
-    }
-
-
-    /// <summary>
-    /// DueToRelated Field
-    /// </summary>/
-    public sealed class DueToRelated : BooleanField
-    {
-        public DueToRelated()
-            :base(Tags.DueToRelated) {}
-        public DueToRelated(Boolean val)
-            :base(Tags.DueToRelated, val) {}
-
-
-        // Field Enumerations
-        public const Boolean NO = false;
-        public const Boolean YES = true;
-        public const Boolean HALT_WAS_DUE_TO_RELATED_SECURITY_BEING_HALTED = true;
-        public const Boolean HALT_WAS_NOT_RELATED_TO_A_HALT_OF_THE_RELATED_SECURITY = false;
-    }
-
-
-    /// <summary>
-    /// BuyVolume Field
-    /// </summary>/
-    public sealed class BuyVolume : DecimalField
-    {
-        public BuyVolume()
-            :base(Tags.BuyVolume) {}
-        public BuyVolume(Decimal val)
-            :base(Tags.BuyVolume, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SellVolume Field
-    /// </summary>/
-    public sealed class SellVolume : DecimalField
-    {
-        public SellVolume()
-            :base(Tags.SellVolume) {}
-        public SellVolume(Decimal val)
-            :base(Tags.SellVolume, val) {}
-
-    }
-
-
-    /// <summary>
-    /// HighPx Field
-    /// </summary>/
-    public sealed class HighPx : DecimalField
-    {
-        public HighPx()
-            :base(Tags.HighPx) {}
-        public HighPx(Decimal val)
-            :base(Tags.HighPx, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LowPx Field
-    /// </summary>/
-    public sealed class LowPx : DecimalField
-    {
-        public LowPx()
-            :base(Tags.LowPx) {}
-        public LowPx(Decimal val)
-            :base(Tags.LowPx, val) {}
-
-    }
-
-
-    /// <summary>
-    /// Adjustment Field
-    /// </summary>/
-    public sealed class Adjustment : IntField
-    {
-        public Adjustment()
-            :base(Tags.Adjustment) {}
-        public Adjustment(int val)
-            :base(Tags.Adjustment, val) {}
-
-
-        // Field Enumerations
-        public const int CANCEL = 1;
-        public const int ERROR = 2;
-        public const int CORRECTION = 3;
-    }
-
-
-    /// <summary>
-    /// TradSesReqID Field
-    /// </summary>/
-    public sealed class TradSesReqID : StringField
-    {
-        public TradSesReqID()
-            :base(Tags.TradSesReqID) {}
-        public TradSesReqID(string val)
-            :base(Tags.TradSesReqID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// TradingSessionID Field
-    /// </summary>/
-    public sealed class TradingSessionID : StringField
-    {
-        public TradingSessionID()
-            :base(Tags.TradingSessionID) {}
-        public TradingSessionID(string val)
-            :base(Tags.TradingSessionID, val) {}
-
-
-        // Field Enumerations
-        public const string DAY = "1";
-        public const string HALFDAY = "2";
-        public const string MORNING = "3";
-        public const string AFTERNOON = "4";
-        public const string EVENING = "5";
-        public const string AFTER_HOURS = "6";
-    }
-
-
-    /// <summary>
-    /// ContraTrader Field
-    /// </summary>/
-    public sealed class ContraTrader : StringField
-    {
-        public ContraTrader()
-            :base(Tags.ContraTrader) {}
-        public ContraTrader(string val)
-            :base(Tags.ContraTrader, val) {}
-
-    }
-
-
-    /// <summary>
-    /// TradSesMethod Field
-    /// </summary>/
-    public sealed class TradSesMethod : IntField
-    {
-        public TradSesMethod()
-            :base(Tags.TradSesMethod) {}
-        public TradSesMethod(int val)
-            :base(Tags.TradSesMethod, val) {}
-
-
-        // Field Enumerations
-        public const int ELECTRONIC = 1;
-        public const int OPEN_OUTCRY = 2;
-        public const int TWO_PARTY = 3;
-    }
-
-
-    /// <summary>
-    /// TradSesMode Field
-    /// </summary>/
-    public sealed class TradSesMode : IntField
-    {
-        public TradSesMode()
-            :base(Tags.TradSesMode) {}
-        public TradSesMode(int val)
-            :base(Tags.TradSesMode, val) {}
-
-
-        // Field Enumerations
-        public const int TESTING = 1;
-        public const int SIMULATED = 2;
-        public const int PRODUCTION = 3;
-    }
-
-
-    /// <summary>
-    /// TradSesStatus Field
-    /// </summary>/
-    public sealed class TradSesStatus : IntField
-    {
-        public TradSesStatus()
-            :base(Tags.TradSesStatus) {}
-        public TradSesStatus(int val)
-            :base(Tags.TradSesStatus, val) {}
-
-
-        // Field Enumerations
-        public const int UNKNOWN = 0;
-        public const int HALTED = 1;
-        public const int OPEN = 2;
-        public const int CLOSED = 3;
-        public const int PRE_OPEN = 4;
-        public const int PRE_CLOSE = 5;
-        public const int REQUEST_REJECTED = 6;
-        public const int PREOPEN = 4;
-        public const int PRECLOSE = 5;
-    }
-
-
-    /// <summary>
-    /// TradSesStartTime Field
-    /// </summary>/
-    public sealed class TradSesStartTime : DateTimeField
-    {
-        public TradSesStartTime()
-            :base(Tags.TradSesStartTime) {}
-        public TradSesStartTime(DateTime val)
-            :base(Tags.TradSesStartTime, val) {}
-        public TradSesStartTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.TradSesStartTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// TradSesOpenTime Field
-    /// </summary>/
-    public sealed class TradSesOpenTime : DateTimeField
-    {
-        public TradSesOpenTime()
-            :base(Tags.TradSesOpenTime) {}
-        public TradSesOpenTime(DateTime val)
-            :base(Tags.TradSesOpenTime, val) {}
-        public TradSesOpenTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.TradSesOpenTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// TradSesPreCloseTime Field
-    /// </summary>/
-    public sealed class TradSesPreCloseTime : DateTimeField
-    {
-        public TradSesPreCloseTime()
-            :base(Tags.TradSesPreCloseTime) {}
-        public TradSesPreCloseTime(DateTime val)
-            :base(Tags.TradSesPreCloseTime, val) {}
-        public TradSesPreCloseTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.TradSesPreCloseTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// TradSesCloseTime Field
-    /// </summary>/
-    public sealed class TradSesCloseTime : DateTimeField
-    {
-        public TradSesCloseTime()
-            :base(Tags.TradSesCloseTime) {}
-        public TradSesCloseTime(DateTime val)
-            :base(Tags.TradSesCloseTime, val) {}
-        public TradSesCloseTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.TradSesCloseTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// TradSesEndTime Field
-    /// </summary>/
-    public sealed class TradSesEndTime : DateTimeField
-    {
-        public TradSesEndTime()
-            :base(Tags.TradSesEndTime) {}
-        public TradSesEndTime(DateTime val)
-            :base(Tags.TradSesEndTime, val) {}
-        public TradSesEndTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.TradSesEndTime, val, showMilliseconds) {}
-
+        public const int PREOPEN = 21;
+        public const int INSUFFICIENT_TTUS_PERMISSIONS = 97;
+        public const int POST_TRADE = 98;
+        public const int PRE_TRADE = 99;
     }
 
 
@@ -5455,344 +4521,6 @@ namespace QuickFix.Fields
             :base(Tags.NumberOfOrders) {}
         public NumberOfOrders(int val)
             :base(Tags.NumberOfOrders, val) {}
-
-    }
-
-
-    /// <summary>
-    /// MessageEncoding Field
-    /// </summary>/
-    public sealed class MessageEncoding : StringField
-    {
-        public MessageEncoding()
-            :base(Tags.MessageEncoding) {}
-        public MessageEncoding(string val)
-            :base(Tags.MessageEncoding, val) {}
-
-
-        // Field Enumerations
-        public const string ISO_2022_JP = "ISO-2022-JP";
-        public const string EUC_JP = "EUC-JP";
-        public const string SHIFT_JIS = "SHIFT_JIS";
-        public const string UTF_8 = "UTF-8";
-    }
-
-
-    /// <summary>
-    /// EncodedIssuerLen Field
-    /// </summary>/
-    public sealed class EncodedIssuerLen : IntField
-    {
-        public EncodedIssuerLen()
-            :base(Tags.EncodedIssuerLen) {}
-        public EncodedIssuerLen(int val)
-            :base(Tags.EncodedIssuerLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedIssuer Field
-    /// </summary>/
-    public sealed class EncodedIssuer : StringField
-    {
-        public EncodedIssuer()
-            :base(Tags.EncodedIssuer) {}
-        public EncodedIssuer(string val)
-            :base(Tags.EncodedIssuer, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedSecurityDescLen Field
-    /// </summary>/
-    public sealed class EncodedSecurityDescLen : IntField
-    {
-        public EncodedSecurityDescLen()
-            :base(Tags.EncodedSecurityDescLen) {}
-        public EncodedSecurityDescLen(int val)
-            :base(Tags.EncodedSecurityDescLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedSecurityDesc Field
-    /// </summary>/
-    public sealed class EncodedSecurityDesc : StringField
-    {
-        public EncodedSecurityDesc()
-            :base(Tags.EncodedSecurityDesc) {}
-        public EncodedSecurityDesc(string val)
-            :base(Tags.EncodedSecurityDesc, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedListExecInstLen Field
-    /// </summary>/
-    public sealed class EncodedListExecInstLen : IntField
-    {
-        public EncodedListExecInstLen()
-            :base(Tags.EncodedListExecInstLen) {}
-        public EncodedListExecInstLen(int val)
-            :base(Tags.EncodedListExecInstLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedListExecInst Field
-    /// </summary>/
-    public sealed class EncodedListExecInst : StringField
-    {
-        public EncodedListExecInst()
-            :base(Tags.EncodedListExecInst) {}
-        public EncodedListExecInst(string val)
-            :base(Tags.EncodedListExecInst, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedTextLen Field
-    /// </summary>/
-    public sealed class EncodedTextLen : IntField
-    {
-        public EncodedTextLen()
-            :base(Tags.EncodedTextLen) {}
-        public EncodedTextLen(int val)
-            :base(Tags.EncodedTextLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedText Field
-    /// </summary>/
-    public sealed class EncodedText : StringField
-    {
-        public EncodedText()
-            :base(Tags.EncodedText) {}
-        public EncodedText(string val)
-            :base(Tags.EncodedText, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedSubjectLen Field
-    /// </summary>/
-    public sealed class EncodedSubjectLen : IntField
-    {
-        public EncodedSubjectLen()
-            :base(Tags.EncodedSubjectLen) {}
-        public EncodedSubjectLen(int val)
-            :base(Tags.EncodedSubjectLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedSubject Field
-    /// </summary>/
-    public sealed class EncodedSubject : StringField
-    {
-        public EncodedSubject()
-            :base(Tags.EncodedSubject) {}
-        public EncodedSubject(string val)
-            :base(Tags.EncodedSubject, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedHeadlineLen Field
-    /// </summary>/
-    public sealed class EncodedHeadlineLen : IntField
-    {
-        public EncodedHeadlineLen()
-            :base(Tags.EncodedHeadlineLen) {}
-        public EncodedHeadlineLen(int val)
-            :base(Tags.EncodedHeadlineLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedHeadline Field
-    /// </summary>/
-    public sealed class EncodedHeadline : StringField
-    {
-        public EncodedHeadline()
-            :base(Tags.EncodedHeadline) {}
-        public EncodedHeadline(string val)
-            :base(Tags.EncodedHeadline, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedAllocTextLen Field
-    /// </summary>/
-    public sealed class EncodedAllocTextLen : IntField
-    {
-        public EncodedAllocTextLen()
-            :base(Tags.EncodedAllocTextLen) {}
-        public EncodedAllocTextLen(int val)
-            :base(Tags.EncodedAllocTextLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedAllocText Field
-    /// </summary>/
-    public sealed class EncodedAllocText : StringField
-    {
-        public EncodedAllocText()
-            :base(Tags.EncodedAllocText) {}
-        public EncodedAllocText(string val)
-            :base(Tags.EncodedAllocText, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedUnderlyingIssuerLen Field
-    /// </summary>/
-    public sealed class EncodedUnderlyingIssuerLen : IntField
-    {
-        public EncodedUnderlyingIssuerLen()
-            :base(Tags.EncodedUnderlyingIssuerLen) {}
-        public EncodedUnderlyingIssuerLen(int val)
-            :base(Tags.EncodedUnderlyingIssuerLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedUnderlyingIssuer Field
-    /// </summary>/
-    public sealed class EncodedUnderlyingIssuer : StringField
-    {
-        public EncodedUnderlyingIssuer()
-            :base(Tags.EncodedUnderlyingIssuer) {}
-        public EncodedUnderlyingIssuer(string val)
-            :base(Tags.EncodedUnderlyingIssuer, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedUnderlyingSecurityDescLen Field
-    /// </summary>/
-    public sealed class EncodedUnderlyingSecurityDescLen : IntField
-    {
-        public EncodedUnderlyingSecurityDescLen()
-            :base(Tags.EncodedUnderlyingSecurityDescLen) {}
-        public EncodedUnderlyingSecurityDescLen(int val)
-            :base(Tags.EncodedUnderlyingSecurityDescLen, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EncodedUnderlyingSecurityDesc Field
-    /// </summary>/
-    public sealed class EncodedUnderlyingSecurityDesc : StringField
-    {
-        public EncodedUnderlyingSecurityDesc()
-            :base(Tags.EncodedUnderlyingSecurityDesc) {}
-        public EncodedUnderlyingSecurityDesc(string val)
-            :base(Tags.EncodedUnderlyingSecurityDesc, val) {}
-
-    }
-
-
-    /// <summary>
-    /// AllocPrice Field
-    /// </summary>/
-    public sealed class AllocPrice : DecimalField
-    {
-        public AllocPrice()
-            :base(Tags.AllocPrice) {}
-        public AllocPrice(Decimal val)
-            :base(Tags.AllocPrice, val) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteSetValidUntilTime Field
-    /// </summary>/
-    public sealed class QuoteSetValidUntilTime : DateTimeField
-    {
-        public QuoteSetValidUntilTime()
-            :base(Tags.QuoteSetValidUntilTime) {}
-        public QuoteSetValidUntilTime(DateTime val)
-            :base(Tags.QuoteSetValidUntilTime, val) {}
-        public QuoteSetValidUntilTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.QuoteSetValidUntilTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// QuoteEntryRejectReason Field
-    /// </summary>/
-    public sealed class QuoteEntryRejectReason : IntField
-    {
-        public QuoteEntryRejectReason()
-            :base(Tags.QuoteEntryRejectReason) {}
-        public QuoteEntryRejectReason(int val)
-            :base(Tags.QuoteEntryRejectReason, val) {}
-
-
-        // Field Enumerations
-        public const int UNKNOWN_SYMBOL = 1;
-        public const int EXHCNAGE = 2;
-        public const int QUOTE_EXCEEDS_LIMIT = 3;
-        public const int TOO_LATE_TO_ENTER = 4;
-        public const int UNKNOWN_QUOTE = 5;
-        public const int DUPLICATE_QUOTE = 6;
-        public const int INVALID_BID_ASK_SPREAD = 7;
-        public const int INVALID_PRICE = 8;
-        public const int NOT_AUTHORIZED_TO_QUOTE_SECURITY = 9;
-        public const int OTHER = 99;
-        public const int EXCHANGE_CLOSED = 2;
-        public const int EXCHANGE = 2;
-        public const int INVALID_BID = 7;
-        public const int INVALID_BIDASK_SPREAD = 7;
-    }
-
-
-    /// <summary>
-    /// LastMsgSeqNumProcessed Field
-    /// </summary>/
-    public sealed class LastMsgSeqNumProcessed : IntField
-    {
-        public LastMsgSeqNumProcessed()
-            :base(Tags.LastMsgSeqNumProcessed) {}
-        public LastMsgSeqNumProcessed(int val)
-            :base(Tags.LastMsgSeqNumProcessed, val) {}
-
-    }
-
-
-    /// <summary>
-    /// OnBehalfOfSendingTime Field
-    /// </summary>/
-    public sealed class OnBehalfOfSendingTime : DateTimeField
-    {
-        public OnBehalfOfSendingTime()
-            :base(Tags.OnBehalfOfSendingTime) {}
-        public OnBehalfOfSendingTime(DateTime val)
-            :base(Tags.OnBehalfOfSendingTime, val) {}
-        public OnBehalfOfSendingTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.OnBehalfOfSendingTime, val, showMilliseconds) {}
 
     }
 
@@ -5855,25 +4583,6 @@ namespace QuickFix.Fields
         public const int COMPID_PROBLEM = 9;
         public const int OTHER = 99;
         public const int INVALID_UNSUPPORTED_APPLICATION_VERSION = 18;
-        public const int E = 11;
-    }
-
-
-    /// <summary>
-    /// BidRequestTransType Field
-    /// </summary>/
-    public sealed class BidRequestTransType : CharField
-    {
-        public BidRequestTransType()
-            :base(Tags.BidRequestTransType) {}
-        public BidRequestTransType(char val)
-            :base(Tags.BidRequestTransType, val) {}
-
-
-        // Field Enumerations
-        public const char CANCEL = 'C';
-        public const char NO = 'N';
-        public const char NEW = 'N';
     }
 
 
@@ -5887,38 +4596,6 @@ namespace QuickFix.Fields
         public ContraBroker(string val)
             :base(Tags.ContraBroker, val) {}
 
-    }
-
-
-    /// <summary>
-    /// ComplianceID Field
-    /// </summary>/
-    public sealed class ComplianceID : StringField
-    {
-        public ComplianceID()
-            :base(Tags.ComplianceID) {}
-        public ComplianceID(string val)
-            :base(Tags.ComplianceID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SolicitedFlag Field
-    /// </summary>/
-    public sealed class SolicitedFlag : BooleanField
-    {
-        public SolicitedFlag()
-            :base(Tags.SolicitedFlag) {}
-        public SolicitedFlag(Boolean val)
-            :base(Tags.SolicitedFlag, val) {}
-
-
-        // Field Enumerations
-        public const Boolean NO = false;
-        public const Boolean YES = true;
-        public const Boolean WAS_SOLCITIED = true;
-        public const Boolean WAS_NOT_SOLICITED = false;
     }
 
 
@@ -5992,88 +4669,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// GrossTradeAmt Field
-    /// </summary>/
-    public sealed class GrossTradeAmt : DecimalField
-    {
-        public GrossTradeAmt()
-            :base(Tags.GrossTradeAmt) {}
-        public GrossTradeAmt(Decimal val)
-            :base(Tags.GrossTradeAmt, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoContraBrokers Field
-    /// </summary>/
-    public sealed class NoContraBrokers : IntField
-    {
-        public NoContraBrokers()
-            :base(Tags.NoContraBrokers) {}
-        public NoContraBrokers(int val)
-            :base(Tags.NoContraBrokers, val) {}
-
-    }
-
-
-    /// <summary>
-    /// MaxMessageSize Field
-    /// </summary>/
-    public sealed class MaxMessageSize : IntField
-    {
-        public MaxMessageSize()
-            :base(Tags.MaxMessageSize) {}
-        public MaxMessageSize(int val)
-            :base(Tags.MaxMessageSize, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoMsgTypes Field
-    /// </summary>/
-    public sealed class NoMsgTypes : IntField
-    {
-        public NoMsgTypes()
-            :base(Tags.NoMsgTypes) {}
-        public NoMsgTypes(int val)
-            :base(Tags.NoMsgTypes, val) {}
-
-    }
-
-
-    /// <summary>
-    /// MsgDirection Field
-    /// </summary>/
-    public sealed class MsgDirection : CharField
-    {
-        public MsgDirection()
-            :base(Tags.MsgDirection) {}
-        public MsgDirection(char val)
-            :base(Tags.MsgDirection, val) {}
-
-
-        // Field Enumerations
-        public const char RECEIVE = 'R';
-        public const char SEND = 'S';
-    }
-
-
-    /// <summary>
-    /// NoTradingSessions Field
-    /// </summary>/
-    public sealed class NoTradingSessions : IntField
-    {
-        public NoTradingSessions()
-            :base(Tags.NoTradingSessions) {}
-        public NoTradingSessions(int val)
-            :base(Tags.NoTradingSessions, val) {}
-
-    }
-
-
-    /// <summary>
     /// TotalVolumeTraded Field
     /// </summary>/
     public sealed class TotalVolumeTraded : DecimalField
@@ -6082,81 +4677,6 @@ namespace QuickFix.Fields
             :base(Tags.TotalVolumeTraded) {}
         public TotalVolumeTraded(Decimal val)
             :base(Tags.TotalVolumeTraded, val) {}
-
-    }
-
-
-    /// <summary>
-    /// DiscretionInst Field
-    /// </summary>/
-    public sealed class DiscretionInst : CharField
-    {
-        public DiscretionInst()
-            :base(Tags.DiscretionInst) {}
-        public DiscretionInst(char val)
-            :base(Tags.DiscretionInst, val) {}
-
-
-        // Field Enumerations
-        public const char RELATED_TO_DISPLAYED_PRICE = '0';
-        public const char RELATED_TO_MARKET_PRICE = '1';
-        public const char RELATED_TO_PRIMARY_PRICE = '2';
-        public const char RELATED_TO_LOCAL_PRIMARY_PRICE = '3';
-        public const char RELATED_TO_MIDPOINT_PRICE = '4';
-        public const char RELATED_TO_LAST_TRADE_PRICE = '5';
-        public const char RELATED_TO_VWAP = '6';
-        public const char AVERAGE_PRICE_GUARANTEE = '7';
-    }
-
-
-    /// <summary>
-    /// DiscretionOffset Field
-    /// </summary>/
-    public sealed class DiscretionOffset : DecimalField
-    {
-        public DiscretionOffset()
-            :base(Tags.DiscretionOffset) {}
-        public DiscretionOffset(Decimal val)
-            :base(Tags.DiscretionOffset, val) {}
-
-    }
-
-
-    /// <summary>
-    /// BidID Field
-    /// </summary>/
-    public sealed class BidID : StringField
-    {
-        public BidID()
-            :base(Tags.BidID) {}
-        public BidID(string val)
-            :base(Tags.BidID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ClientBidID Field
-    /// </summary>/
-    public sealed class ClientBidID : StringField
-    {
-        public ClientBidID()
-            :base(Tags.ClientBidID) {}
-        public ClientBidID(string val)
-            :base(Tags.ClientBidID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ListName Field
-    /// </summary>/
-    public sealed class ListName : StringField
-    {
-        public ListName()
-            :base(Tags.ListName) {}
-        public ListName(string val)
-            :base(Tags.ListName, val) {}
 
     }
 
@@ -6175,615 +4695,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// BidType Field
-    /// </summary>/
-    public sealed class BidType : IntField
-    {
-        public BidType()
-            :base(Tags.BidType) {}
-        public BidType(int val)
-            :base(Tags.BidType, val) {}
-
-
-        // Field Enumerations
-        public const int NON_DISCLOSED_STYLE = 1;
-        public const int DISCLOSED_SYTLE = 2;
-        public const int NO_BIDDING_PROCESS = 3;
-        public const int NON_DISCLOSED = 1;
-        public const int DISCLOSED_STYLE = 2;
-    }
-
-
-    /// <summary>
-    /// NumTickets Field
-    /// </summary>/
-    public sealed class NumTickets : IntField
-    {
-        public NumTickets()
-            :base(Tags.NumTickets) {}
-        public NumTickets(int val)
-            :base(Tags.NumTickets, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SideValue1 Field
-    /// </summary>/
-    public sealed class SideValue1 : DecimalField
-    {
-        public SideValue1()
-            :base(Tags.SideValue1) {}
-        public SideValue1(Decimal val)
-            :base(Tags.SideValue1, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SideValue2 Field
-    /// </summary>/
-    public sealed class SideValue2 : DecimalField
-    {
-        public SideValue2()
-            :base(Tags.SideValue2) {}
-        public SideValue2(Decimal val)
-            :base(Tags.SideValue2, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoBidDescriptors Field
-    /// </summary>/
-    public sealed class NoBidDescriptors : IntField
-    {
-        public NoBidDescriptors()
-            :base(Tags.NoBidDescriptors) {}
-        public NoBidDescriptors(int val)
-            :base(Tags.NoBidDescriptors, val) {}
-
-    }
-
-
-    /// <summary>
-    /// BidDescriptorType Field
-    /// </summary>/
-    public sealed class BidDescriptorType : IntField
-    {
-        public BidDescriptorType()
-            :base(Tags.BidDescriptorType) {}
-        public BidDescriptorType(int val)
-            :base(Tags.BidDescriptorType, val) {}
-
-
-        // Field Enumerations
-        public const int SECTOR = 1;
-        public const int COUNTRY = 2;
-        public const int INDEX = 3;
-    }
-
-
-    /// <summary>
-    /// BidDescriptor Field
-    /// </summary>/
-    public sealed class BidDescriptor : StringField
-    {
-        public BidDescriptor()
-            :base(Tags.BidDescriptor) {}
-        public BidDescriptor(string val)
-            :base(Tags.BidDescriptor, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SideValueInd Field
-    /// </summary>/
-    public sealed class SideValueInd : IntField
-    {
-        public SideValueInd()
-            :base(Tags.SideValueInd) {}
-        public SideValueInd(int val)
-            :base(Tags.SideValueInd, val) {}
-
-
-        // Field Enumerations
-        public const int SIDE_VALUE_1 = 1;
-        public const int SIDE_VALUE_2 = 2;
-        public const int SIDEVALUE1 = 1;
-        public const int SIDEVALUE2 = 2;
-        public const int SIDEVALUE_2 = 2;
-    }
-
-
-    /// <summary>
-    /// LiquidityPctLow Field
-    /// </summary>/
-    public sealed class LiquidityPctLow : DecimalField
-    {
-        public LiquidityPctLow()
-            :base(Tags.LiquidityPctLow) {}
-        public LiquidityPctLow(Decimal val)
-            :base(Tags.LiquidityPctLow, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LiquidityPctHigh Field
-    /// </summary>/
-    public sealed class LiquidityPctHigh : DecimalField
-    {
-        public LiquidityPctHigh()
-            :base(Tags.LiquidityPctHigh) {}
-        public LiquidityPctHigh(Decimal val)
-            :base(Tags.LiquidityPctHigh, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LiquidityValue Field
-    /// </summary>/
-    public sealed class LiquidityValue : DecimalField
-    {
-        public LiquidityValue()
-            :base(Tags.LiquidityValue) {}
-        public LiquidityValue(Decimal val)
-            :base(Tags.LiquidityValue, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EFPTrackingError Field
-    /// </summary>/
-    public sealed class EFPTrackingError : DecimalField
-    {
-        public EFPTrackingError()
-            :base(Tags.EFPTrackingError) {}
-        public EFPTrackingError(Decimal val)
-            :base(Tags.EFPTrackingError, val) {}
-
-    }
-
-
-    /// <summary>
-    /// FairValue Field
-    /// </summary>/
-    public sealed class FairValue : DecimalField
-    {
-        public FairValue()
-            :base(Tags.FairValue) {}
-        public FairValue(Decimal val)
-            :base(Tags.FairValue, val) {}
-
-    }
-
-
-    /// <summary>
-    /// OutsideIndexPct Field
-    /// </summary>/
-    public sealed class OutsideIndexPct : DecimalField
-    {
-        public OutsideIndexPct()
-            :base(Tags.OutsideIndexPct) {}
-        public OutsideIndexPct(Decimal val)
-            :base(Tags.OutsideIndexPct, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ValueOfFutures Field
-    /// </summary>/
-    public sealed class ValueOfFutures : DecimalField
-    {
-        public ValueOfFutures()
-            :base(Tags.ValueOfFutures) {}
-        public ValueOfFutures(Decimal val)
-            :base(Tags.ValueOfFutures, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LiquidityIndType Field
-    /// </summary>/
-    public sealed class LiquidityIndType : IntField
-    {
-        public LiquidityIndType()
-            :base(Tags.LiquidityIndType) {}
-        public LiquidityIndType(int val)
-            :base(Tags.LiquidityIndType, val) {}
-
-
-        // Field Enumerations
-        public const int VAL_5_DAY_MOVING_AVERAGE = 1;
-        public const int VAL_20_DAY_MOVING_AVERAGE = 2;
-        public const int NORMAL_MARKET_SIZE = 3;
-        public const int OTHER = 4;
-        public const int FIVEDAY_MOVING_AVERAGE = 1;
-        public const int TWENTYDAY_MOVING_AVERAGE = 2;
-    }
-
-
-    /// <summary>
-    /// WtAverageLiquidity Field
-    /// </summary>/
-    public sealed class WtAverageLiquidity : DecimalField
-    {
-        public WtAverageLiquidity()
-            :base(Tags.WtAverageLiquidity) {}
-        public WtAverageLiquidity(Decimal val)
-            :base(Tags.WtAverageLiquidity, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ExchangeForPhysical Field
-    /// </summary>/
-    public sealed class ExchangeForPhysical : BooleanField
-    {
-        public ExchangeForPhysical()
-            :base(Tags.ExchangeForPhysical) {}
-        public ExchangeForPhysical(Boolean val)
-            :base(Tags.ExchangeForPhysical, val) {}
-
-
-        // Field Enumerations
-        public const Boolean NO = false;
-        public const Boolean YES = true;
-        public const Boolean TRUE = true;
-        public const Boolean FALSE = false;
-    }
-
-
-    /// <summary>
-    /// OutMainCntryUIndex Field
-    /// </summary>/
-    public sealed class OutMainCntryUIndex : DecimalField
-    {
-        public OutMainCntryUIndex()
-            :base(Tags.OutMainCntryUIndex) {}
-        public OutMainCntryUIndex(Decimal val)
-            :base(Tags.OutMainCntryUIndex, val) {}
-
-    }
-
-
-    /// <summary>
-    /// CrossPercent Field
-    /// </summary>/
-    public sealed class CrossPercent : DecimalField
-    {
-        public CrossPercent()
-            :base(Tags.CrossPercent) {}
-        public CrossPercent(Decimal val)
-            :base(Tags.CrossPercent, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ProgRptReqs Field
-    /// </summary>/
-    public sealed class ProgRptReqs : IntField
-    {
-        public ProgRptReqs()
-            :base(Tags.ProgRptReqs) {}
-        public ProgRptReqs(int val)
-            :base(Tags.ProgRptReqs, val) {}
-
-
-        // Field Enumerations
-        public const int BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST = 1;
-        public const int SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = 2;
-        public const int REAL_TIME_EXECUTION_REPORTS = 3;
-        public const int BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST = 1;
-        public const int SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS = 2;
-    }
-
-
-    /// <summary>
-    /// ProgPeriodInterval Field
-    /// </summary>/
-    public sealed class ProgPeriodInterval : IntField
-    {
-        public ProgPeriodInterval()
-            :base(Tags.ProgPeriodInterval) {}
-        public ProgPeriodInterval(int val)
-            :base(Tags.ProgPeriodInterval, val) {}
-
-    }
-
-
-    /// <summary>
-    /// IncTaxInd Field
-    /// </summary>/
-    public sealed class IncTaxInd : IntField
-    {
-        public IncTaxInd()
-            :base(Tags.IncTaxInd) {}
-        public IncTaxInd(int val)
-            :base(Tags.IncTaxInd, val) {}
-
-
-        // Field Enumerations
-        public const int NET = 1;
-        public const int GROSS = 2;
-    }
-
-
-    /// <summary>
-    /// NumBidders Field
-    /// </summary>/
-    public sealed class NumBidders : IntField
-    {
-        public NumBidders()
-            :base(Tags.NumBidders) {}
-        public NumBidders(int val)
-            :base(Tags.NumBidders, val) {}
-
-    }
-
-
-    /// <summary>
-    /// TradeType Field
-    /// </summary>/
-    public sealed class TradeType : CharField
-    {
-        public TradeType()
-            :base(Tags.TradeType) {}
-        public TradeType(char val)
-            :base(Tags.TradeType, val) {}
-
-    }
-
-
-    /// <summary>
-    /// BasisPxType Field
-    /// </summary>/
-    public sealed class BasisPxType : CharField
-    {
-        public BasisPxType()
-            :base(Tags.BasisPxType) {}
-        public BasisPxType(char val)
-            :base(Tags.BasisPxType, val) {}
-
-
-        // Field Enumerations
-        public const char CLOSING_PRICE_AT_MORNINGN_SESSION = '2';
-        public const char CLOSING_PRICE = '3';
-        public const char CURRENT_PRICE = '4';
-        public const char SQ = '5';
-        public const char VWAP_THROUGH_A_DAY = '6';
-        public const char VWAP_THROUGH_A_MORNING_SESSION = '7';
-        public const char VWAP_THROUGH_AN_AFTERNOON_SESSION = '8';
-        public const char VWAP_THROUGH_A_DAY_EXCEPT_YORI = '9';
-        public const char VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI = 'A';
-        public const char VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI = 'B';
-        public const char STRIKE = 'C';
-        public const char OPEN = 'D';
-        public const char OTHERS = 'Z';
-        public const char CLOSING_PRICE_AT_MORNING_SESSION = '2';
-    }
-
-
-    /// <summary>
-    /// NoBidComponents Field
-    /// </summary>/
-    public sealed class NoBidComponents : IntField
-    {
-        public NoBidComponents()
-            :base(Tags.NoBidComponents) {}
-        public NoBidComponents(int val)
-            :base(Tags.NoBidComponents, val) {}
-
-    }
-
-
-    /// <summary>
-    /// Country Field
-    /// </summary>/
-    public sealed class Country : StringField
-    {
-        public Country()
-            :base(Tags.Country) {}
-        public Country(string val)
-            :base(Tags.Country, val) {}
-
-    }
-
-
-    /// <summary>
-    /// TotNoStrikes Field
-    /// </summary>/
-    public sealed class TotNoStrikes : IntField
-    {
-        public TotNoStrikes()
-            :base(Tags.TotNoStrikes) {}
-        public TotNoStrikes(int val)
-            :base(Tags.TotNoStrikes, val) {}
-
-    }
-
-
-    /// <summary>
-    /// PriceType Field
-    /// </summary>/
-    public sealed class PriceType : IntField
-    {
-        public PriceType()
-            :base(Tags.PriceType) {}
-        public PriceType(int val)
-            :base(Tags.PriceType, val) {}
-
-
-        // Field Enumerations
-        public const int PERCENTAGE = 1;
-        public const int FIXED_CABINET_TRADE_PRICE = 10;
-        public const int VARIABLE_CABINET_TRADE_PRICE = 11;
-        public const int PER_UNIT = 2;
-        public const int FIXED_AMOUNT = 3;
-        public const int DISCOUNT = 4;
-        public const int PREMIUM = 5;
-        public const int SPREAD = 6;
-        public const int TED_PRICE = 7;
-        public const int TED_YIELD = 8;
-        public const int YIELD = 9;
-        public const int PRODUCT_TICKS_IN_HALFS = 13;
-        public const int PRODUCT_TICKS_IN_FOURTHS = 14;
-        public const int PRODUCT_TICKS_IN_EIGHTS = 15;
-        public const int PRODUCT_TICKS_IN_SIXTEENTHS = 16;
-        public const int PRODUCT_TICKS_IN_THIRTY_SECONDS = 17;
-        public const int PRODUCT_TICKS_IN_SIXTY_FORTHS = 18;
-        public const int PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS = 19;
-        public const int PER_SHARE = 2;
-        public const int BASIS_POINTS_RELATIVE_TO_BENCHMARK = 6;
-    }
-
-
-    /// <summary>
-    /// DayOrderQty Field
-    /// </summary>/
-    public sealed class DayOrderQty : DecimalField
-    {
-        public DayOrderQty()
-            :base(Tags.DayOrderQty) {}
-        public DayOrderQty(Decimal val)
-            :base(Tags.DayOrderQty, val) {}
-
-    }
-
-
-    /// <summary>
-    /// DayCumQty Field
-    /// </summary>/
-    public sealed class DayCumQty : DecimalField
-    {
-        public DayCumQty()
-            :base(Tags.DayCumQty) {}
-        public DayCumQty(Decimal val)
-            :base(Tags.DayCumQty, val) {}
-
-    }
-
-
-    /// <summary>
-    /// DayAvgPx Field
-    /// </summary>/
-    public sealed class DayAvgPx : DecimalField
-    {
-        public DayAvgPx()
-            :base(Tags.DayAvgPx) {}
-        public DayAvgPx(Decimal val)
-            :base(Tags.DayAvgPx, val) {}
-
-    }
-
-
-    /// <summary>
-    /// GTBookingInst Field
-    /// </summary>/
-    public sealed class GTBookingInst : IntField
-    {
-        public GTBookingInst()
-            :base(Tags.GTBookingInst) {}
-        public GTBookingInst(int val)
-            :base(Tags.GTBookingInst, val) {}
-
-
-        // Field Enumerations
-        public const int BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION = 0;
-        public const int ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES = 1;
-        public const int ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE = 2;
-        public const int ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES = 1;
-        public const int ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE = 2;
-    }
-
-
-    /// <summary>
-    /// NoStrikes Field
-    /// </summary>/
-    public sealed class NoStrikes : IntField
-    {
-        public NoStrikes()
-            :base(Tags.NoStrikes) {}
-        public NoStrikes(int val)
-            :base(Tags.NoStrikes, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ListStatusType Field
-    /// </summary>/
-    public sealed class ListStatusType : IntField
-    {
-        public ListStatusType()
-            :base(Tags.ListStatusType) {}
-        public ListStatusType(int val)
-            :base(Tags.ListStatusType, val) {}
-
-
-        // Field Enumerations
-        public const int ACK = 1;
-        public const int RESPONSE = 2;
-        public const int TIMED = 3;
-        public const int EXEC_STARTED = 4;
-        public const int ALL_DONE = 5;
-        public const int ALERT = 6;
-        public const int EXECSTARTED = 4;
-        public const int ALLDONE = 5;
-    }
-
-
-    /// <summary>
-    /// NetGrossInd Field
-    /// </summary>/
-    public sealed class NetGrossInd : IntField
-    {
-        public NetGrossInd()
-            :base(Tags.NetGrossInd) {}
-        public NetGrossInd(int val)
-            :base(Tags.NetGrossInd, val) {}
-
-
-        // Field Enumerations
-        public const int NET = 1;
-        public const int GROSS = 2;
-    }
-
-
-    /// <summary>
-    /// ListOrderStatus Field
-    /// </summary>/
-    public sealed class ListOrderStatus : IntField
-    {
-        public ListOrderStatus()
-            :base(Tags.ListOrderStatus) {}
-        public ListOrderStatus(int val)
-            :base(Tags.ListOrderStatus, val) {}
-
-
-        // Field Enumerations
-        public const int IN_BIDDING_PROCESS = 1;
-        public const int RECEIVED_FOR_EXECUTION = 2;
-        public const int EXECUTING = 3;
-        public const int CANCELLING = 4;
-        public const int ALERT = 5;
-        public const int ALL_DONE = 6;
-        public const int REJECT = 7;
-        public const int INBIDDINGPROCESS = 1;
-        public const int RECEIVEDFOREXECUTION = 2;
-        public const int CANCELING = 4;
-    }
-
-
-    /// <summary>
     /// ExpireDate Field
     /// </summary>/
     public sealed class ExpireDate : StringField
@@ -6793,30 +4704,6 @@ namespace QuickFix.Fields
         public ExpireDate(string val)
             :base(Tags.ExpireDate, val) {}
 
-    }
-
-
-    /// <summary>
-    /// ListExecInstType Field
-    /// </summary>/
-    public sealed class ListExecInstType : CharField
-    {
-        public ListExecInstType()
-            :base(Tags.ListExecInstType) {}
-        public ListExecInstType(char val)
-            :base(Tags.ListExecInstType, val) {}
-
-
-        // Field Enumerations
-        public const char IMMEDIATE = '1';
-        public const char WAIT_FOR_EXECUT_INSTRUCTION = '2';
-        public const char EXCHANGE_SWITCH_CIV_ORDER_3 = '3';
-        public const char EXCHANGE_SWITCH_CIV_ORDER_4 = '4';
-        public const char EXCHANGE_SWITCH_CIV_ORDER_5 = '5';
-        public const char WAIT_FOR_EXECUTE_INSTRUCTION = '2';
-        public const char EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = '3';
-        public const char EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = '4';
-        public const char EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = '5';
     }
 
 
@@ -6834,73 +4721,8 @@ namespace QuickFix.Fields
         // Field Enumerations
         public const char ORDER_CANCEL_REQUEST = '1';
         public const char ORDER_CANCEL_REPLACE_REQUEST = '2';
-    }
-
-
-    /// <summary>
-    /// UnderlyingCouponRate Field
-    /// </summary>/
-    public sealed class UnderlyingCouponRate : DecimalField
-    {
-        public UnderlyingCouponRate()
-            :base(Tags.UnderlyingCouponRate) {}
-        public UnderlyingCouponRate(Decimal val)
-            :base(Tags.UnderlyingCouponRate, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingContractMultiplier Field
-    /// </summary>/
-    public sealed class UnderlyingContractMultiplier : DecimalField
-    {
-        public UnderlyingContractMultiplier()
-            :base(Tags.UnderlyingContractMultiplier) {}
-        public UnderlyingContractMultiplier(Decimal val)
-            :base(Tags.UnderlyingContractMultiplier, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ContraTradeQty Field
-    /// </summary>/
-    public sealed class ContraTradeQty : DecimalField
-    {
-        public ContraTradeQty()
-            :base(Tags.ContraTradeQty) {}
-        public ContraTradeQty(Decimal val)
-            :base(Tags.ContraTradeQty, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ContraTradeTime Field
-    /// </summary>/
-    public sealed class ContraTradeTime : DateTimeField
-    {
-        public ContraTradeTime()
-            :base(Tags.ContraTradeTime) {}
-        public ContraTradeTime(DateTime val)
-            :base(Tags.ContraTradeTime, val) {}
-        public ContraTradeTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.ContraTradeTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// ClearingFirm Field
-    /// </summary>/
-    public sealed class ClearingFirm : StringField
-    {
-        public ClearingFirm()
-            :base(Tags.ClearingFirm) {}
-        public ClearingFirm(string val)
-            :base(Tags.ClearingFirm, val) {}
-
+        public const char CANCEL = '1';
+        public const char REPLACE = '2';
     }
 
 
@@ -6913,19 +4735,6 @@ namespace QuickFix.Fields
             :base(Tags.ClearingAccount) {}
         public ClearingAccount(string val)
             :base(Tags.ClearingAccount, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LiquidityNumSecurities Field
-    /// </summary>/
-    public sealed class LiquidityNumSecurities : IntField
-    {
-        public LiquidityNumSecurities()
-            :base(Tags.LiquidityNumSecurities) {}
-        public LiquidityNumSecurities(int val)
-            :base(Tags.LiquidityNumSecurities, val) {}
 
     }
 
@@ -6946,59 +4755,1837 @@ namespace QuickFix.Fields
         public const char INDIVIDUAL_LEG_OF_A_MULTI_LEG_SECURITY = '2';
         public const char MULTI_LEG_SECURITY = '3';
         public const char INDIVIDUAL_LEG_OF_A_MULTILEG_SECURITY = '2';
+        public const char SINGLE = '1';
+        public const char LEG = '2';
+        public const char SUMMARY = '3';
     }
 
 
     /// <summary>
-    /// StrikeTime Field
+    /// NoEvents Field
     /// </summary>/
-    public sealed class StrikeTime : DateTimeField
+    public sealed class NoEvents : IntField
     {
-        public StrikeTime()
-            :base(Tags.StrikeTime) {}
-        public StrikeTime(DateTime val)
-            :base(Tags.StrikeTime, val) {}
-        public StrikeTime(DateTime val, bool showMilliseconds)
-	    :base(Tags.StrikeTime, val, showMilliseconds) {}
-
-    }
-
-
-    /// <summary>
-    /// ListStatusText Field
-    /// </summary>/
-    public sealed class ListStatusText : StringField
-    {
-        public ListStatusText()
-            :base(Tags.ListStatusText) {}
-        public ListStatusText(string val)
-            :base(Tags.ListStatusText, val) {}
+        public NoEvents()
+            :base(Tags.NoEvents) {}
+        public NoEvents(int val)
+            :base(Tags.NoEvents, val) {}
 
     }
 
 
     /// <summary>
-    /// EncodedListStatusTextLen Field
+    /// EventType Field
     /// </summary>/
-    public sealed class EncodedListStatusTextLen : IntField
+    public sealed class EventType : IntField
     {
-        public EncodedListStatusTextLen()
-            :base(Tags.EncodedListStatusTextLen) {}
-        public EncodedListStatusTextLen(int val)
-            :base(Tags.EncodedListStatusTextLen, val) {}
+        public EventType()
+            :base(Tags.EventType) {}
+        public EventType(int val)
+            :base(Tags.EventType, val) {}
+
+
+        // Field Enumerations
+        public const int PUT = 1;
+        public const int CALL = 2;
+        public const int TENDER = 3;
+        public const int SINKING_FUND_CALL = 4;
+        public const int OTHER = 99;
+        public const int ACTIVATION = 5;
+        public const int INACTIVIATION = 6;
+        public const int LAST_ELIGIBLE_TRADE_DATE = 7;
+        public const int SWAP_START_DATE = 8;
+        public const int SWAP_END_DATE = 9;
+        public const int SWAP_NEXT_START_DATE = 11;
+        public const int SWAP_ROLL_DATE = 10;
+        public const int SWAP_NEXT_ROLL_DATE = 12;
+        public const int FIRST_DELIVERY_DATE = 13;
+        public const int LAST_DELIVERY_DATE = 14;
+        public const int INITIAL_INVENTORY_DUE_DATE = 15;
+        public const int FINAL_INVENTORY_DUE_DATE = 16;
+        public const int FIRST_INTENT_DATE = 17;
+        public const int LAST_INTENT_DATE = 18;
+        public const int POSITION_REMOVAL_DATE = 19;
+        public const int EXPIRY_DATE = 5;
+    }
+
+
+    /// <summary>
+    /// EventDate Field
+    /// </summary>/
+    public sealed class EventDate : StringField
+    {
+        public EventDate()
+            :base(Tags.EventDate) {}
+        public EventDate(string val)
+            :base(Tags.EventDate, val) {}
 
     }
 
 
     /// <summary>
-    /// EncodedListStatusText Field
+    /// OrderEnteredTime Field
     /// </summary>/
-    public sealed class EncodedListStatusText : StringField
+    public sealed class OrderEnteredTime : DateTimeField
     {
-        public EncodedListStatusText()
-            :base(Tags.EncodedListStatusText) {}
-        public EncodedListStatusText(string val)
-            :base(Tags.EncodedListStatusText, val) {}
+        public OrderEnteredTime()
+            :base(Tags.OrderEnteredTime) {}
+        public OrderEnteredTime(DateTime val)
+            :base(Tags.OrderEnteredTime, val) {}
+        public OrderEnteredTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.OrderEnteredTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// ExpectedFillType Field
+    /// </summary>/
+    public sealed class ExpectedFillType : IntField
+    {
+        public ExpectedFillType()
+            :base(Tags.ExpectedFillType) {}
+        public ExpectedFillType(int val)
+            :base(Tags.ExpectedFillType, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SecurityAltID Field
+    /// </summary>/
+    public sealed class SecurityAltID : StringField
+    {
+        public SecurityAltID()
+            :base(Tags.SecurityAltID) {}
+        public SecurityAltID(string val)
+            :base(Tags.SecurityAltID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingSecurityAltID Field
+    /// </summary>/
+    public sealed class UnderlyingSecurityAltID : StringField
+    {
+        public UnderlyingSecurityAltID()
+            :base(Tags.UnderlyingSecurityAltID) {}
+        public UnderlyingSecurityAltID(string val)
+            :base(Tags.UnderlyingSecurityAltID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SecondaryExecID Field
+    /// </summary>/
+    public sealed class SecondaryExecID : StringField
+    {
+        public SecondaryExecID()
+            :base(Tags.SecondaryExecID) {}
+        public SecondaryExecID(string val)
+            :base(Tags.SecondaryExecID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// FixingDate Field
+    /// </summary>/
+    public sealed class FixingDate : StringField
+    {
+        public FixingDate()
+            :base(Tags.FixingDate) {}
+        public FixingDate(string val)
+            :base(Tags.FixingDate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TTUsername Field
+    /// </summary>/
+    public sealed class TTUsername : StringField
+    {
+        public TTUsername()
+            :base(Tags.TTUsername) {}
+        public TTUsername(string val)
+            :base(Tags.TTUsername, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegPrice Field
+    /// </summary>/
+    public sealed class LegPrice : DecimalField
+    {
+        public LegPrice()
+            :base(Tags.LegPrice) {}
+        public LegPrice(Decimal val)
+            :base(Tags.LegPrice, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SecuritySubType Field
+    /// </summary>/
+    public sealed class SecuritySubType : StringField
+    {
+        public SecuritySubType()
+            :base(Tags.SecuritySubType) {}
+        public SecuritySubType(string val)
+            :base(Tags.SecuritySubType, val) {}
+
+
+        // Field Enumerations
+        public const string UNKNOWN = "Unknown";
+        public const string STRANGLE = "Strangle";
+        public const string STRADDLE = "Straddle";
+        public const string GUTS = "Guts";
+        public const string LADDER = "Ladder";
+        public const string VOLA = "Volatility Trade";
+        public const string IRON_BUTTERFLY = "Iron BFly";
+        public const string BOX = "Box";
+        public const string COMBO = "Combo";
+        public const string VAL_2X1RATIO = "2X1 Ratio";
+        public const string CALLPUT = "Misc. Call/Put Spread";
+        public const string CONV_REVERS = "Conversion/Reversal";
+        public const string DIAG_CALENDAR = "Diag Calendar";
+        public const string STRAD_CALENDAR = "Strad Calendar";
+        public const string DIAG_STRAD_CAL = "Diag Strad Calendar";
+        public const string INTERPROD = "Inter-Product";
+        public const string CALENDAR = "Calendar";
+        public const string CONDOR = "Condor";
+        public const string BUTTERFLY = "Butterfly";
+        public const string STRIP = "Strip";
+        public const string PACK = "Pack";
+        public const string BUNDLE = "Bundle";
+        public const string SYNTH_CONV_REVERS = "Synthetic Conv/Rev";
+        public const string CALL_SPREAD_VERS_PUT = "Call Spread vs. Put";
+        public const string PUT_SPREAD_VERS_CALL = "Put Spread vs. Call";
+        public const string STRAD_VERS_CALLPUT = "Straddle vs. Call/Put";
+        public const string HEDGED_CALLPUT = "Hedged Call/Put Spread";
+        public const string HEDGED_STRAD = "Hedged Straddle";
+        public const string HEDGED_CALL_SPREAD_VERS_PUT = "Hedged Call Spread versus Put";
+        public const string HEDGED_PUT_SPREAD_VERS_CALL = "Hedged Put Spread versus Call";
+        public const string HEDGED_CALLPUT_LADDER = "Hedged Ladder";
+        public const string HEDGED_COMBO = "Hedged Combo";
+        public const string HEDGED_2X1RATIO = "Vol 1x2 Ratio";
+        public const string HEDGED_CALENDAR = "Vol Calendar";
+        public const string JELLY_ROLL = "Jelly Roll";
+        public const string IRON_CONDOR = "Iron Condor";
+        public const string OPTION_STRIP = "Option Strip";
+        public const string REDUCED_TICK_SPREAD = "Reduced Tick Spread";
+        public const string HEDGED_STRANGLE = "Hedged Strangle";
+        public const string FUTURE_SPREAD = "Spread";
+        public const string HEDGED_DIAG_CALENDAR = "Hedged Call/Put Diag Calendar Spread";
+        public const string HEDGED_STRAD_CALENDAR = "Hedged Straddle Calendar Spread";
+        public const string HEDGED_DIAG_STRAD_CAL = "Hedged Diagonal Straddle Calendar Spread";
+        public const string HEDGED_BUTTERFLY = "Hedged Butterfly";
+        public const string HEDGED_IRON_CONDOR = "Hedged Iron Condor";
+        public const string HEDGED_CONDOR = "Hedged Condor";
+        public const string HEDGED_IRON_BUTTERFLY = "Hedged Iron Butterfly";
+        public const string HEDGED_GUTS = "Hedged Guts";
+        public const string CABINET = "Cabinet";
+        public const string HEDGED_CONV_REVERS = "Conversion/Reversal vs. Short U/L";
+        public const string BUY_WRITE = "Buy/Write";
+        public const string VERTICAL = "Vertical";
+        public const string CUSTOM_MARKET = "Custom Market";
+        public const string COVERED = "Covered";
+        public const string HORIZONTAL = "Horizontal";
+        public const string XMAS_TREE = "X-Mas Tree";
+        public const string RISK_REVERSAL = "Risk Reversal";
+        public const string HORIZONTAL_STRADDLE = "Horizontal Straddle";
+        public const string DOUBLE = "Double";
+        public const string COND_CURVE = "Conditional Curve";
+        public const string STRADDLE_STRIP = "Straddle Strip";
+        public const string VAL_3WAY = "3-Way";
+        public const string VAL_1X2RATIO = "1x2 Ratio";
+        public const string VAL_1X3RATIO = "1x3 Ratio";
+        public const string VAL_2X3RATIO = "2x3 Ratio";
+        public const string PACK_BUTTERFLY = "Pack Butterfly";
+        public const string DOUBLE_BUTTERFLY = "Double Butterfly";
+        public const string MONTH_PACK = "Month vs. Pack";
+        public const string CRACK = "Crack";
+        public const string HEDGED_VERTICAL = "Hedged Vertical";
+        public const string HEDGED_HORIZONTAL = "Hedged Horizontal";
+        public const string HEDGED_XMAS_TREE = "Hedged X-Mas Tree";
+        public const string HEDGED_STRIP = "Hedged Strip";
+        public const string HEDGED_RISK_REVERSAL = "Hedged Risk Reversal";
+        public const string HEDGED_HORIZONTAL_STRADDLE = "Hedged Horizontal Straddle";
+        public const string HEDGED_DOUBLE = "Hedged Double";
+        public const string HEDGED_COND_CURVE = "Hedged Conditional Curve";
+        public const string HEDGED_STRADDLE_STRIP = "Hedged Straddle Strip";
+        public const string HEDGED_3WAY = "Hedged 3-Way";
+        public const string HEDGED_BOX = "Hedged Box";
+        public const string TAILOR_MADE = "Tailor Made Combinations";
+        public const string ICS = "ICS";
+        public const string NON_STANDARD_COMBINATION = "Non Standard Combination";
+        public const string VAL_3WAY_CALL = "3-Way Straddle vs. Call";
+        public const string VAL_3WAY_PUT = "3-Way Straddle vs. Put";
+        public const string CUSTOM_CARRY = "Custom Carry";
+        public const string RRTCS = "Reverse Reduced Tick Calendar Spread";
+    }
+
+
+    /// <summary>
+    /// TrdType Field
+    /// </summary>/
+    public sealed class TrdType : IntField
+    {
+        public TrdType()
+            :base(Tags.TrdType) {}
+        public TrdType(int val)
+            :base(Tags.TrdType, val) {}
+
+
+        // Field Enumerations
+        public const int REGULAR_TRADE = 0;
+        public const int BLOCK_TRADE_1 = 1;
+        public const int AFTER_HOURS_TRADE = 10;
+        public const int EFP = 2;
+        public const int TRANSFER = 3;
+        public const int LATE_TRADE = 4;
+        public const int T_TRADE = 5;
+        public const int WEIGHTED_AVERAGE_PRICE_TRADE = 6;
+        public const int BUNCHED_TRADE = 7;
+        public const int LATE_BUNCHED_TRADE = 8;
+        public const int PRIOR_REFERENCE_PRICE_TRADE = 9;
+        public const int EXCHANGE_FOR_RISK = 11;
+        public const int EXCHANGE_FOR_SWAP = 12;
+        public const int EXCHANGE_OF_FUTURES_FOR = 13;
+        public const int EXCHANGE_OF_OPTIONS_FOR_OPTIONS = 14;
+        public const int TRADING_AT_SETTLEMENT = 15;
+        public const int ALL_OR_NONE = 16;
+        public const int FUTURES_LARGE_ORDER_EXECUTION = 17;
+        public const int EXCHANGE_OF_FUTURES_FOR_FUTURES = 18;
+        public const int OPTION_INTERIM_TRADE = 19;
+        public const int OPTION_CABINET_TRADE = 20;
+        public const int PRIVATELY_NEGOTIATED_TRADES = 22;
+        public const int SUBSTITUTION_OF_FUTURES_FOR_FORWARDS = 23;
+        public const int ERROR_TRADE = 24;
+        public const int SPECIAL_CUM_DIVIDEND = 25;
+        public const int SPECIAL_EX_DIVIDEND = 26;
+        public const int SPECIAL_CUM_COUPON = 27;
+        public const int SPECIAL_EX_COUPON = 28;
+        public const int CASH_SETTLEMENT = 29;
+        public const int SPECIAL_PRICE = 30;
+        public const int GUARANTEED_DELIVERY = 31;
+        public const int SPECIAL_CUM_RIGHTS = 32;
+        public const int SPECIAL_EX_RIGHTS = 33;
+        public const int SPECIAL_CUM_CAPITAL_REPAYMENTS = 34;
+        public const int SPECIAL_EX_CAPITAL_REPAYMENTS = 35;
+        public const int SPECIAL_CUM_BONUS = 36;
+        public const int SPECIAL_EX_BONUS = 37;
+        public const int BLOCK_TRADE_38 = 38;
+        public const int WORKED_PRINCIPAL_TRADE = 39;
+        public const int BLOCK_TRADES = 40;
+        public const int NAME_CHANGE = 41;
+        public const int PORTFOLIO_TRANSFER = 42;
+        public const int PROROGATION_BUY = 43;
+        public const int PROROGATION_SELL = 44;
+        public const int OPTION_EXERCISE = 45;
+        public const int DELTA_NEUTRAL_TRANSACTION = 46;
+        public const int FINANCING_TRANSACTION = 47;
+        public const int NON_STANDARD_SETTLEMENT = 48;
+        public const int DERIVATIVE_RELATED_TRANSACTION = 49;
+        public const int PORTFOLIO_TRADE = 50;
+        public const int VOLUME_WEIGHTED_AVERAGE_TRADE = 51;
+        public const int EXCHANGE_GRANTED_TRADE = 52;
+        public const int REPURCHASE_AGREEMENT = 53;
+        public const int OTC = 54;
+        public const int EXCHANGE_BASIS_FACILITY = 55;
+        public const int BLOCK_TRADE = 1;
+        public const int Exchange_For_Swap_EFS = 12;
+        public const int Committed = 89;
+        public const int Exchange_for_Physical_Equity_Index = 90;
+        public const int Exchange_for_Physical_Fixed_Income = 91;
+        public const int Cross = 92;
+        public const int One_Sided = 93;
+        public const int Against_Actual = 94;
+        public const int Asset_Allocation = 95;
+        public const int Basis = 96;
+        public const int Guaranteed_Cross = 97;
+        public const int Prof_Trade = 98;
+        public const int Vola = 99;
+    }
+
+
+    /// <summary>
+    /// ManualOrderIndicator Field
+    /// </summary>/
+    public sealed class ManualOrderIndicator : BooleanField
+    {
+        public ManualOrderIndicator()
+            :base(Tags.ManualOrderIndicator) {}
+        public ManualOrderIndicator(Boolean val)
+            :base(Tags.ManualOrderIndicator, val) {}
+
+
+        // Field Enumerations
+        public const Boolean Order_was_sent_manually = true;
+        public const Boolean Order_was_generated_by_automated_trading_logic = false;
+    }
+
+
+    /// <summary>
+    /// OrigExecID Field
+    /// </summary>/
+    public sealed class OrigExecID : StringField
+    {
+        public OrigExecID()
+            :base(Tags.OrigExecID) {}
+        public OrigExecID(string val)
+            :base(Tags.OrigExecID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TTSessionID Field
+    /// </summary>/
+    public sealed class TTSessionID : StringField
+    {
+        public TTSessionID()
+            :base(Tags.TTSessionID) {}
+        public TTSessionID(string val)
+            :base(Tags.TTSessionID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SyntheticOrdStatus Field
+    /// </summary>/
+    public sealed class SyntheticOrdStatus : StringField
+    {
+        public SyntheticOrdStatus()
+            :base(Tags.SyntheticOrdStatus) {}
+        public SyntheticOrdStatus(string val)
+            :base(Tags.SyntheticOrdStatus, val) {}
+
+
+        // Field Enumerations
+        public const string Waiting = "N";
+        public const string Pending_Trigger = "T";
+        public const string Rejected = "J";
+        public const string Working = "W";
+        public const string Hold = "H";
+        public const string Paused = "P";
+        public const string Deleting = "E";
+        public const string Deleted = "D";
+        public const string Pulling = "L";
+        public const string Pausing = "S";
+        public const string Resuming = "M";
+        public const string Initializing = "I";
+        public const string Recovering = "R";
+        public const string Filled = "F";
+        public const string Expired = "X";
+        public const string Unmanaged = "U";
+    }
+
+
+    /// <summary>
+    /// UserTag Field
+    /// </summary>/
+    public sealed class UserTag : StringField
+    {
+        public UserTag()
+            :base(Tags.UserTag) {}
+        public UserTag(string val)
+            :base(Tags.UserTag, val) {}
+
+    }
+
+
+    /// <summary>
+    /// OrderTag Field
+    /// </summary>/
+    public sealed class OrderTag : StringField
+    {
+        public OrderTag()
+            :base(Tags.OrderTag) {}
+        public OrderTag(string val)
+            :base(Tags.OrderTag, val) {}
+
+    }
+
+
+    /// <summary>
+    /// StagedOrderMsg Field
+    /// </summary>/
+    public sealed class StagedOrderMsg : StringField
+    {
+        public StagedOrderMsg()
+            :base(Tags.StagedOrderMsg) {}
+        public StagedOrderMsg(string val)
+            :base(Tags.StagedOrderMsg, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SyntheticOrdType Field
+    /// </summary>/
+    public sealed class SyntheticOrdType : StringField
+    {
+        public SyntheticOrdType()
+            :base(Tags.SyntheticOrdType) {}
+        public SyntheticOrdType(string val)
+            :base(Tags.SyntheticOrdType, val) {}
+
+
+        // Field Enumerations
+        public const string Time_Slicer = "1";
+        public const string Time_Duration = "2";
+        public const string Volume_Slicer = "3";
+        public const string Volume_Duration = "4";
+        public const string Iceberg = "5";
+    }
+
+
+    /// <summary>
+    /// SyntheticOrdMod Field
+    /// </summary>/
+    public sealed class SyntheticOrdMod : StringField
+    {
+        public SyntheticOrdMod()
+            :base(Tags.SyntheticOrdMod) {}
+        public SyntheticOrdMod(string val)
+            :base(Tags.SyntheticOrdMod, val) {}
+
+
+        // Field Enumerations
+        public const string Stop = "1";
+        public const string If_Touched = "2";
+        public const string Trailing_Stop = "3";
+        public const string Trailing_If_Touched = "4";
+        public const string Trailing_Limit = "5";
+        public const string Machine_Gun = "6";
+    }
+
+
+    /// <summary>
+    /// StagedOrderStatus Field
+    /// </summary>/
+    public sealed class StagedOrderStatus : CharField
+    {
+        public StagedOrderStatus()
+            :base(Tags.StagedOrderStatus) {}
+        public StagedOrderStatus(char val)
+            :base(Tags.StagedOrderStatus, val) {}
+
+
+        // Field Enumerations
+        public const char Available = 'A';
+        public const char Owned = 'O';
+    }
+
+
+    /// <summary>
+    /// StagedOrderOwner Field
+    /// </summary>/
+    public sealed class StagedOrderOwner : StringField
+    {
+        public StagedOrderOwner()
+            :base(Tags.StagedOrderOwner) {}
+        public StagedOrderOwner(string val)
+            :base(Tags.StagedOrderOwner, val) {}
+
+    }
+
+
+    /// <summary>
+    /// StagedRoutingLevel Field
+    /// </summary>/
+    public sealed class StagedRoutingLevel : CharField
+    {
+        public StagedRoutingLevel()
+            :base(Tags.StagedRoutingLevel) {}
+        public StagedRoutingLevel(char val)
+            :base(Tags.StagedRoutingLevel, val) {}
+
+
+        // Field Enumerations
+        public const char Broker = 'B';
+        public const char Internal = 'I';
+    }
+
+
+    /// <summary>
+    /// FFT2 Field
+    /// </summary>/
+    public sealed class FFT2 : StringField
+    {
+        public FFT2()
+            :base(Tags.FFT2) {}
+        public FFT2(string val)
+            :base(Tags.FFT2, val) {}
+
+    }
+
+
+    /// <summary>
+    /// FFT3 Field
+    /// </summary>/
+    public sealed class FFT3 : StringField
+    {
+        public FFT3()
+            :base(Tags.FFT3) {}
+        public FFT3(string val)
+            :base(Tags.FFT3, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoLinks Field
+    /// </summary>/
+    public sealed class NoLinks : IntField
+    {
+        public NoLinks()
+            :base(Tags.NoLinks) {}
+        public NoLinks(int val)
+            :base(Tags.NoLinks, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LinkID Field
+    /// </summary>/
+    public sealed class LinkID : StringField
+    {
+        public LinkID()
+            :base(Tags.LinkID) {}
+        public LinkID(string val)
+            :base(Tags.LinkID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LinkType Field
+    /// </summary>/
+    public sealed class LinkType : CharField
+    {
+        public LinkType()
+            :base(Tags.LinkType) {}
+        public LinkType(char val)
+            :base(Tags.LinkType, val) {}
+
+
+        // Field Enumerations
+        public const char SPREAD_QUOTING = '1';
+        public const char SPREAD_HEDGE = '2';
+        public const char SPREAD_POSITION_RESERVE = '3';
+        public const char SYNTHETIC_CHILD = '5';
+        public const char SYNTHETIC_CHILD_POSITION_RESERVE = '6';
+        public const char STAGED_CHILD = '7';
+        public const char ALGO_CHILD = 'A';
+        public const char UNKNOWN = 'U';
+    }
+
+
+    /// <summary>
+    /// RelativePriceType Field
+    /// </summary>/
+    public sealed class RelativePriceType : StringField
+    {
+        public RelativePriceType()
+            :base(Tags.RelativePriceType) {}
+        public RelativePriceType(string val)
+            :base(Tags.RelativePriceType, val) {}
+
+
+        // Field Enumerations
+        public const string LTP = "0";
+        public const string Bid = "1";
+        public const string Ask = "2";
+        public const string SameSide = "3";
+        public const string OppositeSide = "4";
+        public const string Trigger = "5";
+    }
+
+
+    /// <summary>
+    /// RelativePriceOffset Field
+    /// </summary>/
+    public sealed class RelativePriceOffset : IntField
+    {
+        public RelativePriceOffset()
+            :base(Tags.RelativePriceOffset) {}
+        public RelativePriceOffset(int val)
+            :base(Tags.RelativePriceOffset, val) {}
+
+    }
+
+
+    /// <summary>
+    /// StartDateTime Field
+    /// </summary>/
+    public sealed class StartDateTime : DateTimeField
+    {
+        public StartDateTime()
+            :base(Tags.StartDateTime) {}
+        public StartDateTime(DateTime val)
+            :base(Tags.StartDateTime, val) {}
+        public StartDateTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.StartDateTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// EndDateTime Field
+    /// </summary>/
+    public sealed class EndDateTime : DateTimeField
+    {
+        public EndDateTime()
+            :base(Tags.EndDateTime) {}
+        public EndDateTime(DateTime val)
+            :base(Tags.EndDateTime, val) {}
+        public EndDateTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.EndDateTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// EndDateTimeAction Field
+    /// </summary>/
+    public sealed class EndDateTimeAction : StringField
+    {
+        public EndDateTimeAction()
+            :base(Tags.EndDateTimeAction) {}
+        public EndDateTimeAction(string val)
+            :base(Tags.EndDateTimeAction, val) {}
+
+
+        // Field Enumerations
+        public const string Cancel = "C";
+        public const string Market = "M";
+        public const string Leave = "L";
+    }
+
+
+    /// <summary>
+    /// WATType Field
+    /// </summary>/
+    public sealed class WATType : StringField
+    {
+        public WATType()
+            :base(Tags.WATType) {}
+        public WATType(string val)
+            :base(Tags.WATType, val) {}
+
+
+        // Field Enumerations
+        public const string Quantity = "1";
+        public const string Percentage = "2";
+    }
+
+
+    /// <summary>
+    /// WATValue Field
+    /// </summary>/
+    public sealed class WATValue : IntField
+    {
+        public WATValue()
+            :base(Tags.WATValue) {}
+        public WATValue(int val)
+            :base(Tags.WATValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MGNumRetries Field
+    /// </summary>/
+    public sealed class MGNumRetries : IntField
+    {
+        public MGNumRetries()
+            :base(Tags.MGNumRetries) {}
+        public MGNumRetries(int val)
+            :base(Tags.MGNumRetries, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MGRetryInterval Field
+    /// </summary>/
+    public sealed class MGRetryInterval : IntField
+    {
+        public MGRetryInterval()
+            :base(Tags.MGRetryInterval) {}
+        public MGRetryInterval(int val)
+            :base(Tags.MGRetryInterval, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TriggerPrice Field
+    /// </summary>/
+    public sealed class TriggerPrice : DecimalField
+    {
+        public TriggerPrice()
+            :base(Tags.TriggerPrice) {}
+        public TriggerPrice(Decimal val)
+            :base(Tags.TriggerPrice, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TriggerPriceType Field
+    /// </summary>/
+    public sealed class TriggerPriceType : CharField
+    {
+        public TriggerPriceType()
+            :base(Tags.TriggerPriceType) {}
+        public TriggerPriceType(char val)
+            :base(Tags.TriggerPriceType, val) {}
+
+
+        // Field Enumerations
+        public const char BEST_OFFER = '1';
+        public const char LAST_TRADE = '2';
+        public const char BEST_BID = '3';
+        public const char BEST_BID_OR_LAST_TRADE = '4';
+        public const char BEST_OFFER_OR_LAST_TRADE = '5';
+        public const char BEST_MID = '6';
+        public const char LTP = '0';
+        public const char Bid = '1';
+        public const char Ask = '2';
+        public const char SameSide = '3';
+        public const char OppositeSide = '4';
+    }
+
+
+    /// <summary>
+    /// TriggerQtyType Field
+    /// </summary>/
+    public sealed class TriggerQtyType : StringField
+    {
+        public TriggerQtyType()
+            :base(Tags.TriggerQtyType) {}
+        public TriggerQtyType(string val)
+            :base(Tags.TriggerQtyType, val) {}
+
+
+        // Field Enumerations
+        public const string Absolute_Quantity = "1";
+        public const string Percentage = "2";
+    }
+
+
+    /// <summary>
+    /// TriggerQtyOperator Field
+    /// </summary>/
+    public sealed class TriggerQtyOperator : StringField
+    {
+        public TriggerQtyOperator()
+            :base(Tags.TriggerQtyOperator) {}
+        public TriggerQtyOperator(string val)
+            :base(Tags.TriggerQtyOperator, val) {}
+
+
+        // Field Enumerations
+        public const string Greater_Than_or_Equal_To = "0";
+        public const string Less_Than_or_Equal_To = "1";
+    }
+
+
+    /// <summary>
+    /// TriggerQty Field
+    /// </summary>/
+    public sealed class TriggerQty : IntField
+    {
+        public TriggerQty()
+            :base(Tags.TriggerQty) {}
+        public TriggerQty(int val)
+            :base(Tags.TriggerQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TrailingOffset Field
+    /// </summary>/
+    public sealed class TrailingOffset : IntField
+    {
+        public TrailingOffset()
+            :base(Tags.TrailingOffset) {}
+        public TrailingOffset(int val)
+            :base(Tags.TrailingOffset, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TrailingPriceType Field
+    /// </summary>/
+    public sealed class TrailingPriceType : StringField
+    {
+        public TrailingPriceType()
+            :base(Tags.TrailingPriceType) {}
+        public TrailingPriceType(string val)
+            :base(Tags.TrailingPriceType, val) {}
+
+
+        // Field Enumerations
+        public const string LTP = "0";
+        public const string Bid = "1";
+        public const string Ask = "2";
+        public const string SameSide = "3";
+        public const string OppositeSide = "4";
+    }
+
+
+    /// <summary>
+    /// OrderOriginationID Field
+    /// </summary>/
+    public sealed class OrderOriginationID : StringField
+    {
+        public OrderOriginationID()
+            :base(Tags.OrderOriginationID) {}
+        public OrderOriginationID(string val)
+            :base(Tags.OrderOriginationID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DisclosedQtyValue Field
+    /// </summary>/
+    public sealed class DisclosedQtyValue : IntField
+    {
+        public DisclosedQtyValue()
+            :base(Tags.DisclosedQtyValue) {}
+        public DisclosedQtyValue(int val)
+            :base(Tags.DisclosedQtyValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DisclosedQtyVariance Field
+    /// </summary>/
+    public sealed class DisclosedQtyVariance : IntField
+    {
+        public DisclosedQtyVariance()
+            :base(Tags.DisclosedQtyVariance) {}
+        public DisclosedQtyVariance(int val)
+            :base(Tags.DisclosedQtyVariance, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SlicerIntervalValue Field
+    /// </summary>/
+    public sealed class SlicerIntervalValue : IntField
+    {
+        public SlicerIntervalValue()
+            :base(Tags.SlicerIntervalValue) {}
+        public SlicerIntervalValue(int val)
+            :base(Tags.SlicerIntervalValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SlicerIntervalUnit Field
+    /// </summary>/
+    public sealed class SlicerIntervalUnit : StringField
+    {
+        public SlicerIntervalUnit()
+            :base(Tags.SlicerIntervalUnit) {}
+        public SlicerIntervalUnit(string val)
+            :base(Tags.SlicerIntervalUnit, val) {}
+
+
+        // Field Enumerations
+        public const string Minutes = "1";
+        public const string Seconds = "2";
+        public const string Milliseconds = "3";
+    }
+
+
+    /// <summary>
+    /// DurationType Field
+    /// </summary>/
+    public sealed class DurationType : StringField
+    {
+        public DurationType()
+            :base(Tags.DurationType) {}
+        public DurationType(string val)
+            :base(Tags.DurationType, val) {}
+
+
+        // Field Enumerations
+        public const string Time = "1";
+        public const string Time_Intervale = "2";
+        public const string Volume = "3";
+    }
+
+
+    /// <summary>
+    /// DurationValue Field
+    /// </summary>/
+    public sealed class DurationValue : IntField
+    {
+        public DurationValue()
+            :base(Tags.DurationValue) {}
+        public DurationValue(int val)
+            :base(Tags.DurationValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DurationUnit Field
+    /// </summary>/
+    public sealed class DurationUnit : StringField
+    {
+        public DurationUnit()
+            :base(Tags.DurationUnit) {}
+        public DurationUnit(string val)
+            :base(Tags.DurationUnit, val) {}
+
+
+        // Field Enumerations
+        public const string Hours = "1";
+        public const string Minutes = "2";
+        public const string Seconds = "3";
+    }
+
+
+    /// <summary>
+    /// DurationBeginTime Field
+    /// </summary>/
+    public sealed class DurationBeginTime : DateTimeField
+    {
+        public DurationBeginTime()
+            :base(Tags.DurationBeginTime) {}
+        public DurationBeginTime(DateTime val)
+            :base(Tags.DurationBeginTime, val) {}
+        public DurationBeginTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.DurationBeginTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// DurationEndTime Field
+    /// </summary>/
+    public sealed class DurationEndTime : DateTimeField
+    {
+        public DurationEndTime()
+            :base(Tags.DurationEndTime) {}
+        public DurationEndTime(DateTime val)
+            :base(Tags.DurationEndTime, val) {}
+        public DurationEndTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.DurationEndTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// LeftActionTrigger Field
+    /// </summary>/
+    public sealed class LeftActionTrigger : StringField
+    {
+        public LeftActionTrigger()
+            :base(Tags.LeftActionTrigger) {}
+        public LeftActionTrigger(string val)
+            :base(Tags.LeftActionTrigger, val) {}
+
+
+        // Field Enumerations
+        public const string At_End = "0";
+        public const string Half_Life = "1";
+    }
+
+
+    /// <summary>
+    /// LeftAction Field
+    /// </summary>/
+    public sealed class LeftAction : StringField
+    {
+        public LeftAction()
+            :base(Tags.LeftAction) {}
+        public LeftAction(string val)
+            :base(Tags.LeftAction, val) {}
+
+
+        // Field Enumerations
+        public const string Leave = "0";
+        public const string Merge = "1";
+        public const string Market = "2";
+        public const string Payup = "3";
+    }
+
+
+    /// <summary>
+    /// LeftPayupTicks Field
+    /// </summary>/
+    public sealed class LeftPayupTicks : IntField
+    {
+        public LeftPayupTicks()
+            :base(Tags.LeftPayupTicks) {}
+        public LeftPayupTicks(int val)
+            :base(Tags.LeftPayupTicks, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MarketOrderLimit Field
+    /// </summary>/
+    public sealed class MarketOrderLimit : IntField
+    {
+        public MarketOrderLimit()
+            :base(Tags.MarketOrderLimit) {}
+        public MarketOrderLimit(int val)
+            :base(Tags.MarketOrderLimit, val) {}
+
+    }
+
+
+    /// <summary>
+    /// RealizedPandL Field
+    /// </summary>/
+    public sealed class RealizedPandL : StringField
+    {
+        public RealizedPandL()
+            :base(Tags.RealizedPandL) {}
+        public RealizedPandL(string val)
+            :base(Tags.RealizedPandL, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ExchContractSymbol Field
+    /// </summary>/
+    public sealed class ExchContractSymbol : StringField
+    {
+        public ExchContractSymbol()
+            :base(Tags.ExchContractSymbol) {}
+        public ExchContractSymbol(string val)
+            :base(Tags.ExchContractSymbol, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PriceDisplayType Field
+    /// </summary>/
+    public sealed class PriceDisplayType : IntField
+    {
+        public PriceDisplayType()
+            :base(Tags.PriceDisplayType) {}
+        public PriceDisplayType(int val)
+            :base(Tags.PriceDisplayType, val) {}
+
+
+        // Field Enumerations
+        public const int NORMAL = 0;
+        public const int THIRTY_SECONDS = 1;
+        public const int YIELD_PRICE_ONE = 2;
+        public const int YIELD_PRICE_TWO = 3;
+        public const int DISCOUNT = 4;
+        public const int DECIMAL = 5;
+        public const int BASIS = 6;
+        public const int ROLL = 7;
+        public const int SPREAD = 8;
+        public const int VAL_512TH = 9;
+        public const int HALF_CENTS = 10;
+        public const int FOURTHS = 11;
+        public const int MODIFIED_FOURTHS = 12;
+        public const int EIGHTHS = 13;
+        public const int MODIFIED_DECIMAL_FOURTHS = 14;
+        public const int SIXTY_FOURTHS = 16;
+        public const int HALF_THIRTY_SECONDS = 17;
+        public const int QUARTER_THIRTY_SECONDS = 18;
+        public const int HALF_SIXTY_FOURTHS = 19;
+        public const int FIVES = 20;
+        public const int HALF_POINTS = 21;
+        public const int FIVE_ONE_THOUSANDTHS = 22;
+        public const int ONE_HUNDRETHS = 23;
+        public const int TENTHS = 24;
+        public const int TEN_HUNDREDTHS_OF_A_CENT = 25;
+        public const int NO_DECIMALS = 26;
+        public const int MODIFIED_1_40_POINTS = 27;
+        public const int EIGHTH_THIRTY_SECONDS = 28;
+        public const int BROKERTEC_1_64 = 30;
+        public const int BROKERTEC_2_8 = 31;
+        public const int BROKERTEC_2_8_OF_1_32 = 32;
+        public const int BROKERTEC_1_8_OF_1_32 = 33;
+        public const int BROKERTEC_BOTH_1_100_AND_1_8 = 34;
+        public const int BROKERTEC_NORMAL = 35;
+        public const int BROKERTEC_POINTS_FFQ = 36;
+        public const int BROKERTEC_32NDS_Q = 37;
+        public const int QUARTER_32NDS_4X = 38;
+        public const int QUARTER_32NDS_2X = 39;
+        public const int BROKERTEC_YIELD = 40;
+        public const int HALF_CENTS_2X = 41;
+        public const int NORMAL_2X = 42;
+        public const int NORMAL_5X = 43;
+        public const int NORMAL_100X = 44;
+        public const int FIVE_ONE_THOUSANDTHS_2X = 45;
+        public const int FIVE_ONE_THOUSANDTHS_5X = 46;
+        public const int FIVE_ONE_THOUSANDTHS_10X = 47;
+        public const int TEN_HUNDREDTHS_2X = 48;
+        public const int TEN_HUNDREDTHS_5X = 49;
+        public const int TEN_HUNDREDTHS_10X = 50;
+        public const int QUARTER_ONE_HUNDREDTHS = 51;
+        public const int NORMAL_10X = 52;
+        public const int NORMAL_50X = 53;
+        public const int NORMAL_500X = 54;
+        public const int NORMAL_25X = 55;
+        public const int BTEC_INVERTED = 56;
+    }
+
+
+    /// <summary>
+    /// TickSize Field
+    /// </summary>/
+    public sealed class TickSize : DecimalField
+    {
+        public TickSize()
+            :base(Tags.TickSize) {}
+        public TickSize(Decimal val)
+            :base(Tags.TickSize, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PointValue Field
+    /// </summary>/
+    public sealed class PointValue : DecimalField
+    {
+        public PointValue()
+            :base(Tags.PointValue) {}
+        public PointValue(Decimal val)
+            :base(Tags.PointValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NumTickTblEntries Field
+    /// </summary>/
+    public sealed class NumTickTblEntries : IntField
+    {
+        public NumTickTblEntries()
+            :base(Tags.NumTickTblEntries) {}
+        public NumTickTblEntries(int val)
+            :base(Tags.NumTickTblEntries, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NumTicks Field
+    /// </summary>/
+    public sealed class NumTicks : IntField
+    {
+        public NumTicks()
+            :base(Tags.NumTicks) {}
+        public NumTicks(int val)
+            :base(Tags.NumTicks, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MaxPrice Field
+    /// </summary>/
+    public sealed class MaxPrice : DecimalField
+    {
+        public MaxPrice()
+            :base(Tags.MaxPrice) {}
+        public MaxPrice(Decimal val)
+            :base(Tags.MaxPrice, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DeliveryUnit Field
+    /// </summary>/
+    public sealed class DeliveryUnit : IntField
+    {
+        public DeliveryUnit()
+            :base(Tags.DeliveryUnit) {}
+        public DeliveryUnit(int val)
+            :base(Tags.DeliveryUnit, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LotSize Field
+    /// </summary>/
+    public sealed class LotSize : IntField
+    {
+        public LotSize()
+            :base(Tags.LotSize) {}
+        public LotSize(int val)
+            :base(Tags.LotSize, val) {}
+
+    }
+
+
+    /// <summary>
+    /// Blocks Field
+    /// </summary>/
+    public sealed class Blocks : IntField
+    {
+        public Blocks()
+            :base(Tags.Blocks) {}
+        public Blocks(int val)
+            :base(Tags.Blocks, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TradesInFlow Field
+    /// </summary>/
+    public sealed class TradesInFlow : CharField
+    {
+        public TradesInFlow()
+            :base(Tags.TradesInFlow) {}
+        public TradesInFlow(char val)
+            :base(Tags.TradesInFlow, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PassiveAggressive Field
+    /// </summary>/
+    public sealed class PassiveAggressive : CharField
+    {
+        public PassiveAggressive()
+            :base(Tags.PassiveAggressive) {}
+        public PassiveAggressive(char val)
+            :base(Tags.PassiveAggressive, val) {}
+
+
+        // Field Enumerations
+        public const char PASSIVE = 'P';
+        public const char AGGRESSIVE = 'A';
+    }
+
+
+    /// <summary>
+    /// AutoAggressive Field
+    /// </summary>/
+    public sealed class AutoAggressive : BooleanField
+    {
+        public AutoAggressive()
+            :base(Tags.AutoAggressive) {}
+        public AutoAggressive(Boolean val)
+            :base(Tags.AutoAggressive, val) {}
+
+
+        // Field Enumerations
+        public const Boolean AUTOAGRESSIVE_ORDER = true;
+        public const Boolean NONAUTOAGRESSIVE_ORDER = false;
+    }
+
+
+    /// <summary>
+    /// MDEntryState Field
+    /// </summary>/
+    public sealed class MDEntryState : IntField
+    {
+        public MDEntryState()
+            :base(Tags.MDEntryState) {}
+        public MDEntryState(int val)
+            :base(Tags.MDEntryState, val) {}
+
+
+        // Field Enumerations
+        public const int NONE = 1;
+        public const int PUBLIC_WORKUP_AGGRESSOR_HIT = 2;
+        public const int PUBLIC_WORKUP_AGGRESSOR_TAKE = 3;
+        public const int PRIVATE_WORKUP_AGGRESSOR_HIT = 4;
+        public const int PRIVATE_WORKUP_AGGRESSOR_TAKE = 5;
+    }
+
+
+    /// <summary>
+    /// MDEntrySizeType Field
+    /// </summary>/
+    public sealed class MDEntrySizeType : StringField
+    {
+        public MDEntrySizeType()
+            :base(Tags.MDEntrySizeType) {}
+        public MDEntrySizeType(string val)
+            :base(Tags.MDEntrySizeType, val) {}
+
+
+        // Field Enumerations
+        public const string Minimum_Available = "1";
+        public const string Net_Aggregate = "2";
+        public const string Minimum_Available_and_Net_Aggregate = "1 2";
+    }
+
+
+    /// <summary>
+    /// AggressorSide Field
+    /// </summary>/
+    public sealed class AggressorSide : IntField
+    {
+        public AggressorSide()
+            :base(Tags.AggressorSide) {}
+        public AggressorSide(int val)
+            :base(Tags.AggressorSide, val) {}
+
+
+        // Field Enumerations
+        public const int Buyer = 1;
+        public const int Seller = 2;
+    }
+
+
+    /// <summary>
+    /// ExactNumOrdersIndicator Field
+    /// </summary>/
+    public sealed class ExactNumOrdersIndicator : CharField
+    {
+        public ExactNumOrdersIndicator()
+            :base(Tags.ExactNumOrdersIndicator) {}
+        public ExactNumOrdersIndicator(char val)
+            :base(Tags.ExactNumOrdersIndicator, val) {}
+
+
+        // Field Enumerations
+        public const char Yes = 'Y';
+        public const char No = 'N';
+    }
+
+
+    /// <summary>
+    /// ExchTickSize Field
+    /// </summary>/
+    public sealed class ExchTickSize : DecimalField
+    {
+        public ExchTickSize()
+            :base(Tags.ExchTickSize) {}
+        public ExchTickSize(Decimal val)
+            :base(Tags.ExchTickSize, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ExchPointValue Field
+    /// </summary>/
+    public sealed class ExchPointValue : DecimalField
+    {
+        public ExchPointValue()
+            :base(Tags.ExchPointValue) {}
+        public ExchPointValue(Decimal val)
+            :base(Tags.ExchPointValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSide Field
+    /// </summary>/
+    public sealed class LegSide : CharField
+    {
+        public LegSide()
+            :base(Tags.LegSide) {}
+        public LegSide(char val)
+            :base(Tags.LegSide, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PosReqId Field
+    /// </summary>/
+    public sealed class PosReqId : StringField
+    {
+        public PosReqId()
+            :base(Tags.PosReqId) {}
+        public PosReqId(string val)
+            :base(Tags.PosReqId, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PosMaintRptId Field
+    /// </summary>/
+    public sealed class PosMaintRptId : StringField
+    {
+        public PosMaintRptId()
+            :base(Tags.PosMaintRptId) {}
+        public PosMaintRptId(string val)
+            :base(Tags.PosMaintRptId, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PosReqType Field
+    /// </summary>/
+    public sealed class PosReqType : IntField
+    {
+        public PosReqType()
+            :base(Tags.PosReqType) {}
+        public PosReqType(int val)
+            :base(Tags.PosReqType, val) {}
+
+
+        // Field Enumerations
+        public const int POSITIONS = 0;
+        public const int TRADES = 1;
+        public const int EXERCISES = 2;
+        public const int ASSIGNMENTS = 3;
+        public const int SETTLEMENT_ACTIVITY = 4;
+        public const int BACKOUT_MESSAGE = 5;
+        public const int DELTA_POSITIONS = 6;
+        public const int START_OF_DAYS = 4;
+        public const int MANUAL_FILLS = 5;
+        public const int DETAILED_START_OF_DAYS = 6;
+    }
+
+
+    /// <summary>
+    /// TotalNumPosReports Field
+    /// </summary>/
+    public sealed class TotalNumPosReports : IntField
+    {
+        public TotalNumPosReports()
+            :base(Tags.TotalNumPosReports) {}
+        public TotalNumPosReports(int val)
+            :base(Tags.TotalNumPosReports, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TotalNumOrders Field
+    /// </summary>/
+    public sealed class TotalNumOrders : IntField
+    {
+        public TotalNumOrders()
+            :base(Tags.TotalNumOrders) {}
+        public TotalNumOrders(int val)
+            :base(Tags.TotalNumOrders, val) {}
+
+    }
+
+
+    /// <summary>
+    /// RequestTickTable Field
+    /// </summary>/
+    public sealed class RequestTickTable : BooleanField
+    {
+        public RequestTickTable()
+            :base(Tags.RequestTickTable) {}
+        public RequestTickTable(Boolean val)
+            :base(Tags.RequestTickTable, val) {}
+
+
+        // Field Enumerations
+        public const Boolean YES = true;
+        public const Boolean NO = false;
+    }
+
+
+    /// <summary>
+    /// ForceLogout Field
+    /// </summary>/
+    public sealed class ForceLogout : IntField
+    {
+        public ForceLogout()
+            :base(Tags.ForceLogout) {}
+        public ForceLogout(int val)
+            :base(Tags.ForceLogout, val) {}
+
+
+        // Field Enumerations
+        public const int NOT_FORCED = 0;
+        public const int FORCED = 1;
+    }
+
+
+    /// <summary>
+    /// GatewayStatusReqId Field
+    /// </summary>/
+    public sealed class GatewayStatusReqId : StringField
+    {
+        public GatewayStatusReqId()
+            :base(Tags.GatewayStatusReqId) {}
+        public GatewayStatusReqId(string val)
+            :base(Tags.GatewayStatusReqId, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoGatewayStatus Field
+    /// </summary>/
+    public sealed class NoGatewayStatus : IntField
+    {
+        public NoGatewayStatus()
+            :base(Tags.NoGatewayStatus) {}
+        public NoGatewayStatus(int val)
+            :base(Tags.NoGatewayStatus, val) {}
+
+    }
+
+
+    /// <summary>
+    /// GatewayStatus Field
+    /// </summary>/
+    public sealed class GatewayStatus : IntField
+    {
+        public GatewayStatus()
+            :base(Tags.GatewayStatus) {}
+        public GatewayStatus(int val)
+            :base(Tags.GatewayStatus, val) {}
+
+
+        // Field Enumerations
+        public const int HALTED = 1;
+        public const int OPEN = 2;
+        public const int CLOSED = 3;
+        public const int PRE_OPEN = 4;
+        public const int PRE_CLOSED = 5;
+    }
+
+
+    /// <summary>
+    /// ExchangeGateway Field
+    /// </summary>/
+    public sealed class ExchangeGateway : StringField
+    {
+        public ExchangeGateway()
+            :base(Tags.ExchangeGateway) {}
+        public ExchangeGateway(string val)
+            :base(Tags.ExchangeGateway, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SubExchangeGateway Field
+    /// </summary>/
+    public sealed class SubExchangeGateway : IntField
+    {
+        public SubExchangeGateway()
+            :base(Tags.SubExchangeGateway) {}
+        public SubExchangeGateway(int val)
+            :base(Tags.SubExchangeGateway, val) {}
+
+
+        // Field Enumerations
+        public const int PRICE = 1;
+        public const int ORDER = 2;
+        public const int FILL = 3;
+    }
+
+
+    /// <summary>
+    /// TTAccountType Field
+    /// </summary>/
+    public sealed class TTAccountType : StringField
+    {
+        public TTAccountType()
+            :base(Tags.TTAccountType) {}
+        public TTAccountType(string val)
+            :base(Tags.TTAccountType, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoGateways Field
+    /// </summary>/
+    public sealed class NoGateways : IntField
+    {
+        public NoGateways()
+            :base(Tags.NoGateways) {}
+        public NoGateways(int val)
+            :base(Tags.NoGateways, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TTSecurityAlias Field
+    /// </summary>/
+    public sealed class TTSecurityAlias : StringField
+    {
+        public TTSecurityAlias()
+            :base(Tags.TTSecurityAlias) {}
+        public TTSecurityAlias(string val)
+            :base(Tags.TTSecurityAlias, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TTStrategyEngine Field
+    /// </summary>/
+    public sealed class TTStrategyEngine : StringField
+    {
+        public TTStrategyEngine()
+            :base(Tags.TTStrategyEngine) {}
+        public TTStrategyEngine(string val)
+            :base(Tags.TTStrategyEngine, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PriceFeedStatus Field
+    /// </summary>/
+    public sealed class PriceFeedStatus : IntField
+    {
+        public PriceFeedStatus()
+            :base(Tags.PriceFeedStatus) {}
+        public PriceFeedStatus(int val)
+            :base(Tags.PriceFeedStatus, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DeliveryTerm Field
+    /// </summary>/
+    public sealed class DeliveryTerm : CharField
+    {
+        public DeliveryTerm()
+            :base(Tags.DeliveryTerm) {}
+        public DeliveryTerm(char val)
+            :base(Tags.DeliveryTerm, val) {}
+
+
+        // Field Enumerations
+        public const char DAY = 'D';
+        public const char WEEK = 'W';
+        public const char BALANCE_OF_MONTH = 'B';
+        public const char QUARTER = 'Q';
+        public const char SEASON = 'S';
+        public const char YEAR = 'Y';
+        public const char VARIABLE = 'V';
+        public const char BALANCE_OF_WEEK = 'L';
+        public const char CUSTOM = 'X';
+        public const char SAME_DAY = 'A';
+        public const char NEXT_DAY = 'N';
+    }
+
+
+    /// <summary>
+    /// UnderlyingDeliveryTerm Field
+    /// </summary>/
+    public sealed class UnderlyingDeliveryTerm : CharField
+    {
+        public UnderlyingDeliveryTerm()
+            :base(Tags.UnderlyingDeliveryTerm) {}
+        public UnderlyingDeliveryTerm(char val)
+            :base(Tags.UnderlyingDeliveryTerm, val) {}
+
+
+        // Field Enumerations
+        public const char DAY = 'D';
+        public const char WEEK = 'W';
+        public const char BALANCE = 'B';
+        public const char QUARTER = 'Q';
+        public const char SEASON = 'S';
+        public const char YEAR = 'Y';
+        public const char VARIABLE = 'V';
+    }
+
+
+    /// <summary>
+    /// IncludeHistoricalFills Field
+    /// </summary>/
+    public sealed class IncludeHistoricalFills : CharField
+    {
+        public IncludeHistoricalFills()
+            :base(Tags.IncludeHistoricalFills) {}
+        public IncludeHistoricalFills(char val)
+            :base(Tags.IncludeHistoricalFills, val) {}
+
+
+        // Field Enumerations
+        public const char Yes = 'Y';
+        public const char No = 'N';
+    }
+
+
+    /// <summary>
+    /// IncludeNumberOfOrders Field
+    /// </summary>/
+    public sealed class IncludeNumberOfOrders : CharField
+    {
+        public IncludeNumberOfOrders()
+            :base(Tags.IncludeNumberOfOrders) {}
+        public IncludeNumberOfOrders(char val)
+            :base(Tags.IncludeNumberOfOrders, val) {}
+
+
+        // Field Enumerations
+        public const char Yes = 'Y';
+        public const char No = 'N';
+    }
+
+
+    /// <summary>
+    /// ExchCred Field
+    /// </summary>/
+    public sealed class ExchCred : StringField
+    {
+        public ExchCred()
+            :base(Tags.ExchCred) {}
+        public ExchCred(string val)
+            :base(Tags.ExchCred, val) {}
+
+    }
+
+
+    /// <summary>
+    /// BrokerID Field
+    /// </summary>/
+    public sealed class BrokerID : StringField
+    {
+        public BrokerID()
+            :base(Tags.BrokerID) {}
+        public BrokerID(string val)
+            :base(Tags.BrokerID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// CompanyID Field
+    /// </summary>/
+    public sealed class CompanyID : StringField
+    {
+        public CompanyID()
+            :base(Tags.CompanyID) {}
+        public CompanyID(string val)
+            :base(Tags.CompanyID, val) {}
 
     }
 
@@ -7102,6 +6689,19 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// TotNoOrders Field
+    /// </summary>/
+    public sealed class TotNoOrders : IntField
+    {
+        public TotNoOrders()
+            :base(Tags.TotNoOrders) {}
+        public TotNoOrders(int val)
+            :base(Tags.TotNoOrders, val) {}
+
+    }
+
+
+    /// <summary>
     /// PositionEffect Field
     /// </summary>/
     public sealed class PositionEffect : CharField
@@ -7136,6 +6736,90 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// XmlDataLen Field
+    /// </summary>/
+    public sealed class XmlDataLen : IntField
+    {
+        public XmlDataLen()
+            :base(Tags.XmlDataLen) {}
+        public XmlDataLen(int val)
+            :base(Tags.XmlDataLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// XmlData Field
+    /// </summary>/
+    public sealed class XmlData : StringField
+    {
+        public XmlData()
+            :base(Tags.XmlData) {}
+        public XmlData(string val)
+            :base(Tags.XmlData, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SettlInstRefID Field
+    /// </summary>/
+    public sealed class SettlInstRefID : StringField
+    {
+        public SettlInstRefID()
+            :base(Tags.SettlInstRefID) {}
+        public SettlInstRefID(string val)
+            :base(Tags.SettlInstRefID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoRoutingIDs Field
+    /// </summary>/
+    public sealed class NoRoutingIDs : IntField
+    {
+        public NoRoutingIDs()
+            :base(Tags.NoRoutingIDs) {}
+        public NoRoutingIDs(int val)
+            :base(Tags.NoRoutingIDs, val) {}
+
+    }
+
+
+    /// <summary>
+    /// RoutingType Field
+    /// </summary>/
+    public sealed class RoutingType : IntField
+    {
+        public RoutingType()
+            :base(Tags.RoutingType) {}
+        public RoutingType(int val)
+            :base(Tags.RoutingType, val) {}
+
+
+        // Field Enumerations
+        public const int TARGET_FIRM = 1;
+        public const int TARGET_LIST = 2;
+        public const int BLOCK_FIRM = 3;
+        public const int BLOCK_LIST = 4;
+    }
+
+
+    /// <summary>
+    /// RoutingID Field
+    /// </summary>/
+    public sealed class RoutingID : StringField
+    {
+        public RoutingID()
+            :base(Tags.RoutingID) {}
+        public RoutingID(string val)
+            :base(Tags.RoutingID, val) {}
+
+    }
+
+
+    /// <summary>
     /// Spread Field
     /// </summary>/
     public sealed class Spread : DecimalField
@@ -7145,6 +6829,35 @@ namespace QuickFix.Fields
         public Spread(Decimal val)
             :base(Tags.Spread, val) {}
 
+    }
+
+
+    /// <summary>
+    /// Benchmark Field
+    /// </summary>/
+    public sealed class Benchmark : CharField
+    {
+        public Benchmark()
+            :base(Tags.Benchmark) {}
+        public Benchmark(char val)
+            :base(Tags.Benchmark, val) {}
+
+
+        // Field Enumerations
+        public const char CURVE = '1';
+        public const char VAL_5YR = '2';
+        public const char OLD5 = '3';
+        public const char VAL_10YR = '4';
+        public const char OLD10 = '5';
+        public const char VAL_30YR = '6';
+        public const char OLD30 = '7';
+        public const char VAL_3MOLIBOR = '8';
+        public const char VAL_6MOLIBOR = '9';
+        public const char FIVEYR = '2';
+        public const char TENYR = '4';
+        public const char THIRTYYR = '6';
+        public const char THREEMOLIBOR = '8';
+        public const char SIXMOLIBOR = '9';
     }
 
 
@@ -7197,6 +6910,19 @@ namespace QuickFix.Fields
             :base(Tags.BenchmarkCurvePoint) {}
         public BenchmarkCurvePoint(string val)
             :base(Tags.BenchmarkCurvePoint, val) {}
+
+    }
+
+
+    /// <summary>
+    /// CouponRate Field
+    /// </summary>/
+    public sealed class CouponRate : DecimalField
+    {
+        public CouponRate()
+            :base(Tags.CouponRate) {}
+        public CouponRate(Decimal val)
+            :base(Tags.CouponRate, val) {}
 
     }
 
@@ -7288,6 +7014,19 @@ namespace QuickFix.Fields
             :base(Tags.ExDate) {}
         public ExDate(string val)
             :base(Tags.ExDate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ContractMultiplier Field
+    /// </summary>/
+    public sealed class ContractMultiplier : DecimalField
+    {
+        public ContractMultiplier()
+            :base(Tags.ContractMultiplier) {}
+        public ContractMultiplier(Decimal val)
+            :base(Tags.ContractMultiplier, val) {}
 
     }
 
@@ -7818,6 +7557,356 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// TickDirection Field
+    /// </summary>/
+    public sealed class TickDirection : CharField
+    {
+        public TickDirection()
+            :base(Tags.TickDirection) {}
+        public TickDirection(char val)
+            :base(Tags.TickDirection, val) {}
+
+
+        // Field Enumerations
+        public const char PLUS_TICK = '0';
+        public const char ZERO_PLUS_TICK = '1';
+        public const char MINUS_TICK = '2';
+        public const char ZERO_MINUS_TICK = '3';
+    }
+
+
+    /// <summary>
+    /// MDMkt Field
+    /// </summary>/
+    public sealed class MDMkt : StringField
+    {
+        public MDMkt()
+            :base(Tags.MDMkt) {}
+        public MDMkt(string val)
+            :base(Tags.MDMkt, val) {}
+
+    }
+
+
+    /// <summary>
+    /// QuoteCondition Field
+    /// </summary>/
+    public sealed class QuoteCondition : StringField
+    {
+        public QuoteCondition()
+            :base(Tags.QuoteCondition) {}
+        public QuoteCondition(string val)
+            :base(Tags.QuoteCondition, val) {}
+
+
+        // Field Enumerations
+        public const string OPEN_ACTIVE = "A";
+        public const string CLOSED_INACTIVE = "B";
+        public const string EXCHANGE_BEST = "C";
+        public const string CONSOLIDATED_BEST = "D";
+        public const string LOCKED = "E";
+        public const string CROSSED = "F";
+        public const string DEPTH = "G";
+        public const string FAST_TRADING = "H";
+        public const string NON_FIRM = "I";
+        public const string MANUAL_SLOW_QUOTE = "L";
+        public const string OUTRIGHT_PRICE = "J";
+        public const string IMPLIED_PRICE = "K";
+        public const string DEPTH_ON_OFFER = "M";
+        public const string DEPTH_ON_BID = "N";
+        public const string CLOSING = "O";
+        public const string NEWS_DISSEMINATION = "P";
+        public const string TRADING_RANGE = "Q";
+        public const string ORDER_INFLUX = "R";
+        public const string DUE_TO_RELATED = "S";
+        public const string NEWS_PENDING = "T";
+        public const string ADDITIONAL_INFO = "U";
+        public const string ADDITIONAL_INFO_DUE_TO_RELATED = "V";
+        public const string RESUME = "W";
+        public const string VIEW_OF_COMMON = "X";
+        public const string VOLUME_ALERT = "Y";
+        public const string ORDER_IMBALANCE = "Z";
+        public const string EQUIPMENT_CHANGEOVER = "a";
+        public const string NO_OPEN = "b";
+        public const string REGULAR_ETH = "c";
+        public const string AUTOMATIC_EXECUTION = "d";
+        public const string AUTOMATIC_EXECUTION_ETH = "e";
+        public const string FAST_MARKET_ETH = "f ";
+        public const string INACTIVE_ETH = "g";
+        public const string ROTATION = "h";
+        public const string ROTATION_ETH = "i";
+        public const string HALT = "j";
+        public const string HALT_ETH = "k";
+        public const string DUE_TO_NEWS_DISSEMINATION = "l";
+        public const string DUE_TO_NEWS_PENDING = "m";
+        public const string TRADING_RESUME = "n";
+        public const string OUT_OF_SEQUENCE = "o";
+        public const string BID_SPECIALIST = "p";
+        public const string OFFER_SPECIALIST = "q";
+        public const string BID_OFFER_SPECIALIST = "r";
+        public const string END_OF_DAY_SAM = "s";
+        public const string FORBIDDEN_SAM = "t";
+        public const string FROZEN_SAM = "u";
+        public const string PREOPENING_SAM = "v";
+        public const string OPENING_SAM = "w";
+        public const string OPEN_SAM = "x";
+        public const string SURVEILLANCE_SAM = "y";
+        public const string SUSPENDED_SAM = "z";
+        public const string RESERVED_SAM = "0";
+        public const string NO_ACTIVE_SAM = "1";
+        public const string RESTRICTED = "2";
+        public const string REST_OF_BOOK_VWAP = "3";
+        public const string BETTER_PRICES_IN_CONDITIONAL_ORDERS = "4";
+        public const string MEDIAN_PRICE = "5";
+        public const string FULL_CURVE = "6";
+        public const string FLAT_CURVE = "7";
+        public const string OPEN = "A";
+        public const string CLOSED = "B";
+    }
+
+
+    /// <summary>
+    /// MDEntryRefID Field
+    /// </summary>/
+    public sealed class MDEntryRefID : StringField
+    {
+        public MDEntryRefID()
+            :base(Tags.MDEntryRefID) {}
+        public MDEntryRefID(string val)
+            :base(Tags.MDEntryRefID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MDReqRejReason Field
+    /// </summary>/
+    public sealed class MDReqRejReason : CharField
+    {
+        public MDReqRejReason()
+            :base(Tags.MDReqRejReason) {}
+        public MDReqRejReason(char val)
+            :base(Tags.MDReqRejReason, val) {}
+
+
+        // Field Enumerations
+        public const char UNKNOWN_SYMBOL = '0';
+        public const char DUPLICATE_MDREQID = '1';
+        public const char INSUFFICIENT_BANDWIDTH = '2';
+        public const char INSUFFICIENT_PERMISSIONS = '3';
+        public const char UNSUPPORTED_SUBSCRIPTIONREQUESTTYPE = '4';
+        public const char UNSUPPORTED_MARKETDEPTH = '5';
+        public const char UNSUPPORTED_MDUPDATETYPE = '6';
+        public const char UNSUPPORTED_AGGREGATEDBOOK = '7';
+        public const char UNSUPPORTED_MDENTRYTYPE = '8';
+        public const char UNSUPPORTED_TRADINGSESSIONID = '9';
+        public const char UNSUPPORTED_SCOPE = 'A';
+        public const char UNSUPPORTED_OPENCLOSESETTLEFLAG = 'B';
+        public const char UNSUPPORTED_MDIMPLICITDELETE = 'C';
+        public const char INSUFFICIENT_CREDIT = 'D';
+    }
+
+
+    /// <summary>
+    /// MDEntryOriginator Field
+    /// </summary>/
+    public sealed class MDEntryOriginator : StringField
+    {
+        public MDEntryOriginator()
+            :base(Tags.MDEntryOriginator) {}
+        public MDEntryOriginator(string val)
+            :base(Tags.MDEntryOriginator, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LocationID Field
+    /// </summary>/
+    public sealed class LocationID : StringField
+    {
+        public LocationID()
+            :base(Tags.LocationID) {}
+        public LocationID(string val)
+            :base(Tags.LocationID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DeskID Field
+    /// </summary>/
+    public sealed class DeskID : StringField
+    {
+        public DeskID()
+            :base(Tags.DeskID) {}
+        public DeskID(string val)
+            :base(Tags.DeskID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DeleteReason Field
+    /// </summary>/
+    public sealed class DeleteReason : CharField
+    {
+        public DeleteReason()
+            :base(Tags.DeleteReason) {}
+        public DeleteReason(char val)
+            :base(Tags.DeleteReason, val) {}
+
+
+        // Field Enumerations
+        public const char CANCELLATION = '0';
+        public const char ERROR = '1';
+        public const char CANCELATION_TRADE_BUST = '0';
+        public const char CANCELATION = '0';
+    }
+
+
+    /// <summary>
+    /// OpenCloseSettleFlag Field
+    /// </summary>/
+    public sealed class OpenCloseSettleFlag : StringField
+    {
+        public OpenCloseSettleFlag()
+            :base(Tags.OpenCloseSettleFlag) {}
+        public OpenCloseSettleFlag(string val)
+            :base(Tags.OpenCloseSettleFlag, val) {}
+
+
+        // Field Enumerations
+        public const string DAILY_OPEN = "0";
+        public const string SESSION_OPEN = "1";
+        public const string DELIVERY_SETTLEMENT_PRICE = "2";
+        public const string EXPECTED_PRICE = "3";
+        public const string PRICE_FROM_PREVIOUS_BUSINESS_DAY = "4";
+    }
+
+
+    /// <summary>
+    /// SellerDays Field
+    /// </summary>/
+    public sealed class SellerDays : IntField
+    {
+        public SellerDays()
+            :base(Tags.SellerDays) {}
+        public SellerDays(int val)
+            :base(Tags.SellerDays, val) {}
+
+    }
+
+
+    /// <summary>
+    /// FinancialStatus Field
+    /// </summary>/
+    public sealed class FinancialStatus : StringField
+    {
+        public FinancialStatus()
+            :base(Tags.FinancialStatus) {}
+        public FinancialStatus(string val)
+            :base(Tags.FinancialStatus, val) {}
+
+
+        // Field Enumerations
+        public const string BANKRUPT = "1";
+        public const string PENDING_DELISTING = "2";
+        public const string RESTRICTED = "3";
+    }
+
+
+    /// <summary>
+    /// CorporateAction Field
+    /// </summary>/
+    public sealed class CorporateAction : StringField
+    {
+        public CorporateAction()
+            :base(Tags.CorporateAction) {}
+        public CorporateAction(string val)
+            :base(Tags.CorporateAction, val) {}
+
+
+        // Field Enumerations
+        public const string EX_DIVIDEND = "A";
+        public const string EX_DISTRIBUTION = "B";
+        public const string EX_RIGHTS = "C";
+        public const string NEW = "D";
+        public const string EX_INTEREST = "E";
+        public const string CASH_DIVIDEND = "F";
+        public const string STOCK_DIVIDEND = "G";
+        public const string NON_INTEGER_STOCK_SPLIT = "H";
+        public const string REVERSE_STOCK_SPLIT = "I";
+        public const string STANDARD_INTEGER_STOCK_SPLIT = "J";
+        public const string POSITION_CONSOLIDATION = "K";
+        public const string LIQUIDATION_REORGANIZATION = "L";
+        public const string MERGER_REORGANIZATION = "M";
+        public const string RIGHTS_OFFERING = "N";
+        public const string SHAREHOLDER_MEETING = "O";
+        public const string SPINOFF = "P";
+        public const string TENDER_OFFER = "Q";
+        public const string WARRANT = "R";
+        public const string SPECIAL_ACTION = "S";
+        public const string SYMBOL_CONVERSION = "T";
+        public const string CUSIP = "U";
+        public const string LEAP_ROLLOVER = "V";
+        public const string SUCCESSION_EVENT = "W";
+    }
+
+
+    /// <summary>
+    /// DefBidSize Field
+    /// </summary>/
+    public sealed class DefBidSize : DecimalField
+    {
+        public DefBidSize()
+            :base(Tags.DefBidSize) {}
+        public DefBidSize(Decimal val)
+            :base(Tags.DefBidSize, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DefOfferSize Field
+    /// </summary>/
+    public sealed class DefOfferSize : DecimalField
+    {
+        public DefOfferSize()
+            :base(Tags.DefOfferSize) {}
+        public DefOfferSize(Decimal val)
+            :base(Tags.DefOfferSize, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoQuoteEntries Field
+    /// </summary>/
+    public sealed class NoQuoteEntries : IntField
+    {
+        public NoQuoteEntries()
+            :base(Tags.NoQuoteEntries) {}
+        public NoQuoteEntries(int val)
+            :base(Tags.NoQuoteEntries, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoQuoteSets Field
+    /// </summary>/
+    public sealed class NoQuoteSets : IntField
+    {
+        public NoQuoteSets()
+            :base(Tags.NoQuoteSets) {}
+        public NoQuoteSets(int val)
+            :base(Tags.NoQuoteSets, val) {}
+
+    }
+
+
+    /// <summary>
     /// QuoteStatus Field
     /// </summary>/
     public sealed class QuoteStatus : IntField
@@ -7855,6 +7944,137 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// QuoteCancelType Field
+    /// </summary>/
+    public sealed class QuoteCancelType : IntField
+    {
+        public QuoteCancelType()
+            :base(Tags.QuoteCancelType) {}
+        public QuoteCancelType(int val)
+            :base(Tags.QuoteCancelType, val) {}
+
+
+        // Field Enumerations
+        public const int CANCEL_FOR_ONE_OR_MORE_SECURITIES = 1;
+        public const int CANCEL_FOR_SECURITY_TYPE = 2;
+        public const int CANCEL_FOR_UNDERLYING_SECURITY = 3;
+        public const int CANCEL_ALL_QUOTES = 4;
+        public const int CANCEL_QUOTE_SPECIFIED_IN_QUOTEID = 5;
+        public const int CANCEL_BY_QUOTETYPE = 6;
+        public const int CANCEL_FOR_SECURITY_ISSUER = 7;
+        public const int CANCEL_FOR_ISSUER_OF_UNDERLYING_SECURITY = 8;
+        public const int CANCEL_FOR_SYMBOL = 1;
+        public const int CANCEL_FOR_UNDERLYING_SYMBOL = 3;
+    }
+
+
+    /// <summary>
+    /// QuoteEntryID Field
+    /// </summary>/
+    public sealed class QuoteEntryID : StringField
+    {
+        public QuoteEntryID()
+            :base(Tags.QuoteEntryID) {}
+        public QuoteEntryID(string val)
+            :base(Tags.QuoteEntryID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// QuoteRejectReason Field
+    /// </summary>/
+    public sealed class QuoteRejectReason : IntField
+    {
+        public QuoteRejectReason()
+            :base(Tags.QuoteRejectReason) {}
+        public QuoteRejectReason(int val)
+            :base(Tags.QuoteRejectReason, val) {}
+
+
+        // Field Enumerations
+        public const int UNKNOWN_SYMBOL = 1;
+        public const int EXCHANGE = 2;
+        public const int QUOTE_REQUEST_EXCEEDS_LIMIT = 3;
+        public const int TOO_LATE_TO_ENTER = 4;
+        public const int UNKNOWN_QUOTE = 5;
+        public const int DUPLICATE_QUOTE = 6;
+        public const int INVALID_BID_ASK_SPREAD = 7;
+        public const int INVALID_PRICE = 8;
+        public const int NOT_AUTHORIZED_TO_QUOTE_SECURITY = 9;
+        public const int OTHER = 99;
+        public const int PRICE_EXCEEDS_CURRENT_PRICE_BAND = 10;
+        public const int QUOTE_LOCKED = 11;
+        public const int INVALID_OR_UNKNOWN_SECURITY_ISSUER = 12;
+        public const int INVALID_OR_UNKNOWN_ISSUER_OF_UNDERLYING_SECURITY = 13;
+        public const int EXCHANGE_CLOSED = 2;
+    }
+
+
+    /// <summary>
+    /// QuoteResponseLevel Field
+    /// </summary>/
+    public sealed class QuoteResponseLevel : IntField
+    {
+        public QuoteResponseLevel()
+            :base(Tags.QuoteResponseLevel) {}
+        public QuoteResponseLevel(int val)
+            :base(Tags.QuoteResponseLevel, val) {}
+
+
+        // Field Enumerations
+        public const int NO_ACKNOWLEDGEMENT = 0;
+        public const int ACKNOWLEDGE_ONLY_NEGATIVE_OR_ERRONEOUS_QUOTES = 1;
+        public const int ACKNOWLEDGE_EACH_QUOTE_MESSAGE = 2;
+        public const int SUMMARY_ACKNOWLEDGEMENT = 3;
+        public const int ACKNOWLEDGE_EACH_QUOTE_MESSAGES = 2;
+    }
+
+
+    /// <summary>
+    /// QuoteSetID Field
+    /// </summary>/
+    public sealed class QuoteSetID : StringField
+    {
+        public QuoteSetID()
+            :base(Tags.QuoteSetID) {}
+        public QuoteSetID(string val)
+            :base(Tags.QuoteSetID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// QuoteRequestType Field
+    /// </summary>/
+    public sealed class QuoteRequestType : IntField
+    {
+        public QuoteRequestType()
+            :base(Tags.QuoteRequestType) {}
+        public QuoteRequestType(int val)
+            :base(Tags.QuoteRequestType, val) {}
+
+
+        // Field Enumerations
+        public const int MANUAL = 1;
+        public const int AUTOMATIC = 2;
+    }
+
+
+    /// <summary>
+    /// TotQuoteEntries Field
+    /// </summary>/
+    public sealed class TotQuoteEntries : IntField
+    {
+        public TotQuoteEntries()
+            :base(Tags.TotQuoteEntries) {}
+        public TotQuoteEntries(int val)
+            :base(Tags.TotQuoteEntries, val) {}
+
+    }
+
+
+    /// <summary>
     /// UnderlyingSecurityIDSource Field
     /// </summary>/
     public sealed class UnderlyingSecurityIDSource : StringField
@@ -7863,6 +8083,1657 @@ namespace QuickFix.Fields
             :base(Tags.UnderlyingSecurityIDSource) {}
         public UnderlyingSecurityIDSource(string val)
             :base(Tags.UnderlyingSecurityIDSource, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingIssuer Field
+    /// </summary>/
+    public sealed class UnderlyingIssuer : StringField
+    {
+        public UnderlyingIssuer()
+            :base(Tags.UnderlyingIssuer) {}
+        public UnderlyingIssuer(string val)
+            :base(Tags.UnderlyingIssuer, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingSecurityDesc Field
+    /// </summary>/
+    public sealed class UnderlyingSecurityDesc : StringField
+    {
+        public UnderlyingSecurityDesc()
+            :base(Tags.UnderlyingSecurityDesc) {}
+        public UnderlyingSecurityDesc(string val)
+            :base(Tags.UnderlyingSecurityDesc, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingSymbolSfx Field
+    /// </summary>/
+    public sealed class UnderlyingSymbolSfx : StringField
+    {
+        public UnderlyingSymbolSfx()
+            :base(Tags.UnderlyingSymbolSfx) {}
+        public UnderlyingSymbolSfx(string val)
+            :base(Tags.UnderlyingSymbolSfx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// HaltReason Field
+    /// </summary>/
+    public sealed class HaltReason : CharField
+    {
+        public HaltReason()
+            :base(Tags.HaltReason) {}
+        public HaltReason(char val)
+            :base(Tags.HaltReason, val) {}
+
+
+        // Field Enumerations
+        public const char ORDER_IMBALANCE = 'I';
+        public const char EQUIPMENT_CHANGEOVER = 'X';
+        public const char NEWS_PENDING = 'P';
+        public const char NEWS_DISSEMINATION = 'D';
+        public const char ORDER_INFLUX = 'E';
+        public const char ADDITIONAL_INFORMATION = 'M';
+    }
+
+
+    /// <summary>
+    /// InViewOfCommon Field
+    /// </summary>/
+    public sealed class InViewOfCommon : BooleanField
+    {
+        public InViewOfCommon()
+            :base(Tags.InViewOfCommon) {}
+        public InViewOfCommon(Boolean val)
+            :base(Tags.InViewOfCommon, val) {}
+
+
+        // Field Enumerations
+        public const Boolean NO = false;
+        public const Boolean YES = true;
+    }
+
+
+    /// <summary>
+    /// DueToRelated Field
+    /// </summary>/
+    public sealed class DueToRelated : BooleanField
+    {
+        public DueToRelated()
+            :base(Tags.DueToRelated) {}
+        public DueToRelated(Boolean val)
+            :base(Tags.DueToRelated, val) {}
+
+
+        // Field Enumerations
+        public const Boolean NO = false;
+        public const Boolean YES = true;
+    }
+
+
+    /// <summary>
+    /// BuyVolume Field
+    /// </summary>/
+    public sealed class BuyVolume : DecimalField
+    {
+        public BuyVolume()
+            :base(Tags.BuyVolume) {}
+        public BuyVolume(Decimal val)
+            :base(Tags.BuyVolume, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SellVolume Field
+    /// </summary>/
+    public sealed class SellVolume : DecimalField
+    {
+        public SellVolume()
+            :base(Tags.SellVolume) {}
+        public SellVolume(Decimal val)
+            :base(Tags.SellVolume, val) {}
+
+    }
+
+
+    /// <summary>
+    /// HighPx Field
+    /// </summary>/
+    public sealed class HighPx : DecimalField
+    {
+        public HighPx()
+            :base(Tags.HighPx) {}
+        public HighPx(Decimal val)
+            :base(Tags.HighPx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LowPx Field
+    /// </summary>/
+    public sealed class LowPx : DecimalField
+    {
+        public LowPx()
+            :base(Tags.LowPx) {}
+        public LowPx(Decimal val)
+            :base(Tags.LowPx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// Adjustment Field
+    /// </summary>/
+    public sealed class Adjustment : IntField
+    {
+        public Adjustment()
+            :base(Tags.Adjustment) {}
+        public Adjustment(int val)
+            :base(Tags.Adjustment, val) {}
+
+
+        // Field Enumerations
+        public const int CANCEL = 1;
+        public const int ERROR = 2;
+        public const int CORRECTION = 3;
+    }
+
+
+    /// <summary>
+    /// TradSesReqID Field
+    /// </summary>/
+    public sealed class TradSesReqID : StringField
+    {
+        public TradSesReqID()
+            :base(Tags.TradSesReqID) {}
+        public TradSesReqID(string val)
+            :base(Tags.TradSesReqID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TradingSessionID Field
+    /// </summary>/
+    public sealed class TradingSessionID : StringField
+    {
+        public TradingSessionID()
+            :base(Tags.TradingSessionID) {}
+        public TradingSessionID(string val)
+            :base(Tags.TradingSessionID, val) {}
+
+
+        // Field Enumerations
+        public const string DAY = "1";
+        public const string HALFDAY = "2";
+        public const string MORNING = "3";
+        public const string AFTERNOON = "4";
+        public const string EVENING = "5";
+        public const string AFTER_HOURS = "6";
+    }
+
+
+    /// <summary>
+    /// ContraTrader Field
+    /// </summary>/
+    public sealed class ContraTrader : StringField
+    {
+        public ContraTrader()
+            :base(Tags.ContraTrader) {}
+        public ContraTrader(string val)
+            :base(Tags.ContraTrader, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TradSesMethod Field
+    /// </summary>/
+    public sealed class TradSesMethod : IntField
+    {
+        public TradSesMethod()
+            :base(Tags.TradSesMethod) {}
+        public TradSesMethod(int val)
+            :base(Tags.TradSesMethod, val) {}
+
+
+        // Field Enumerations
+        public const int ELECTRONIC = 1;
+        public const int OPEN_OUTCRY = 2;
+        public const int TWO_PARTY = 3;
+    }
+
+
+    /// <summary>
+    /// TradSesMode Field
+    /// </summary>/
+    public sealed class TradSesMode : IntField
+    {
+        public TradSesMode()
+            :base(Tags.TradSesMode) {}
+        public TradSesMode(int val)
+            :base(Tags.TradSesMode, val) {}
+
+
+        // Field Enumerations
+        public const int TESTING = 1;
+        public const int SIMULATED = 2;
+        public const int PRODUCTION = 3;
+    }
+
+
+    /// <summary>
+    /// TradSesStatus Field
+    /// </summary>/
+    public sealed class TradSesStatus : IntField
+    {
+        public TradSesStatus()
+            :base(Tags.TradSesStatus) {}
+        public TradSesStatus(int val)
+            :base(Tags.TradSesStatus, val) {}
+
+
+        // Field Enumerations
+        public const int UNKNOWN = 0;
+        public const int HALTED = 1;
+        public const int OPEN = 2;
+        public const int CLOSED = 3;
+        public const int PRE_OPEN = 4;
+        public const int PRE_CLOSE = 5;
+        public const int REQUEST_REJECTED = 6;
+    }
+
+
+    /// <summary>
+    /// TradSesStartTime Field
+    /// </summary>/
+    public sealed class TradSesStartTime : DateTimeField
+    {
+        public TradSesStartTime()
+            :base(Tags.TradSesStartTime) {}
+        public TradSesStartTime(DateTime val)
+            :base(Tags.TradSesStartTime, val) {}
+        public TradSesStartTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.TradSesStartTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// TradSesOpenTime Field
+    /// </summary>/
+    public sealed class TradSesOpenTime : DateTimeField
+    {
+        public TradSesOpenTime()
+            :base(Tags.TradSesOpenTime) {}
+        public TradSesOpenTime(DateTime val)
+            :base(Tags.TradSesOpenTime, val) {}
+        public TradSesOpenTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.TradSesOpenTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// TradSesPreCloseTime Field
+    /// </summary>/
+    public sealed class TradSesPreCloseTime : DateTimeField
+    {
+        public TradSesPreCloseTime()
+            :base(Tags.TradSesPreCloseTime) {}
+        public TradSesPreCloseTime(DateTime val)
+            :base(Tags.TradSesPreCloseTime, val) {}
+        public TradSesPreCloseTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.TradSesPreCloseTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// TradSesCloseTime Field
+    /// </summary>/
+    public sealed class TradSesCloseTime : DateTimeField
+    {
+        public TradSesCloseTime()
+            :base(Tags.TradSesCloseTime) {}
+        public TradSesCloseTime(DateTime val)
+            :base(Tags.TradSesCloseTime, val) {}
+        public TradSesCloseTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.TradSesCloseTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// TradSesEndTime Field
+    /// </summary>/
+    public sealed class TradSesEndTime : DateTimeField
+    {
+        public TradSesEndTime()
+            :base(Tags.TradSesEndTime) {}
+        public TradSesEndTime(DateTime val)
+            :base(Tags.TradSesEndTime, val) {}
+        public TradSesEndTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.TradSesEndTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// MessageEncoding Field
+    /// </summary>/
+    public sealed class MessageEncoding : StringField
+    {
+        public MessageEncoding()
+            :base(Tags.MessageEncoding) {}
+        public MessageEncoding(string val)
+            :base(Tags.MessageEncoding, val) {}
+
+
+        // Field Enumerations
+        public const string ISO_2022_JP = "ISO-2022-JP";
+        public const string EUC_JP = "EUC-JP";
+        public const string SHIFT_JIS = "SHIFT_JIS";
+        public const string UTF_8 = "UTF-8";
+    }
+
+
+    /// <summary>
+    /// EncodedIssuerLen Field
+    /// </summary>/
+    public sealed class EncodedIssuerLen : IntField
+    {
+        public EncodedIssuerLen()
+            :base(Tags.EncodedIssuerLen) {}
+        public EncodedIssuerLen(int val)
+            :base(Tags.EncodedIssuerLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedIssuer Field
+    /// </summary>/
+    public sealed class EncodedIssuer : StringField
+    {
+        public EncodedIssuer()
+            :base(Tags.EncodedIssuer) {}
+        public EncodedIssuer(string val)
+            :base(Tags.EncodedIssuer, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedSecurityDescLen Field
+    /// </summary>/
+    public sealed class EncodedSecurityDescLen : IntField
+    {
+        public EncodedSecurityDescLen()
+            :base(Tags.EncodedSecurityDescLen) {}
+        public EncodedSecurityDescLen(int val)
+            :base(Tags.EncodedSecurityDescLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedSecurityDesc Field
+    /// </summary>/
+    public sealed class EncodedSecurityDesc : StringField
+    {
+        public EncodedSecurityDesc()
+            :base(Tags.EncodedSecurityDesc) {}
+        public EncodedSecurityDesc(string val)
+            :base(Tags.EncodedSecurityDesc, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedListExecInstLen Field
+    /// </summary>/
+    public sealed class EncodedListExecInstLen : IntField
+    {
+        public EncodedListExecInstLen()
+            :base(Tags.EncodedListExecInstLen) {}
+        public EncodedListExecInstLen(int val)
+            :base(Tags.EncodedListExecInstLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedListExecInst Field
+    /// </summary>/
+    public sealed class EncodedListExecInst : StringField
+    {
+        public EncodedListExecInst()
+            :base(Tags.EncodedListExecInst) {}
+        public EncodedListExecInst(string val)
+            :base(Tags.EncodedListExecInst, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedTextLen Field
+    /// </summary>/
+    public sealed class EncodedTextLen : IntField
+    {
+        public EncodedTextLen()
+            :base(Tags.EncodedTextLen) {}
+        public EncodedTextLen(int val)
+            :base(Tags.EncodedTextLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedText Field
+    /// </summary>/
+    public sealed class EncodedText : StringField
+    {
+        public EncodedText()
+            :base(Tags.EncodedText) {}
+        public EncodedText(string val)
+            :base(Tags.EncodedText, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedSubjectLen Field
+    /// </summary>/
+    public sealed class EncodedSubjectLen : IntField
+    {
+        public EncodedSubjectLen()
+            :base(Tags.EncodedSubjectLen) {}
+        public EncodedSubjectLen(int val)
+            :base(Tags.EncodedSubjectLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedSubject Field
+    /// </summary>/
+    public sealed class EncodedSubject : StringField
+    {
+        public EncodedSubject()
+            :base(Tags.EncodedSubject) {}
+        public EncodedSubject(string val)
+            :base(Tags.EncodedSubject, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedHeadlineLen Field
+    /// </summary>/
+    public sealed class EncodedHeadlineLen : IntField
+    {
+        public EncodedHeadlineLen()
+            :base(Tags.EncodedHeadlineLen) {}
+        public EncodedHeadlineLen(int val)
+            :base(Tags.EncodedHeadlineLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedHeadline Field
+    /// </summary>/
+    public sealed class EncodedHeadline : StringField
+    {
+        public EncodedHeadline()
+            :base(Tags.EncodedHeadline) {}
+        public EncodedHeadline(string val)
+            :base(Tags.EncodedHeadline, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedAllocTextLen Field
+    /// </summary>/
+    public sealed class EncodedAllocTextLen : IntField
+    {
+        public EncodedAllocTextLen()
+            :base(Tags.EncodedAllocTextLen) {}
+        public EncodedAllocTextLen(int val)
+            :base(Tags.EncodedAllocTextLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedAllocText Field
+    /// </summary>/
+    public sealed class EncodedAllocText : StringField
+    {
+        public EncodedAllocText()
+            :base(Tags.EncodedAllocText) {}
+        public EncodedAllocText(string val)
+            :base(Tags.EncodedAllocText, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedUnderlyingIssuerLen Field
+    /// </summary>/
+    public sealed class EncodedUnderlyingIssuerLen : IntField
+    {
+        public EncodedUnderlyingIssuerLen()
+            :base(Tags.EncodedUnderlyingIssuerLen) {}
+        public EncodedUnderlyingIssuerLen(int val)
+            :base(Tags.EncodedUnderlyingIssuerLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedUnderlyingIssuer Field
+    /// </summary>/
+    public sealed class EncodedUnderlyingIssuer : StringField
+    {
+        public EncodedUnderlyingIssuer()
+            :base(Tags.EncodedUnderlyingIssuer) {}
+        public EncodedUnderlyingIssuer(string val)
+            :base(Tags.EncodedUnderlyingIssuer, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedUnderlyingSecurityDescLen Field
+    /// </summary>/
+    public sealed class EncodedUnderlyingSecurityDescLen : IntField
+    {
+        public EncodedUnderlyingSecurityDescLen()
+            :base(Tags.EncodedUnderlyingSecurityDescLen) {}
+        public EncodedUnderlyingSecurityDescLen(int val)
+            :base(Tags.EncodedUnderlyingSecurityDescLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedUnderlyingSecurityDesc Field
+    /// </summary>/
+    public sealed class EncodedUnderlyingSecurityDesc : StringField
+    {
+        public EncodedUnderlyingSecurityDesc()
+            :base(Tags.EncodedUnderlyingSecurityDesc) {}
+        public EncodedUnderlyingSecurityDesc(string val)
+            :base(Tags.EncodedUnderlyingSecurityDesc, val) {}
+
+    }
+
+
+    /// <summary>
+    /// AllocPrice Field
+    /// </summary>/
+    public sealed class AllocPrice : DecimalField
+    {
+        public AllocPrice()
+            :base(Tags.AllocPrice) {}
+        public AllocPrice(Decimal val)
+            :base(Tags.AllocPrice, val) {}
+
+    }
+
+
+    /// <summary>
+    /// QuoteSetValidUntilTime Field
+    /// </summary>/
+    public sealed class QuoteSetValidUntilTime : DateTimeField
+    {
+        public QuoteSetValidUntilTime()
+            :base(Tags.QuoteSetValidUntilTime) {}
+        public QuoteSetValidUntilTime(DateTime val)
+            :base(Tags.QuoteSetValidUntilTime, val) {}
+        public QuoteSetValidUntilTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.QuoteSetValidUntilTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// QuoteEntryRejectReason Field
+    /// </summary>/
+    public sealed class QuoteEntryRejectReason : IntField
+    {
+        public QuoteEntryRejectReason()
+            :base(Tags.QuoteEntryRejectReason) {}
+        public QuoteEntryRejectReason(int val)
+            :base(Tags.QuoteEntryRejectReason, val) {}
+
+
+        // Field Enumerations
+        public const int UNKNOWN_SYMBOL = 1;
+        public const int EXHCNAGE = 2;
+        public const int QUOTE_EXCEEDS_LIMIT = 3;
+        public const int TOO_LATE_TO_ENTER = 4;
+        public const int UNKNOWN_QUOTE = 5;
+        public const int DUPLICATE_QUOTE = 6;
+        public const int INVALID_BID_ASK_SPREAD = 7;
+        public const int INVALID_PRICE = 8;
+        public const int NOT_AUTHORIZED_TO_QUOTE_SECURITY = 9;
+        public const int OTHER = 99;
+        public const int EXCHANGE_CLOSED = 2;
+        public const int EXCHANGE = 2;
+        public const int INVALID_BID = 7;
+    }
+
+
+    /// <summary>
+    /// LastMsgSeqNumProcessed Field
+    /// </summary>/
+    public sealed class LastMsgSeqNumProcessed : IntField
+    {
+        public LastMsgSeqNumProcessed()
+            :base(Tags.LastMsgSeqNumProcessed) {}
+        public LastMsgSeqNumProcessed(int val)
+            :base(Tags.LastMsgSeqNumProcessed, val) {}
+
+    }
+
+
+    /// <summary>
+    /// OnBehalfOfSendingTime Field
+    /// </summary>/
+    public sealed class OnBehalfOfSendingTime : DateTimeField
+    {
+        public OnBehalfOfSendingTime()
+            :base(Tags.OnBehalfOfSendingTime) {}
+        public OnBehalfOfSendingTime(DateTime val)
+            :base(Tags.OnBehalfOfSendingTime, val) {}
+        public OnBehalfOfSendingTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.OnBehalfOfSendingTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// BidRequestTransType Field
+    /// </summary>/
+    public sealed class BidRequestTransType : CharField
+    {
+        public BidRequestTransType()
+            :base(Tags.BidRequestTransType) {}
+        public BidRequestTransType(char val)
+            :base(Tags.BidRequestTransType, val) {}
+
+
+        // Field Enumerations
+        public const char CANCEL = 'C';
+        public const char NO = 'N';
+        public const char NEW = 'N';
+    }
+
+
+    /// <summary>
+    /// ComplianceID Field
+    /// </summary>/
+    public sealed class ComplianceID : StringField
+    {
+        public ComplianceID()
+            :base(Tags.ComplianceID) {}
+        public ComplianceID(string val)
+            :base(Tags.ComplianceID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SolicitedFlag Field
+    /// </summary>/
+    public sealed class SolicitedFlag : BooleanField
+    {
+        public SolicitedFlag()
+            :base(Tags.SolicitedFlag) {}
+        public SolicitedFlag(Boolean val)
+            :base(Tags.SolicitedFlag, val) {}
+
+
+        // Field Enumerations
+        public const Boolean NO = false;
+        public const Boolean YES = true;
+    }
+
+
+    /// <summary>
+    /// GrossTradeAmt Field
+    /// </summary>/
+    public sealed class GrossTradeAmt : DecimalField
+    {
+        public GrossTradeAmt()
+            :base(Tags.GrossTradeAmt) {}
+        public GrossTradeAmt(Decimal val)
+            :base(Tags.GrossTradeAmt, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoContraBrokers Field
+    /// </summary>/
+    public sealed class NoContraBrokers : IntField
+    {
+        public NoContraBrokers()
+            :base(Tags.NoContraBrokers) {}
+        public NoContraBrokers(int val)
+            :base(Tags.NoContraBrokers, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MaxMessageSize Field
+    /// </summary>/
+    public sealed class MaxMessageSize : IntField
+    {
+        public MaxMessageSize()
+            :base(Tags.MaxMessageSize) {}
+        public MaxMessageSize(int val)
+            :base(Tags.MaxMessageSize, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoMsgTypes Field
+    /// </summary>/
+    public sealed class NoMsgTypes : IntField
+    {
+        public NoMsgTypes()
+            :base(Tags.NoMsgTypes) {}
+        public NoMsgTypes(int val)
+            :base(Tags.NoMsgTypes, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MsgDirection Field
+    /// </summary>/
+    public sealed class MsgDirection : CharField
+    {
+        public MsgDirection()
+            :base(Tags.MsgDirection) {}
+        public MsgDirection(char val)
+            :base(Tags.MsgDirection, val) {}
+
+
+        // Field Enumerations
+        public const char RECEIVE = 'R';
+        public const char SEND = 'S';
+    }
+
+
+    /// <summary>
+    /// NoTradingSessions Field
+    /// </summary>/
+    public sealed class NoTradingSessions : IntField
+    {
+        public NoTradingSessions()
+            :base(Tags.NoTradingSessions) {}
+        public NoTradingSessions(int val)
+            :base(Tags.NoTradingSessions, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DiscretionInst Field
+    /// </summary>/
+    public sealed class DiscretionInst : CharField
+    {
+        public DiscretionInst()
+            :base(Tags.DiscretionInst) {}
+        public DiscretionInst(char val)
+            :base(Tags.DiscretionInst, val) {}
+
+
+        // Field Enumerations
+        public const char RELATED_TO_DISPLAYED_PRICE = '0';
+        public const char RELATED_TO_MARKET_PRICE = '1';
+        public const char RELATED_TO_PRIMARY_PRICE = '2';
+        public const char RELATED_TO_LOCAL_PRIMARY_PRICE = '3';
+        public const char RELATED_TO_MIDPOINT_PRICE = '4';
+        public const char RELATED_TO_LAST_TRADE_PRICE = '5';
+        public const char RELATED_TO_VWAP = '6';
+        public const char AVERAGE_PRICE_GUARANTEE = '7';
+    }
+
+
+    /// <summary>
+    /// DiscretionOffset Field
+    /// </summary>/
+    public sealed class DiscretionOffset : DecimalField
+    {
+        public DiscretionOffset()
+            :base(Tags.DiscretionOffset) {}
+        public DiscretionOffset(Decimal val)
+            :base(Tags.DiscretionOffset, val) {}
+
+    }
+
+
+    /// <summary>
+    /// BidID Field
+    /// </summary>/
+    public sealed class BidID : StringField
+    {
+        public BidID()
+            :base(Tags.BidID) {}
+        public BidID(string val)
+            :base(Tags.BidID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ClientBidID Field
+    /// </summary>/
+    public sealed class ClientBidID : StringField
+    {
+        public ClientBidID()
+            :base(Tags.ClientBidID) {}
+        public ClientBidID(string val)
+            :base(Tags.ClientBidID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ListName Field
+    /// </summary>/
+    public sealed class ListName : StringField
+    {
+        public ListName()
+            :base(Tags.ListName) {}
+        public ListName(string val)
+            :base(Tags.ListName, val) {}
+
+    }
+
+
+    /// <summary>
+    /// BidType Field
+    /// </summary>/
+    public sealed class BidType : IntField
+    {
+        public BidType()
+            :base(Tags.BidType) {}
+        public BidType(int val)
+            :base(Tags.BidType, val) {}
+
+
+        // Field Enumerations
+        public const int NON_DISCLOSED_STYLE = 1;
+        public const int DISCLOSED_SYTLE = 2;
+        public const int NO_BIDDING_PROCESS = 3;
+        public const int NON_DISCLOSED = 1;
+        public const int DISCLOSED_STYLE = 2;
+    }
+
+
+    /// <summary>
+    /// NumTickets Field
+    /// </summary>/
+    public sealed class NumTickets : IntField
+    {
+        public NumTickets()
+            :base(Tags.NumTickets) {}
+        public NumTickets(int val)
+            :base(Tags.NumTickets, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SideValue1 Field
+    /// </summary>/
+    public sealed class SideValue1 : DecimalField
+    {
+        public SideValue1()
+            :base(Tags.SideValue1) {}
+        public SideValue1(Decimal val)
+            :base(Tags.SideValue1, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SideValue2 Field
+    /// </summary>/
+    public sealed class SideValue2 : DecimalField
+    {
+        public SideValue2()
+            :base(Tags.SideValue2) {}
+        public SideValue2(Decimal val)
+            :base(Tags.SideValue2, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoBidDescriptors Field
+    /// </summary>/
+    public sealed class NoBidDescriptors : IntField
+    {
+        public NoBidDescriptors()
+            :base(Tags.NoBidDescriptors) {}
+        public NoBidDescriptors(int val)
+            :base(Tags.NoBidDescriptors, val) {}
+
+    }
+
+
+    /// <summary>
+    /// BidDescriptorType Field
+    /// </summary>/
+    public sealed class BidDescriptorType : IntField
+    {
+        public BidDescriptorType()
+            :base(Tags.BidDescriptorType) {}
+        public BidDescriptorType(int val)
+            :base(Tags.BidDescriptorType, val) {}
+
+
+        // Field Enumerations
+        public const int SECTOR = 1;
+        public const int COUNTRY = 2;
+        public const int INDEX = 3;
+    }
+
+
+    /// <summary>
+    /// BidDescriptor Field
+    /// </summary>/
+    public sealed class BidDescriptor : StringField
+    {
+        public BidDescriptor()
+            :base(Tags.BidDescriptor) {}
+        public BidDescriptor(string val)
+            :base(Tags.BidDescriptor, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SideValueInd Field
+    /// </summary>/
+    public sealed class SideValueInd : IntField
+    {
+        public SideValueInd()
+            :base(Tags.SideValueInd) {}
+        public SideValueInd(int val)
+            :base(Tags.SideValueInd, val) {}
+
+
+        // Field Enumerations
+        public const int SIDE_VALUE_1 = 1;
+        public const int SIDE_VALUE_2 = 2;
+        public const int SIDEVALUE1 = 1;
+        public const int SIDEVALUE2 = 2;
+        public const int SIDEVALUE_2 = 2;
+    }
+
+
+    /// <summary>
+    /// LiquidityPctLow Field
+    /// </summary>/
+    public sealed class LiquidityPctLow : DecimalField
+    {
+        public LiquidityPctLow()
+            :base(Tags.LiquidityPctLow) {}
+        public LiquidityPctLow(Decimal val)
+            :base(Tags.LiquidityPctLow, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LiquidityPctHigh Field
+    /// </summary>/
+    public sealed class LiquidityPctHigh : DecimalField
+    {
+        public LiquidityPctHigh()
+            :base(Tags.LiquidityPctHigh) {}
+        public LiquidityPctHigh(Decimal val)
+            :base(Tags.LiquidityPctHigh, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LiquidityValue Field
+    /// </summary>/
+    public sealed class LiquidityValue : DecimalField
+    {
+        public LiquidityValue()
+            :base(Tags.LiquidityValue) {}
+        public LiquidityValue(Decimal val)
+            :base(Tags.LiquidityValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EFPTrackingError Field
+    /// </summary>/
+    public sealed class EFPTrackingError : DecimalField
+    {
+        public EFPTrackingError()
+            :base(Tags.EFPTrackingError) {}
+        public EFPTrackingError(Decimal val)
+            :base(Tags.EFPTrackingError, val) {}
+
+    }
+
+
+    /// <summary>
+    /// FairValue Field
+    /// </summary>/
+    public sealed class FairValue : DecimalField
+    {
+        public FairValue()
+            :base(Tags.FairValue) {}
+        public FairValue(Decimal val)
+            :base(Tags.FairValue, val) {}
+
+    }
+
+
+    /// <summary>
+    /// OutsideIndexPct Field
+    /// </summary>/
+    public sealed class OutsideIndexPct : DecimalField
+    {
+        public OutsideIndexPct()
+            :base(Tags.OutsideIndexPct) {}
+        public OutsideIndexPct(Decimal val)
+            :base(Tags.OutsideIndexPct, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ValueOfFutures Field
+    /// </summary>/
+    public sealed class ValueOfFutures : DecimalField
+    {
+        public ValueOfFutures()
+            :base(Tags.ValueOfFutures) {}
+        public ValueOfFutures(Decimal val)
+            :base(Tags.ValueOfFutures, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LiquidityIndType Field
+    /// </summary>/
+    public sealed class LiquidityIndType : IntField
+    {
+        public LiquidityIndType()
+            :base(Tags.LiquidityIndType) {}
+        public LiquidityIndType(int val)
+            :base(Tags.LiquidityIndType, val) {}
+
+
+        // Field Enumerations
+        public const int VAL_5_DAY_MOVING_AVERAGE = 1;
+        public const int VAL_20_DAY_MOVING_AVERAGE = 2;
+        public const int NORMAL_MARKET_SIZE = 3;
+        public const int OTHER = 4;
+        public const int FIVEDAY_MOVING_AVERAGE = 1;
+        public const int TWENTYDAY_MOVING_AVERAGE = 2;
+    }
+
+
+    /// <summary>
+    /// WtAverageLiquidity Field
+    /// </summary>/
+    public sealed class WtAverageLiquidity : DecimalField
+    {
+        public WtAverageLiquidity()
+            :base(Tags.WtAverageLiquidity) {}
+        public WtAverageLiquidity(Decimal val)
+            :base(Tags.WtAverageLiquidity, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ExchangeForPhysical Field
+    /// </summary>/
+    public sealed class ExchangeForPhysical : BooleanField
+    {
+        public ExchangeForPhysical()
+            :base(Tags.ExchangeForPhysical) {}
+        public ExchangeForPhysical(Boolean val)
+            :base(Tags.ExchangeForPhysical, val) {}
+
+
+        // Field Enumerations
+        public const Boolean NO = false;
+        public const Boolean YES = true;
+    }
+
+
+    /// <summary>
+    /// OutMainCntryUIndex Field
+    /// </summary>/
+    public sealed class OutMainCntryUIndex : DecimalField
+    {
+        public OutMainCntryUIndex()
+            :base(Tags.OutMainCntryUIndex) {}
+        public OutMainCntryUIndex(Decimal val)
+            :base(Tags.OutMainCntryUIndex, val) {}
+
+    }
+
+
+    /// <summary>
+    /// CrossPercent Field
+    /// </summary>/
+    public sealed class CrossPercent : DecimalField
+    {
+        public CrossPercent()
+            :base(Tags.CrossPercent) {}
+        public CrossPercent(Decimal val)
+            :base(Tags.CrossPercent, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ProgRptReqs Field
+    /// </summary>/
+    public sealed class ProgRptReqs : IntField
+    {
+        public ProgRptReqs()
+            :base(Tags.ProgRptReqs) {}
+        public ProgRptReqs(int val)
+            :base(Tags.ProgRptReqs, val) {}
+
+
+        // Field Enumerations
+        public const int BUY_SIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUE_REQUEST = 1;
+        public const int SELL_SIDE_PERIODICALLY_SENDS_STATUS_USING_LIST_STATUS_PERIOD_OPTIONALLY_SPECIFIED_IN_PROGRESSPERIOD = 2;
+        public const int REAL_TIME_EXECUTION_REPORTS = 3;
+        public const int BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST = 1;
+        public const int SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS = 2;
+    }
+
+
+    /// <summary>
+    /// ProgPeriodInterval Field
+    /// </summary>/
+    public sealed class ProgPeriodInterval : IntField
+    {
+        public ProgPeriodInterval()
+            :base(Tags.ProgPeriodInterval) {}
+        public ProgPeriodInterval(int val)
+            :base(Tags.ProgPeriodInterval, val) {}
+
+    }
+
+
+    /// <summary>
+    /// IncTaxInd Field
+    /// </summary>/
+    public sealed class IncTaxInd : IntField
+    {
+        public IncTaxInd()
+            :base(Tags.IncTaxInd) {}
+        public IncTaxInd(int val)
+            :base(Tags.IncTaxInd, val) {}
+
+
+        // Field Enumerations
+        public const int NET = 1;
+        public const int GROSS = 2;
+    }
+
+
+    /// <summary>
+    /// NumBidders Field
+    /// </summary>/
+    public sealed class NumBidders : IntField
+    {
+        public NumBidders()
+            :base(Tags.NumBidders) {}
+        public NumBidders(int val)
+            :base(Tags.NumBidders, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TradeType Field
+    /// </summary>/
+    public sealed class TradeType : CharField
+    {
+        public TradeType()
+            :base(Tags.TradeType) {}
+        public TradeType(char val)
+            :base(Tags.TradeType, val) {}
+
+    }
+
+
+    /// <summary>
+    /// BasisPxType Field
+    /// </summary>/
+    public sealed class BasisPxType : CharField
+    {
+        public BasisPxType()
+            :base(Tags.BasisPxType) {}
+        public BasisPxType(char val)
+            :base(Tags.BasisPxType, val) {}
+
+
+        // Field Enumerations
+        public const char CLOSING_PRICE_AT_MORNINGN_SESSION = '2';
+        public const char CLOSING_PRICE = '3';
+        public const char CURRENT_PRICE = '4';
+        public const char SQ = '5';
+        public const char VWAP_THROUGH_A_DAY = '6';
+        public const char VWAP_THROUGH_A_MORNING_SESSION = '7';
+        public const char VWAP_THROUGH_AN_AFTERNOON_SESSION = '8';
+        public const char VWAP_THROUGH_A_DAY_EXCEPT_YORI = '9';
+        public const char VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI = 'A';
+        public const char VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI = 'B';
+        public const char STRIKE = 'C';
+        public const char OPEN = 'D';
+        public const char OTHERS = 'Z';
+        public const char CLOSING_PRICE_AT_MORNING_SESSION = '2';
+    }
+
+
+    /// <summary>
+    /// NoBidComponents Field
+    /// </summary>/
+    public sealed class NoBidComponents : IntField
+    {
+        public NoBidComponents()
+            :base(Tags.NoBidComponents) {}
+        public NoBidComponents(int val)
+            :base(Tags.NoBidComponents, val) {}
+
+    }
+
+
+    /// <summary>
+    /// Country Field
+    /// </summary>/
+    public sealed class Country : StringField
+    {
+        public Country()
+            :base(Tags.Country) {}
+        public Country(string val)
+            :base(Tags.Country, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TotNoStrikes Field
+    /// </summary>/
+    public sealed class TotNoStrikes : IntField
+    {
+        public TotNoStrikes()
+            :base(Tags.TotNoStrikes) {}
+        public TotNoStrikes(int val)
+            :base(Tags.TotNoStrikes, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PriceType Field
+    /// </summary>/
+    public sealed class PriceType : IntField
+    {
+        public PriceType()
+            :base(Tags.PriceType) {}
+        public PriceType(int val)
+            :base(Tags.PriceType, val) {}
+
+
+        // Field Enumerations
+        public const int PERCENTAGE = 1;
+        public const int FIXED_CABINET_TRADE_PRICE = 10;
+        public const int VARIABLE_CABINET_TRADE_PRICE = 11;
+        public const int PER_UNIT = 2;
+        public const int FIXED_AMOUNT = 3;
+        public const int DISCOUNT = 4;
+        public const int PREMIUM = 5;
+        public const int SPREAD = 6;
+        public const int TED_PRICE = 7;
+        public const int TED_YIELD = 8;
+        public const int YIELD = 9;
+        public const int PRODUCT_TICKS_IN_HALFS = 13;
+        public const int PRODUCT_TICKS_IN_FOURTHS = 14;
+        public const int PRODUCT_TICKS_IN_EIGHTS = 15;
+        public const int PRODUCT_TICKS_IN_SIXTEENTHS = 16;
+        public const int PRODUCT_TICKS_IN_THIRTY_SECONDS = 17;
+        public const int PRODUCT_TICKS_IN_SIXTY_FORTHS = 18;
+        public const int PRODUCT_TICKS_IN_ONE_TWENTY_EIGHTS = 19;
+        public const int PER_SHARE = 2;
+        public const int BASIS_POINTS_RELATIVE_TO_BENCHMARK = 6;
+    }
+
+
+    /// <summary>
+    /// DayOrderQty Field
+    /// </summary>/
+    public sealed class DayOrderQty : DecimalField
+    {
+        public DayOrderQty()
+            :base(Tags.DayOrderQty) {}
+        public DayOrderQty(Decimal val)
+            :base(Tags.DayOrderQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DayCumQty Field
+    /// </summary>/
+    public sealed class DayCumQty : DecimalField
+    {
+        public DayCumQty()
+            :base(Tags.DayCumQty) {}
+        public DayCumQty(Decimal val)
+            :base(Tags.DayCumQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// DayAvgPx Field
+    /// </summary>/
+    public sealed class DayAvgPx : DecimalField
+    {
+        public DayAvgPx()
+            :base(Tags.DayAvgPx) {}
+        public DayAvgPx(Decimal val)
+            :base(Tags.DayAvgPx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// GTBookingInst Field
+    /// </summary>/
+    public sealed class GTBookingInst : IntField
+    {
+        public GTBookingInst()
+            :base(Tags.GTBookingInst) {}
+        public GTBookingInst(int val)
+            :base(Tags.GTBookingInst, val) {}
+
+
+        // Field Enumerations
+        public const int BOOK_OUT_ALL_TRADES_ON_DAY_OF_EXECUTION = 0;
+        public const int ACCUMULATE_EXECTUIONS_UNTIL_FORDER_IS_FILLED_OR_EXPIRES = 1;
+        public const int ACCUMULATE_UNTIL_VERBALLLY_NOTIFIED_OTHERWISE = 2;
+        public const int ACCUMULATE_EXECUTIONS_UNTIL_ORDER_IS_FILLED_OR_EXPIRES = 1;
+        public const int ACCUMULATE_UNTIL_VERBALLY_NOTIFIED_OTHERWISE = 2;
+    }
+
+
+    /// <summary>
+    /// NoStrikes Field
+    /// </summary>/
+    public sealed class NoStrikes : IntField
+    {
+        public NoStrikes()
+            :base(Tags.NoStrikes) {}
+        public NoStrikes(int val)
+            :base(Tags.NoStrikes, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ListStatusType Field
+    /// </summary>/
+    public sealed class ListStatusType : IntField
+    {
+        public ListStatusType()
+            :base(Tags.ListStatusType) {}
+        public ListStatusType(int val)
+            :base(Tags.ListStatusType, val) {}
+
+
+        // Field Enumerations
+        public const int ACK = 1;
+        public const int RESPONSE = 2;
+        public const int TIMED = 3;
+        public const int EXEC_STARTED = 4;
+        public const int ALL_DONE = 5;
+        public const int ALERT = 6;
+        public const int EXECSTARTED = 4;
+        public const int ALLDONE = 5;
+    }
+
+
+    /// <summary>
+    /// NetGrossInd Field
+    /// </summary>/
+    public sealed class NetGrossInd : IntField
+    {
+        public NetGrossInd()
+            :base(Tags.NetGrossInd) {}
+        public NetGrossInd(int val)
+            :base(Tags.NetGrossInd, val) {}
+
+
+        // Field Enumerations
+        public const int NET = 1;
+        public const int GROSS = 2;
+    }
+
+
+    /// <summary>
+    /// ListOrderStatus Field
+    /// </summary>/
+    public sealed class ListOrderStatus : IntField
+    {
+        public ListOrderStatus()
+            :base(Tags.ListOrderStatus) {}
+        public ListOrderStatus(int val)
+            :base(Tags.ListOrderStatus, val) {}
+
+
+        // Field Enumerations
+        public const int IN_BIDDING_PROCESS = 1;
+        public const int RECEIVED_FOR_EXECUTION = 2;
+        public const int EXECUTING = 3;
+        public const int CANCELLING = 4;
+        public const int ALERT = 5;
+        public const int ALL_DONE = 6;
+        public const int REJECT = 7;
+        public const int INBIDDINGPROCESS = 1;
+        public const int RECEIVEDFOREXECUTION = 2;
+        public const int CANCELING = 4;
+    }
+
+
+    /// <summary>
+    /// ListExecInstType Field
+    /// </summary>/
+    public sealed class ListExecInstType : CharField
+    {
+        public ListExecInstType()
+            :base(Tags.ListExecInstType) {}
+        public ListExecInstType(char val)
+            :base(Tags.ListExecInstType, val) {}
+
+
+        // Field Enumerations
+        public const char IMMEDIATE = '1';
+        public const char WAIT_FOR_EXECUT_INSTRUCTION = '2';
+        public const char EXCHANGE_SWITCH_CIV_ORDER_3 = '3';
+        public const char EXCHANGE_SWITCH_CIV_ORDER_4 = '4';
+        public const char EXCHANGE_SWITCH_CIV_ORDER_5 = '5';
+        public const char WAIT_FOR_EXECUTE_INSTRUCTION = '2';
+        public const char EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = '3';
+        public const char EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = '4';
+        public const char EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = '5';
+    }
+
+
+    /// <summary>
+    /// UnderlyingCouponRate Field
+    /// </summary>/
+    public sealed class UnderlyingCouponRate : DecimalField
+    {
+        public UnderlyingCouponRate()
+            :base(Tags.UnderlyingCouponRate) {}
+        public UnderlyingCouponRate(Decimal val)
+            :base(Tags.UnderlyingCouponRate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingContractMultiplier Field
+    /// </summary>/
+    public sealed class UnderlyingContractMultiplier : DecimalField
+    {
+        public UnderlyingContractMultiplier()
+            :base(Tags.UnderlyingContractMultiplier) {}
+        public UnderlyingContractMultiplier(Decimal val)
+            :base(Tags.UnderlyingContractMultiplier, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ContraTradeQty Field
+    /// </summary>/
+    public sealed class ContraTradeQty : DecimalField
+    {
+        public ContraTradeQty()
+            :base(Tags.ContraTradeQty) {}
+        public ContraTradeQty(Decimal val)
+            :base(Tags.ContraTradeQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ContraTradeTime Field
+    /// </summary>/
+    public sealed class ContraTradeTime : DateTimeField
+    {
+        public ContraTradeTime()
+            :base(Tags.ContraTradeTime) {}
+        public ContraTradeTime(DateTime val)
+            :base(Tags.ContraTradeTime, val) {}
+        public ContraTradeTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.ContraTradeTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// ClearingFirm Field
+    /// </summary>/
+    public sealed class ClearingFirm : StringField
+    {
+        public ClearingFirm()
+            :base(Tags.ClearingFirm) {}
+        public ClearingFirm(string val)
+            :base(Tags.ClearingFirm, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LiquidityNumSecurities Field
+    /// </summary>/
+    public sealed class LiquidityNumSecurities : IntField
+    {
+        public LiquidityNumSecurities()
+            :base(Tags.LiquidityNumSecurities) {}
+        public LiquidityNumSecurities(int val)
+            :base(Tags.LiquidityNumSecurities, val) {}
+
+    }
+
+
+    /// <summary>
+    /// StrikeTime Field
+    /// </summary>/
+    public sealed class StrikeTime : DateTimeField
+    {
+        public StrikeTime()
+            :base(Tags.StrikeTime) {}
+        public StrikeTime(DateTime val)
+            :base(Tags.StrikeTime, val) {}
+        public StrikeTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.StrikeTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// ListStatusText Field
+    /// </summary>/
+    public sealed class ListStatusText : StringField
+    {
+        public ListStatusText()
+            :base(Tags.ListStatusText) {}
+        public ListStatusText(string val)
+            :base(Tags.ListStatusText, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedListStatusTextLen Field
+    /// </summary>/
+    public sealed class EncodedListStatusTextLen : IntField
+    {
+        public EncodedListStatusTextLen()
+            :base(Tags.EncodedListStatusTextLen) {}
+        public EncodedListStatusTextLen(int val)
+            :base(Tags.EncodedListStatusTextLen, val) {}
+
+    }
+
+
+    /// <summary>
+    /// EncodedListStatusText Field
+    /// </summary>/
+    public sealed class EncodedListStatusText : StringField
+    {
+        public EncodedListStatusText()
+            :base(Tags.EncodedListStatusText) {}
+        public EncodedListStatusText(string val)
+            :base(Tags.EncodedListStatusText, val) {}
 
     }
 
@@ -8089,19 +9960,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// SecurityAltID Field
-    /// </summary>/
-    public sealed class SecurityAltID : StringField
-    {
-        public SecurityAltID()
-            :base(Tags.SecurityAltID) {}
-        public SecurityAltID(string val)
-            :base(Tags.SecurityAltID, val) {}
-
-    }
-
-
-    /// <summary>
     /// SecurityAltIDSource Field
     /// </summary>/
     public sealed class SecurityAltIDSource : StringField
@@ -8123,19 +9981,6 @@ namespace QuickFix.Fields
             :base(Tags.NoUnderlyingSecurityAltID) {}
         public NoUnderlyingSecurityAltID(int val)
             :base(Tags.NoUnderlyingSecurityAltID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingSecurityAltID Field
-    /// </summary>/
-    public sealed class UnderlyingSecurityAltID : StringField
-    {
-        public UnderlyingSecurityAltID()
-            :base(Tags.UnderlyingSecurityAltID) {}
-        public UnderlyingSecurityAltID(string val)
-            :base(Tags.UnderlyingSecurityAltID, val) {}
 
     }
 
@@ -9248,19 +11093,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// SecondaryExecID Field
-    /// </summary>/
-    public sealed class SecondaryExecID : StringField
-    {
-        public SecondaryExecID()
-            :base(Tags.SecondaryExecID) {}
-        public SecondaryExecID(string val)
-            :base(Tags.SecondaryExecID, val) {}
-
-    }
-
-
-    /// <summary>
     /// OrderCapacity Field
     /// </summary>/
     public sealed class OrderCapacity : CharField
@@ -9889,19 +11721,6 @@ namespace QuickFix.Fields
             :base(Tags.LegCoveredOrUncovered) {}
         public LegCoveredOrUncovered(int val)
             :base(Tags.LegCoveredOrUncovered, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegPrice Field
-    /// </summary>/
-    public sealed class LegPrice : DecimalField
-    {
-        public LegPrice()
-            :base(Tags.LegPrice) {}
-        public LegPrice(Decimal val)
-            :base(Tags.LegPrice, val) {}
 
     }
 
@@ -10791,19 +12610,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// LegSide Field
-    /// </summary>/
-    public sealed class LegSide : CharField
-    {
-        public LegSide()
-            :base(Tags.LegSide) {}
-        public LegSide(char val)
-            :base(Tags.LegSide, val) {}
-
-    }
-
-
-    /// <summary>
     /// TradingSessionSubID Field
     /// </summary>/
     public sealed class TradingSessionSubID : StringField
@@ -11339,33 +13145,6 @@ namespace QuickFix.Fields
         public SideComplianceID(string val)
             :base(Tags.SideComplianceID, val) {}
 
-    }
-
-
-    /// <summary>
-    /// SettlType Field
-    /// </summary>/
-    public sealed class SettlType : StringField
-    {
-        public SettlType()
-            :base(Tags.SettlType) {}
-        public SettlType(string val)
-            :base(Tags.SettlType, val) {}
-
-
-        // Field Enumerations
-        public const string REGULAR = "0";
-        public const string CASH = "1";
-        public const string NEXT_DAY = "2";
-        public const string T_PLUS_2 = "3";
-        public const string T_PLUS_3 = "4";
-        public const string T_PLUS_4 = "5";
-        public const string FUTURE = "6";
-        public const string WHEN_AND_IF_ISSUED = "7";
-        public const string SELLERS_OPTION = "8";
-        public const string T_PLUS_5 = "9";
-        public const string FX_SPOT_NEXT_SETTLEMENT = "C";
-        public const string BROKEN_DATE = "B";
     }
 
 
@@ -12547,28 +14326,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// PosReqType Field
-    /// </summary>/
-    public sealed class PosReqType : IntField
-    {
-        public PosReqType()
-            :base(Tags.PosReqType) {}
-        public PosReqType(int val)
-            :base(Tags.PosReqType, val) {}
-
-
-        // Field Enumerations
-        public const int POSITIONS = 0;
-        public const int TRADES = 1;
-        public const int EXERCISES = 2;
-        public const int ASSIGNMENTS = 3;
-        public const int SETTLEMENT_ACTIVITY = 4;
-        public const int BACKOUT_MESSAGE = 5;
-        public const int DELTA_POSITIONS = 6;
-    }
-
-
-    /// <summary>
     /// ResponseTransportType Field
     /// </summary>/
     public sealed class ResponseTransportType : IntField
@@ -12594,19 +14351,6 @@ namespace QuickFix.Fields
             :base(Tags.ResponseDestination) {}
         public ResponseDestination(string val)
             :base(Tags.ResponseDestination, val) {}
-
-    }
-
-
-    /// <summary>
-    /// TotalNumPosReports Field
-    /// </summary>/
-    public sealed class TotalNumPosReports : IntField
-    {
-        public TotalNumPosReports()
-            :base(Tags.TotalNumPosReports) {}
-        public TotalNumPosReports(int val)
-            :base(Tags.TotalNumPosReports, val) {}
 
     }
 
@@ -13111,19 +14855,6 @@ namespace QuickFix.Fields
             :base(Tags.BenchmarkSecurityIDSource) {}
         public BenchmarkSecurityIDSource(string val)
             :base(Tags.BenchmarkSecurityIDSource, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SecuritySubType Field
-    /// </summary>/
-    public sealed class SecuritySubType : StringField
-    {
-        public SecuritySubType()
-            :base(Tags.SecuritySubType) {}
-        public SecuritySubType(string val)
-            :base(Tags.SecuritySubType, val) {}
 
     }
 
@@ -14114,77 +15845,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// TrdType Field
-    /// </summary>/
-    public sealed class TrdType : IntField
-    {
-        public TrdType()
-            :base(Tags.TrdType) {}
-        public TrdType(int val)
-            :base(Tags.TrdType, val) {}
-
-
-        // Field Enumerations
-        public const int REGULAR_TRADE = 0;
-        public const int BLOCK_TRADE_1 = 1;
-        public const int AFTER_HOURS_TRADE = 10;
-        public const int EFP = 2;
-        public const int TRANSFER = 3;
-        public const int LATE_TRADE = 4;
-        public const int T_TRADE = 5;
-        public const int WEIGHTED_AVERAGE_PRICE_TRADE = 6;
-        public const int BUNCHED_TRADE = 7;
-        public const int LATE_BUNCHED_TRADE = 8;
-        public const int PRIOR_REFERENCE_PRICE_TRADE = 9;
-        public const int EXCHANGE_FOR_RISK = 11;
-        public const int EXCHANGE_FOR_SWAP = 12;
-        public const int EXCHANGE_OF_FUTURES_FOR = 13;
-        public const int EXCHANGE_OF_OPTIONS_FOR_OPTIONS = 14;
-        public const int TRADING_AT_SETTLEMENT = 15;
-        public const int ALL_OR_NONE = 16;
-        public const int FUTURES_LARGE_ORDER_EXECUTION = 17;
-        public const int EXCHANGE_OF_FUTURES_FOR_FUTURES = 18;
-        public const int OPTION_INTERIM_TRADE = 19;
-        public const int OPTION_CABINET_TRADE = 20;
-        public const int PRIVATELY_NEGOTIATED_TRADES = 22;
-        public const int SUBSTITUTION_OF_FUTURES_FOR_FORWARDS = 23;
-        public const int ERROR_TRADE = 24;
-        public const int SPECIAL_CUM_DIVIDEND = 25;
-        public const int SPECIAL_EX_DIVIDEND = 26;
-        public const int SPECIAL_CUM_COUPON = 27;
-        public const int SPECIAL_EX_COUPON = 28;
-        public const int CASH_SETTLEMENT = 29;
-        public const int SPECIAL_PRICE = 30;
-        public const int GUARANTEED_DELIVERY = 31;
-        public const int SPECIAL_CUM_RIGHTS = 32;
-        public const int SPECIAL_EX_RIGHTS = 33;
-        public const int SPECIAL_CUM_CAPITAL_REPAYMENTS = 34;
-        public const int SPECIAL_EX_CAPITAL_REPAYMENTS = 35;
-        public const int SPECIAL_CUM_BONUS = 36;
-        public const int SPECIAL_EX_BONUS = 37;
-        public const int BLOCK_TRADE_38 = 38;
-        public const int WORKED_PRINCIPAL_TRADE = 39;
-        public const int BLOCK_TRADES = 40;
-        public const int NAME_CHANGE = 41;
-        public const int PORTFOLIO_TRANSFER = 42;
-        public const int PROROGATION_BUY = 43;
-        public const int PROROGATION_SELL = 44;
-        public const int OPTION_EXERCISE = 45;
-        public const int DELTA_NEUTRAL_TRANSACTION = 46;
-        public const int FINANCING_TRANSACTION = 47;
-        public const int NON_STANDARD_SETTLEMENT = 48;
-        public const int DERIVATIVE_RELATED_TRANSACTION = 49;
-        public const int PORTFOLIO_TRADE = 50;
-        public const int VOLUME_WEIGHTED_AVERAGE_TRADE = 51;
-        public const int EXCHANGE_GRANTED_TRADE = 52;
-        public const int REPURCHASE_AGREEMENT = 53;
-        public const int OTC = 54;
-        public const int EXCHANGE_BASIS_FACILITY = 55;
-        public const int BLOCK_TRADE = 1;
-    }
-
-
-    /// <summary>
     /// TrdSubType Field
     /// </summary>/
     public sealed class TrdSubType : IntField
@@ -14782,67 +16442,6 @@ namespace QuickFix.Fields
             :base(Tags.OrderCapacityQty) {}
         public OrderCapacityQty(Decimal val)
             :base(Tags.OrderCapacityQty, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoEvents Field
-    /// </summary>/
-    public sealed class NoEvents : IntField
-    {
-        public NoEvents()
-            :base(Tags.NoEvents) {}
-        public NoEvents(int val)
-            :base(Tags.NoEvents, val) {}
-
-    }
-
-
-    /// <summary>
-    /// EventType Field
-    /// </summary>/
-    public sealed class EventType : IntField
-    {
-        public EventType()
-            :base(Tags.EventType) {}
-        public EventType(int val)
-            :base(Tags.EventType, val) {}
-
-
-        // Field Enumerations
-        public const int PUT = 1;
-        public const int CALL = 2;
-        public const int TENDER = 3;
-        public const int SINKING_FUND_CALL = 4;
-        public const int OTHER = 99;
-        public const int ACTIVATION = 5;
-        public const int INACTIVIATION = 6;
-        public const int LAST_ELIGIBLE_TRADE_DATE = 7;
-        public const int SWAP_START_DATE = 8;
-        public const int SWAP_END_DATE = 9;
-        public const int SWAP_NEXT_START_DATE = 11;
-        public const int SWAP_ROLL_DATE = 10;
-        public const int SWAP_NEXT_ROLL_DATE = 12;
-        public const int FIRST_DELIVERY_DATE = 13;
-        public const int LAST_DELIVERY_DATE = 14;
-        public const int INITIAL_INVENTORY_DUE_DATE = 15;
-        public const int FINAL_INVENTORY_DUE_DATE = 16;
-        public const int FIRST_INTENT_DATE = 17;
-        public const int LAST_INTENT_DATE = 18;
-        public const int POSITION_REMOVAL_DATE = 19;
-    }
-
-
-    /// <summary>
-    /// EventDate Field
-    /// </summary>/
-    public sealed class EventDate : StringField
-    {
-        public EventDate()
-            :base(Tags.EventDate) {}
-        public EventDate(string val)
-            :base(Tags.EventDate, val) {}
 
     }
 
@@ -17257,19 +18856,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// ManualOrderIndicator Field
-    /// </summary>/
-    public sealed class ManualOrderIndicator : BooleanField
-    {
-        public ManualOrderIndicator()
-            :base(Tags.ManualOrderIndicator) {}
-        public ManualOrderIndicator(Boolean val)
-            :base(Tags.ManualOrderIndicator, val) {}
-
-    }
-
-
-    /// <summary>
     /// CustDirectedOrder Field
     /// </summary>/
     public sealed class CustDirectedOrder : BooleanField
@@ -18341,19 +19927,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// TriggerPrice Field
-    /// </summary>/
-    public sealed class TriggerPrice : DecimalField
-    {
-        public TriggerPrice()
-            :base(Tags.TriggerPrice) {}
-        public TriggerPrice(Decimal val)
-            :base(Tags.TriggerPrice, val) {}
-
-    }
-
-
-    /// <summary>
     /// TriggerSymbol Field
     /// </summary>/
     public sealed class TriggerSymbol : StringField
@@ -18402,27 +19975,6 @@ namespace QuickFix.Fields
         public TriggerSecurityDesc(string val)
             :base(Tags.TriggerSecurityDesc, val) {}
 
-    }
-
-
-    /// <summary>
-    /// TriggerPriceType Field
-    /// </summary>/
-    public sealed class TriggerPriceType : CharField
-    {
-        public TriggerPriceType()
-            :base(Tags.TriggerPriceType) {}
-        public TriggerPriceType(char val)
-            :base(Tags.TriggerPriceType, val) {}
-
-
-        // Field Enumerations
-        public const char BEST_OFFER = '1';
-        public const char LAST_TRADE = '2';
-        public const char BEST_BID = '3';
-        public const char BEST_BID_OR_LAST_TRADE = '4';
-        public const char BEST_OFFER_OR_LAST_TRADE = '5';
-        public const char BEST_MID = '6';
     }
 
 
