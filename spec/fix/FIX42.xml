@@ -651,6 +651,7 @@
       <field name="SecurityReqID" required="Y"/>
       <field name="SecurityRequestType" required="Y"/>
       <field name="Symbol" required="N"/>
+      <field name="UserStrategyType" required="N"/>
       <field name="SymbolSfx" required="N"/>
       <field name="SecurityID" required="N"/>
       <field name="IDSource" required="N"/>
@@ -675,6 +676,7 @@
       <field name="EncodedText" required="N"/>
       <field name="TradingSessionID" required="N"/>
       <group name="NoRelatedSym" required="N">
+        <field name="LegNumber" required="N"/>
         <field name="UnderlyingSymbol" required="N"/>
         <field name="UnderlyingSymbolSfx" required="N"/>
         <field name="UnderlyingSecurityID" required="N"/>
@@ -684,6 +686,7 @@
         <field name="UnderlyingMaturityDay" required="N"/>
         <field name="UnderlyingPutOrCall" required="N"/>
         <field name="UnderlyingStrikePrice" required="N"/>
+        <field name="UnderlyingMaturityDate" required="N"/>
         <field name="UnderlyingOptAttribute" required="N"/>
         <field name="UnderlyingContractMultiplier" required="N"/>
         <field name="UnderlyingCouponRate" required="N"/>
@@ -694,6 +697,7 @@
         <field name="UnderlyingSecurityDesc" required="N"/>
         <field name="EncodedUnderlyingSecurityDescLen" required="N"/>
         <field name="EncodedUnderlyingSecurityDesc" required="N"/>
+        <field name="UnderlyingExDestination" required="N"/>
         <field name="RatioQty" required="N"/>
         <field name="Side" required="N"/>
         <field name="UnderlyingCurrency" required="N"/>
@@ -711,6 +715,8 @@
       <field name="SecurityType" required="N"/>
       <field name="MaturityMonthYear" required="N"/>
       <field name="MaturityDay" required="N"/>
+      <field name="MaturityDate" required="N"/>
+      <field name="CFICode" required="N"/>
       <field name="PutOrCall" required="N"/>
       <field name="StrikePrice" required="N"/>
       <field name="OptAttribute" required="N"/>
@@ -726,9 +732,11 @@
       <field name="Currency" required="N"/>
       <field name="TradingSessionID" required="N"/>
       <field name="Text" required="N"/>
+      <field name="UserStrategyType" required="N"/>
       <field name="EncodedTextLen" required="N"/>
       <field name="EncodedText" required="N"/>
       <group name="NoRelatedSym" required="N">
+        <field name="LegNumber" required="N"/>
         <field name="UnderlyingSymbol" required="N"/>
         <field name="UnderlyingSymbolSfx" required="N"/>
         <field name="UnderlyingSecurityID" required="N"/>
@@ -738,19 +746,22 @@
         <field name="UnderlyingMaturityDay" required="N"/>
         <field name="UnderlyingPutOrCall" required="N"/>
         <field name="UnderlyingStrikePrice" required="N"/>
+        <field name="UnderlyingMaturityDate" required="N"/>
+        <field name="UnderlyingSecurityExchange" required="N"/>
+        <field name="UnderlyingCouponRate" required="N"/>
+        <field name="UnderlyingCFICode" required="N"/>
+        <field name="UnderlyingExDestination" required="N"/>
+        <field name="UnderlyingCurrency" required="N"/>
+        <field name="RatioQty" required="N"/>
+        <field name="Side" required="N"/>
         <field name="UnderlyingOptAttribute" required="N"/>
         <field name="UnderlyingContractMultiplier" required="N"/>
-        <field name="UnderlyingCouponRate" required="N"/>
-        <field name="UnderlyingSecurityExchange" required="N"/>
         <field name="UnderlyingIssuer" required="N"/>
         <field name="EncodedUnderlyingIssuerLen" required="N"/>
         <field name="EncodedUnderlyingIssuer" required="N"/>
         <field name="UnderlyingSecurityDesc" required="N"/>
         <field name="EncodedUnderlyingSecurityDescLen" required="N"/>
         <field name="EncodedUnderlyingSecurityDesc" required="N"/>
-        <field name="RatioQty" required="N"/>
-        <field name="Side" required="N"/>
-        <field name="UnderlyingCurrency" required="N"/>
       </group>
     </message>
     <message name="SecurityStatusRequest" msgtype="e" msgcat="app">
@@ -1016,6 +1027,49 @@
       <field name="ClearingFirm" required="N"/>
       <field name="ClearingAccount" required="N"/>
       <field name="MultiLegReportingType" required="N"/>
+      <field name="MaturityDate" required="N"/>
+      <field name="CFICode" required="N"/>
+      <field name="SecuritySubType" required="N"/>
+      <field name="ManualOrderIndicator" required="N"/>
+      <field name="Aggressive" required="N"/>
+      <field name="TriggerQty" required="N"/>
+      <field name="AccountName" required="N"/>
+      <field name="FCMAccountNumber" required="N"/>
+      <field name="StatementDate" required="N"/>
+      <field name="OrderSource" required="N"/>
+      <field name="TradeID" required="N"/>
+      <field name="ChainOrderID" required="N"/>
+      <field name="CQGListID" required="N"/>
+      <field name="PeggedStopPx" required="N"/>
+      <field name="SalesSeriesNumber" required="N"/>
+      <field name="OrderPlacementTime" required="N"/>
+      <field name="LastModifierUsername" required="N"/>
+      <field name="SecondaryClOrderID" required="N"/>
+      <field name="ClearingBusinessDate" required="N"/>
+      <group name="NoLegs" required="N">
+        <field name="LegCurrency" required="N"/>
+        <field name="LegSymbol" required="N"/>
+        <field name="LegSymbolSfx" required="N"/>
+        <field name="LegSecurityID" required="N"/>
+        <field name="LegSecurityIDSource" required="N"/>
+        <field name="LegCFICode" required="N"/>
+        <field name="LegSecurityType" required="N"/>
+        <field name="LegMaturityMonthYear" required="N"/>
+        <field name="LegMaturityDate" required="N"/>
+        <field name="LegStrikePrice" required="N"/>
+        <field name="LegCouponRate" required="N"/>
+        <field name="LegSecurityExchange" required="N"/>
+        <field name="LegRatioQty" required="N"/>
+        <field name="LegSide" required="N"/>
+        <field name="LegLastPx" required="N"/>
+        <field name="LegRefID" required="N"/>
+        <field name="LegQty" required="N"/>
+        <field name="LegPutOrCall" required="N"/>
+        <field name="LegStatementDate" required="N"/>
+        <field name="LegTradeID" required="N"/>
+      </group>
+      <field name="MassStatusReqID" required="N"/>
+      <field name="PeggedPrice" required="N"/>
     </message>
     <message name="DontKnowTrade" msgtype="Q" msgcat="app">
       <field name="OrderID" required="Y"/>
@@ -2619,5 +2673,56 @@
     <field number="444" name="ListStatusText" type="STRING"/>
     <field number="445" name="EncodedListStatusTextLen" type="INT"/>
     <field number="446" name="EncodedListStatusText" type="DATA"/>
+    
+    <!-- CQG Specific fields below -->
+    
+    <field number="541" name="MaturityDate" type="UTCTIMESTAMP"/>
+    <field number="1028" name="ManualOrderIndicator" type="BOOLEAN"/>
+    <field number="20001" name="Aggressive" type="BOOLEAN"/>
+    <field number="20004" name="TriggerQty" type="INT"/>
+    <field number="20010" name="AccountName" type="STRING"/>
+    <field number="20014" name="FCMAccountNumber" type="STRING"/>
+    <field number="20023" name="StatementDate" type="UTCTIMESTAMP"/>
+    <field number="20024" name="LegStatementDate" type="UTCTIMESTAMP"/>
+    <field number="20025" name="LegClearingBusinessDate" type="UTCTIMESTAMP"/>
+    <field number="20026" name="OrderSource" type="STRING"/>
+    <field number="20027" name="TradeID" type="STRING"/>
+    <field number="20028" name="LegTradeID" type="STRING"/>
+    <field number="20029" name="ChainOrderID" type="STRING"/>
+    <field number="20036" name="CQGListID" type="STRING"/>
+    <field number="20049" name="UserStrategyType" type="STRING"/>
+    <field number="20050" name="LegNumber" type="INT"/>
+    <field number="20051" name="UnderlyingExDestination" type="STRING"/>
+    <field number="20052" name="PeggedStopPx" type="FLOAT"/>
+    <field number="20062" name="SalesSeriesNumber" type="STRING"/>
+    <field number="20109" name="LegPutOrCall" type="INT"/>
+    <field number="20111" name="OrderPlacementTime" type="UTCTIMESTAMP"/>
+    <field number="20112" name="LastModifierUsername" type="STRING"/>
+    <field number="50461" name="CFICode" type="STRING"/>
+    <field number="50463" name="UnderlyingCFICode" type="STRING"/>
+    <field number="50526" name="SecondaryClOrderID" type="STRING"/>
+    <field number="50542" name="UnderlyingMaturityDate" type="UTCTIMESTAMP"/>
+    <field number="50555" name="NoLegs" type="INT"/>
+    <field number="50556" name="LegCurrency" type="STRING"/>
+    <field number="50584" name="MassStatusReqID" type="STRING"/>
+    <field number="50600" name="LegSymbol" type="STRING"/>
+    <field number="50601" name="LegSymbolSfx" type="STRING"/>
+    <field number="50602" name="LegSecurityID" type="STRING"/>
+    <field number="50603" name="LegSecurityIDSource" type="STRING"/>
+    <field number="50608" name="LegCFICode" type="STRING"/>
+    <field number="50609" name="LegSecurityType" type="STRING"/>
+    <field number="50610" name="LegMaturityMonthYear" type="UTCTIMESTAMP"/>
+    <field number="50611" name="LegMaturityDate" type="UTCTIMESTAMP"/>
+    <field number="50612" name="LegStrikePrice" type="FLOAT"/>
+    <field number="50615" name="LegCouponRate" type="FLOAT"/>
+    <field number="50616" name="LegSecurityExchange" type="STRING"/>
+    <field number="50623" name="LegRatioQty" type="INT"/>
+    <field number="50624" name="LegSide" type="CHAR"/>
+    <field number="50637" name="LegLastPx" type="FLOAT"/>
+    <field number="50654" name="LegRefID" type="STRING"/>
+    <field number="50687" name="LegQty" type="INT"/>
+    <field number="50715" name="ClearingBusinessDate" type="UTCTIMESTAMP"/>
+    <field number="50762" name="SecuritySubType" type="STRING"/>
+    <field number="50839" name="PeggedPrice" type="FLOAT"/>
   </fields>
 </fix>

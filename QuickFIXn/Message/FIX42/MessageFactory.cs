@@ -190,6 +190,7 @@ namespace QuickFix
                     switch (correspondingFieldID)
                     {
                         case QuickFix.Fields.Tags.NoContraBrokers: return new QuickFix.FIX42.ExecutionReport.NoContraBrokersGroup();
+                        case QuickFix.Fields.Tags.NoLegs: return new QuickFix.FIX42.ExecutionReport.NoLegsGroup();
                     }
                 }
 

@@ -7004,6 +7004,638 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// MaturityDate Field
+    /// </summary>/
+    public sealed class MaturityDate : StringField
+    {
+        public MaturityDate()
+            :base(Tags.MaturityDate) {}
+        public MaturityDate(string val)
+            :base(Tags.MaturityDate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ManualOrderIndicator Field
+    /// </summary>/
+    public sealed class ManualOrderIndicator : BooleanField
+    {
+        public ManualOrderIndicator()
+            :base(Tags.ManualOrderIndicator) {}
+        public ManualOrderIndicator(Boolean val)
+            :base(Tags.ManualOrderIndicator, val) {}
+
+    }
+
+
+    /// <summary>
+    /// Aggressive Field
+    /// </summary>/
+    public sealed class Aggressive : BooleanField
+    {
+        public Aggressive()
+            :base(Tags.Aggressive) {}
+        public Aggressive(Boolean val)
+            :base(Tags.Aggressive, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TriggerQty Field
+    /// </summary>/
+    public sealed class TriggerQty : IntField
+    {
+        public TriggerQty()
+            :base(Tags.TriggerQty) {}
+        public TriggerQty(int val)
+            :base(Tags.TriggerQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// AccountName Field
+    /// </summary>/
+    public sealed class AccountName : StringField
+    {
+        public AccountName()
+            :base(Tags.AccountName) {}
+        public AccountName(string val)
+            :base(Tags.AccountName, val) {}
+
+    }
+
+
+    /// <summary>
+    /// FCMAccountNumber Field
+    /// </summary>/
+    public sealed class FCMAccountNumber : StringField
+    {
+        public FCMAccountNumber()
+            :base(Tags.FCMAccountNumber) {}
+        public FCMAccountNumber(string val)
+            :base(Tags.FCMAccountNumber, val) {}
+
+    }
+
+
+    /// <summary>
+    /// StatementDate Field
+    /// </summary>/
+    public sealed class StatementDate : DateTimeField
+    {
+        public StatementDate()
+            :base(Tags.StatementDate) {}
+        public StatementDate(DateTime val)
+            :base(Tags.StatementDate, val) {}
+        public StatementDate(DateTime val, bool showMilliseconds)
+	    :base(Tags.StatementDate, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// LegStatementDate Field
+    /// </summary>/
+    public sealed class LegStatementDate : DateTimeField
+    {
+        public LegStatementDate()
+            :base(Tags.LegStatementDate) {}
+        public LegStatementDate(DateTime val)
+            :base(Tags.LegStatementDate, val) {}
+        public LegStatementDate(DateTime val, bool showMilliseconds)
+	    :base(Tags.LegStatementDate, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// LegClearingBusinessDate Field
+    /// </summary>/
+    public sealed class LegClearingBusinessDate : DateTimeField
+    {
+        public LegClearingBusinessDate()
+            :base(Tags.LegClearingBusinessDate) {}
+        public LegClearingBusinessDate(DateTime val)
+            :base(Tags.LegClearingBusinessDate, val) {}
+        public LegClearingBusinessDate(DateTime val, bool showMilliseconds)
+	    :base(Tags.LegClearingBusinessDate, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// OrderSource Field
+    /// </summary>/
+    public sealed class OrderSource : StringField
+    {
+        public OrderSource()
+            :base(Tags.OrderSource) {}
+        public OrderSource(string val)
+            :base(Tags.OrderSource, val) {}
+
+    }
+
+
+    /// <summary>
+    /// TradeID Field
+    /// </summary>/
+    public sealed class TradeID : StringField
+    {
+        public TradeID()
+            :base(Tags.TradeID) {}
+        public TradeID(string val)
+            :base(Tags.TradeID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegTradeID Field
+    /// </summary>/
+    public sealed class LegTradeID : StringField
+    {
+        public LegTradeID()
+            :base(Tags.LegTradeID) {}
+        public LegTradeID(string val)
+            :base(Tags.LegTradeID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ChainOrderID Field
+    /// </summary>/
+    public sealed class ChainOrderID : StringField
+    {
+        public ChainOrderID()
+            :base(Tags.ChainOrderID) {}
+        public ChainOrderID(string val)
+            :base(Tags.ChainOrderID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// CQGListID Field
+    /// </summary>/
+    public sealed class CQGListID : StringField
+    {
+        public CQGListID()
+            :base(Tags.CQGListID) {}
+        public CQGListID(string val)
+            :base(Tags.CQGListID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UserStrategyType Field
+    /// </summary>/
+    public sealed class UserStrategyType : StringField
+    {
+        public UserStrategyType()
+            :base(Tags.UserStrategyType) {}
+        public UserStrategyType(string val)
+            :base(Tags.UserStrategyType, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegNumber Field
+    /// </summary>/
+    public sealed class LegNumber : IntField
+    {
+        public LegNumber()
+            :base(Tags.LegNumber) {}
+        public LegNumber(int val)
+            :base(Tags.LegNumber, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingExDestination Field
+    /// </summary>/
+    public sealed class UnderlyingExDestination : StringField
+    {
+        public UnderlyingExDestination()
+            :base(Tags.UnderlyingExDestination) {}
+        public UnderlyingExDestination(string val)
+            :base(Tags.UnderlyingExDestination, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PeggedStopPx Field
+    /// </summary>/
+    public sealed class PeggedStopPx : DecimalField
+    {
+        public PeggedStopPx()
+            :base(Tags.PeggedStopPx) {}
+        public PeggedStopPx(Decimal val)
+            :base(Tags.PeggedStopPx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SalesSeriesNumber Field
+    /// </summary>/
+    public sealed class SalesSeriesNumber : StringField
+    {
+        public SalesSeriesNumber()
+            :base(Tags.SalesSeriesNumber) {}
+        public SalesSeriesNumber(string val)
+            :base(Tags.SalesSeriesNumber, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegPutOrCall Field
+    /// </summary>/
+    public sealed class LegPutOrCall : IntField
+    {
+        public LegPutOrCall()
+            :base(Tags.LegPutOrCall) {}
+        public LegPutOrCall(int val)
+            :base(Tags.LegPutOrCall, val) {}
+
+    }
+
+
+    /// <summary>
+    /// OrderPlacementTime Field
+    /// </summary>/
+    public sealed class OrderPlacementTime : DateTimeField
+    {
+        public OrderPlacementTime()
+            :base(Tags.OrderPlacementTime) {}
+        public OrderPlacementTime(DateTime val)
+            :base(Tags.OrderPlacementTime, val) {}
+        public OrderPlacementTime(DateTime val, bool showMilliseconds)
+	    :base(Tags.OrderPlacementTime, val, showMilliseconds) {}
+
+    }
+
+
+    /// <summary>
+    /// LastModifierUsername Field
+    /// </summary>/
+    public sealed class LastModifierUsername : StringField
+    {
+        public LastModifierUsername()
+            :base(Tags.LastModifierUsername) {}
+        public LastModifierUsername(string val)
+            :base(Tags.LastModifierUsername, val) {}
+
+    }
+
+
+    /// <summary>
+    /// CFICode Field
+    /// </summary>/
+    public sealed class CFICode : StringField
+    {
+        public CFICode()
+            :base(Tags.CFICode) {}
+        public CFICode(string val)
+            :base(Tags.CFICode, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingCFICode Field
+    /// </summary>/
+    public sealed class UnderlyingCFICode : StringField
+    {
+        public UnderlyingCFICode()
+            :base(Tags.UnderlyingCFICode) {}
+        public UnderlyingCFICode(string val)
+            :base(Tags.UnderlyingCFICode, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SecondaryClOrderID Field
+    /// </summary>/
+    public sealed class SecondaryClOrderID : StringField
+    {
+        public SecondaryClOrderID()
+            :base(Tags.SecondaryClOrderID) {}
+        public SecondaryClOrderID(string val)
+            :base(Tags.SecondaryClOrderID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// UnderlyingMaturityDate Field
+    /// </summary>/
+    public sealed class UnderlyingMaturityDate : StringField
+    {
+        public UnderlyingMaturityDate()
+            :base(Tags.UnderlyingMaturityDate) {}
+        public UnderlyingMaturityDate(string val)
+            :base(Tags.UnderlyingMaturityDate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// NoLegs Field
+    /// </summary>/
+    public sealed class NoLegs : IntField
+    {
+        public NoLegs()
+            :base(Tags.NoLegs) {}
+        public NoLegs(int val)
+            :base(Tags.NoLegs, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegCurrency Field
+    /// </summary>/
+    public sealed class LegCurrency : StringField
+    {
+        public LegCurrency()
+            :base(Tags.LegCurrency) {}
+        public LegCurrency(string val)
+            :base(Tags.LegCurrency, val) {}
+
+    }
+
+
+    /// <summary>
+    /// MassStatusReqID Field
+    /// </summary>/
+    public sealed class MassStatusReqID : StringField
+    {
+        public MassStatusReqID()
+            :base(Tags.MassStatusReqID) {}
+        public MassStatusReqID(string val)
+            :base(Tags.MassStatusReqID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSymbol Field
+    /// </summary>/
+    public sealed class LegSymbol : StringField
+    {
+        public LegSymbol()
+            :base(Tags.LegSymbol) {}
+        public LegSymbol(string val)
+            :base(Tags.LegSymbol, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSymbolSfx Field
+    /// </summary>/
+    public sealed class LegSymbolSfx : StringField
+    {
+        public LegSymbolSfx()
+            :base(Tags.LegSymbolSfx) {}
+        public LegSymbolSfx(string val)
+            :base(Tags.LegSymbolSfx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSecurityID Field
+    /// </summary>/
+    public sealed class LegSecurityID : StringField
+    {
+        public LegSecurityID()
+            :base(Tags.LegSecurityID) {}
+        public LegSecurityID(string val)
+            :base(Tags.LegSecurityID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSecurityIDSource Field
+    /// </summary>/
+    public sealed class LegSecurityIDSource : StringField
+    {
+        public LegSecurityIDSource()
+            :base(Tags.LegSecurityIDSource) {}
+        public LegSecurityIDSource(string val)
+            :base(Tags.LegSecurityIDSource, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegCFICode Field
+    /// </summary>/
+    public sealed class LegCFICode : StringField
+    {
+        public LegCFICode()
+            :base(Tags.LegCFICode) {}
+        public LegCFICode(string val)
+            :base(Tags.LegCFICode, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSecurityType Field
+    /// </summary>/
+    public sealed class LegSecurityType : StringField
+    {
+        public LegSecurityType()
+            :base(Tags.LegSecurityType) {}
+        public LegSecurityType(string val)
+            :base(Tags.LegSecurityType, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegMaturityMonthYear Field
+    /// </summary>/
+    public sealed class LegMaturityMonthYear : StringField
+    {
+        public LegMaturityMonthYear()
+            :base(Tags.LegMaturityMonthYear) {}
+        public LegMaturityMonthYear(string val)
+            :base(Tags.LegMaturityMonthYear, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegMaturityDate Field
+    /// </summary>/
+    public sealed class LegMaturityDate : StringField
+    {
+        public LegMaturityDate()
+            :base(Tags.LegMaturityDate) {}
+        public LegMaturityDate(string val)
+            :base(Tags.LegMaturityDate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegStrikePrice Field
+    /// </summary>/
+    public sealed class LegStrikePrice : DecimalField
+    {
+        public LegStrikePrice()
+            :base(Tags.LegStrikePrice) {}
+        public LegStrikePrice(Decimal val)
+            :base(Tags.LegStrikePrice, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegCouponRate Field
+    /// </summary>/
+    public sealed class LegCouponRate : DecimalField
+    {
+        public LegCouponRate()
+            :base(Tags.LegCouponRate) {}
+        public LegCouponRate(Decimal val)
+            :base(Tags.LegCouponRate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSecurityExchange Field
+    /// </summary>/
+    public sealed class LegSecurityExchange : StringField
+    {
+        public LegSecurityExchange()
+            :base(Tags.LegSecurityExchange) {}
+        public LegSecurityExchange(string val)
+            :base(Tags.LegSecurityExchange, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegRatioQty Field
+    /// </summary>/
+    public sealed class LegRatioQty : DecimalField
+    {
+        public LegRatioQty()
+            :base(Tags.LegRatioQty) {}
+        public LegRatioQty(Decimal val)
+            :base(Tags.LegRatioQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegSide Field
+    /// </summary>/
+    public sealed class LegSide : CharField
+    {
+        public LegSide()
+            :base(Tags.LegSide) {}
+        public LegSide(char val)
+            :base(Tags.LegSide, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegLastPx Field
+    /// </summary>/
+    public sealed class LegLastPx : DecimalField
+    {
+        public LegLastPx()
+            :base(Tags.LegLastPx) {}
+        public LegLastPx(Decimal val)
+            :base(Tags.LegLastPx, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegRefID Field
+    /// </summary>/
+    public sealed class LegRefID : StringField
+    {
+        public LegRefID()
+            :base(Tags.LegRefID) {}
+        public LegRefID(string val)
+            :base(Tags.LegRefID, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LegQty Field
+    /// </summary>/
+    public sealed class LegQty : DecimalField
+    {
+        public LegQty()
+            :base(Tags.LegQty) {}
+        public LegQty(Decimal val)
+            :base(Tags.LegQty, val) {}
+
+    }
+
+
+    /// <summary>
+    /// ClearingBusinessDate Field
+    /// </summary>/
+    public sealed class ClearingBusinessDate : StringField
+    {
+        public ClearingBusinessDate()
+            :base(Tags.ClearingBusinessDate) {}
+        public ClearingBusinessDate(string val)
+            :base(Tags.ClearingBusinessDate, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SecuritySubType Field
+    /// </summary>/
+    public sealed class SecuritySubType : StringField
+    {
+        public SecuritySubType()
+            :base(Tags.SecuritySubType) {}
+        public SecuritySubType(string val)
+            :base(Tags.SecuritySubType, val) {}
+
+    }
+
+
+    /// <summary>
+    /// PeggedPrice Field
+    /// </summary>/
+    public sealed class PeggedPrice : DecimalField
+    {
+        public PeggedPrice()
+            :base(Tags.PeggedPrice) {}
+        public PeggedPrice(Decimal val)
+            :base(Tags.PeggedPrice, val) {}
+
+    }
+
+
+    /// <summary>
     /// SecurityIDSource Field
     /// </summary>/
     public sealed class SecurityIDSource : StringField
@@ -8182,19 +8814,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// CFICode Field
-    /// </summary>/
-    public sealed class CFICode : StringField
-    {
-        public CFICode()
-            :base(Tags.CFICode) {}
-        public CFICode(string val)
-            :base(Tags.CFICode, val) {}
-
-    }
-
-
-    /// <summary>
     /// UnderlyingProduct Field
     /// </summary>/
     public sealed class UnderlyingProduct : IntField
@@ -8203,19 +8822,6 @@ namespace QuickFix.Fields
             :base(Tags.UnderlyingProduct) {}
         public UnderlyingProduct(int val)
             :base(Tags.UnderlyingProduct, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingCFICode Field
-    /// </summary>/
-    public sealed class UnderlyingCFICode : StringField
-    {
-        public UnderlyingCFICode()
-            :base(Tags.UnderlyingCFICode) {}
-        public UnderlyingCFICode(string val)
-            :base(Tags.UnderlyingCFICode, val) {}
 
     }
 
@@ -9509,32 +10115,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// MaturityDate Field
-    /// </summary>/
-    public sealed class MaturityDate : StringField
-    {
-        public MaturityDate()
-            :base(Tags.MaturityDate) {}
-        public MaturityDate(string val)
-            :base(Tags.MaturityDate, val) {}
-
-    }
-
-
-    /// <summary>
-    /// UnderlyingMaturityDate Field
-    /// </summary>/
-    public sealed class UnderlyingMaturityDate : StringField
-    {
-        public UnderlyingMaturityDate()
-            :base(Tags.UnderlyingMaturityDate) {}
-        public UnderlyingMaturityDate(string val)
-            :base(Tags.UnderlyingMaturityDate, val) {}
-
-    }
-
-
-    /// <summary>
     /// InstrRegistry Field
     /// </summary>/
     public sealed class InstrRegistry : StringField
@@ -9724,32 +10304,6 @@ namespace QuickFix.Fields
             :base(Tags.Password) {}
         public Password(string val)
             :base(Tags.Password, val) {}
-
-    }
-
-
-    /// <summary>
-    /// NoLegs Field
-    /// </summary>/
-    public sealed class NoLegs : IntField
-    {
-        public NoLegs()
-            :base(Tags.NoLegs) {}
-        public NoLegs(int val)
-            :base(Tags.NoLegs, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegCurrency Field
-    /// </summary>/
-    public sealed class LegCurrency : StringField
-    {
-        public LegCurrency()
-            :base(Tags.LegCurrency) {}
-        public LegCurrency(string val)
-            :base(Tags.LegCurrency, val) {}
 
     }
 
@@ -10243,19 +10797,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// MassStatusReqID Field
-    /// </summary>/
-    public sealed class MassStatusReqID : StringField
-    {
-        public MassStatusReqID()
-            :base(Tags.MassStatusReqID) {}
-        public MassStatusReqID(string val)
-            :base(Tags.MassStatusReqID, val) {}
-
-    }
-
-
-    /// <summary>
     /// MassStatusReqType Field
     /// </summary>/
     public sealed class MassStatusReqType : IntField
@@ -10479,58 +11020,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// LegSymbol Field
-    /// </summary>/
-    public sealed class LegSymbol : StringField
-    {
-        public LegSymbol()
-            :base(Tags.LegSymbol) {}
-        public LegSymbol(string val)
-            :base(Tags.LegSymbol, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegSymbolSfx Field
-    /// </summary>/
-    public sealed class LegSymbolSfx : StringField
-    {
-        public LegSymbolSfx()
-            :base(Tags.LegSymbolSfx) {}
-        public LegSymbolSfx(string val)
-            :base(Tags.LegSymbolSfx, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegSecurityID Field
-    /// </summary>/
-    public sealed class LegSecurityID : StringField
-    {
-        public LegSecurityID()
-            :base(Tags.LegSecurityID) {}
-        public LegSecurityID(string val)
-            :base(Tags.LegSecurityID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegSecurityIDSource Field
-    /// </summary>/
-    public sealed class LegSecurityIDSource : StringField
-    {
-        public LegSecurityIDSource()
-            :base(Tags.LegSecurityIDSource) {}
-        public LegSecurityIDSource(string val)
-            :base(Tags.LegSecurityIDSource, val) {}
-
-    }
-
-
-    /// <summary>
     /// NoLegSecurityAltID Field
     /// </summary>/
     public sealed class NoLegSecurityAltID : StringField
@@ -10583,71 +11072,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// LegCFICode Field
-    /// </summary>/
-    public sealed class LegCFICode : StringField
-    {
-        public LegCFICode()
-            :base(Tags.LegCFICode) {}
-        public LegCFICode(string val)
-            :base(Tags.LegCFICode, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegSecurityType Field
-    /// </summary>/
-    public sealed class LegSecurityType : StringField
-    {
-        public LegSecurityType()
-            :base(Tags.LegSecurityType) {}
-        public LegSecurityType(string val)
-            :base(Tags.LegSecurityType, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegMaturityMonthYear Field
-    /// </summary>/
-    public sealed class LegMaturityMonthYear : StringField
-    {
-        public LegMaturityMonthYear()
-            :base(Tags.LegMaturityMonthYear) {}
-        public LegMaturityMonthYear(string val)
-            :base(Tags.LegMaturityMonthYear, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegMaturityDate Field
-    /// </summary>/
-    public sealed class LegMaturityDate : StringField
-    {
-        public LegMaturityDate()
-            :base(Tags.LegMaturityDate) {}
-        public LegMaturityDate(string val)
-            :base(Tags.LegMaturityDate, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegStrikePrice Field
-    /// </summary>/
-    public sealed class LegStrikePrice : DecimalField
-    {
-        public LegStrikePrice()
-            :base(Tags.LegStrikePrice) {}
-        public LegStrikePrice(Decimal val)
-            :base(Tags.LegStrikePrice, val) {}
-
-    }
-
-
-    /// <summary>
     /// LegOptAttribute Field
     /// </summary>/
     public sealed class LegOptAttribute : CharField
@@ -10669,32 +11093,6 @@ namespace QuickFix.Fields
             :base(Tags.LegContractMultiplier) {}
         public LegContractMultiplier(Decimal val)
             :base(Tags.LegContractMultiplier, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegCouponRate Field
-    /// </summary>/
-    public sealed class LegCouponRate : DecimalField
-    {
-        public LegCouponRate()
-            :base(Tags.LegCouponRate) {}
-        public LegCouponRate(Decimal val)
-            :base(Tags.LegCouponRate, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegSecurityExchange Field
-    /// </summary>/
-    public sealed class LegSecurityExchange : StringField
-    {
-        public LegSecurityExchange()
-            :base(Tags.LegSecurityExchange) {}
-        public LegSecurityExchange(string val)
-            :base(Tags.LegSecurityExchange, val) {}
 
     }
 
@@ -10773,32 +11171,6 @@ namespace QuickFix.Fields
             :base(Tags.EncodedLegSecurityDesc) {}
         public EncodedLegSecurityDesc(string val)
             :base(Tags.EncodedLegSecurityDesc, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegRatioQty Field
-    /// </summary>/
-    public sealed class LegRatioQty : DecimalField
-    {
-        public LegRatioQty()
-            :base(Tags.LegRatioQty) {}
-        public LegRatioQty(Decimal val)
-            :base(Tags.LegRatioQty, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegSide Field
-    /// </summary>/
-    public sealed class LegSide : CharField
-    {
-        public LegSide()
-            :base(Tags.LegSide) {}
-        public LegSide(char val)
-            :base(Tags.LegSide, val) {}
 
     }
 
@@ -11010,19 +11382,6 @@ namespace QuickFix.Fields
         // Field Enumerations
         public const Boolean NO = false;
         public const Boolean YES = true;
-    }
-
-
-    /// <summary>
-    /// LegLastPx Field
-    /// </summary>/
-    public sealed class LegLastPx : DecimalField
-    {
-        public LegLastPx()
-            :base(Tags.LegLastPx) {}
-        public LegLastPx(Decimal val)
-            :base(Tags.LegLastPx, val) {}
-
     }
 
 
@@ -11246,19 +11605,6 @@ namespace QuickFix.Fields
         public const int REJECTED = 2;
         public const int UNAUTHORIZED_REQUEST = 3;
         public const int INVALID_DEFINITION_REQUEST = 4;
-    }
-
-
-    /// <summary>
-    /// LegRefID Field
-    /// </summary>/
-    public sealed class LegRefID : StringField
-    {
-        public LegRefID()
-            :base(Tags.LegRefID) {}
-        public LegRefID(string val)
-            :base(Tags.LegRefID, val) {}
-
     }
 
 
@@ -11944,19 +12290,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// LegQty Field
-    /// </summary>/
-    public sealed class LegQty : DecimalField
-    {
-        public LegQty()
-            :base(Tags.LegQty) {}
-        public LegQty(Decimal val)
-            :base(Tags.LegQty, val) {}
-
-    }
-
-
-    /// <summary>
     /// LegStipulationType Field
     /// </summary>/
     public sealed class LegStipulationType : StringField
@@ -12400,19 +12733,6 @@ namespace QuickFix.Fields
             :base(Tags.PosMaintRptRefID) {}
         public PosMaintRptRefID(string val)
             :base(Tags.PosMaintRptRefID, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ClearingBusinessDate Field
-    /// </summary>/
-    public sealed class ClearingBusinessDate : StringField
-    {
-        public ClearingBusinessDate()
-            :base(Tags.ClearingBusinessDate) {}
-        public ClearingBusinessDate(string val)
-            :base(Tags.ClearingBusinessDate, val) {}
 
     }
 
@@ -13111,19 +13431,6 @@ namespace QuickFix.Fields
             :base(Tags.BenchmarkSecurityIDSource) {}
         public BenchmarkSecurityIDSource(string val)
             :base(Tags.BenchmarkSecurityIDSource, val) {}
-
-    }
-
-
-    /// <summary>
-    /// SecuritySubType Field
-    /// </summary>/
-    public sealed class SecuritySubType : StringField
-    {
-        public SecuritySubType()
-            :base(Tags.SecuritySubType) {}
-        public SecuritySubType(string val)
-            :base(Tags.SecuritySubType, val) {}
 
     }
 
@@ -14372,19 +14679,6 @@ namespace QuickFix.Fields
         // Field Enumerations
         public const int MORE_AGGRESSIVE = 1;
         public const int MORE_PASSIVE = 2;
-    }
-
-
-    /// <summary>
-    /// PeggedPrice Field
-    /// </summary>/
-    public sealed class PeggedPrice : DecimalField
-    {
-        public PeggedPrice()
-            :base(Tags.PeggedPrice) {}
-        public PeggedPrice(Decimal val)
-            :base(Tags.PeggedPrice, val) {}
-
     }
 
 
@@ -16929,19 +17223,6 @@ namespace QuickFix.Fields
 
 
     /// <summary>
-    /// TradeID Field
-    /// </summary>/
-    public sealed class TradeID : StringField
-    {
-        public TradeID()
-            :base(Tags.TradeID) {}
-        public TradeID(string val)
-            :base(Tags.TradeID, val) {}
-
-    }
-
-
-    /// <summary>
     /// SideTradeReportID Field
     /// </summary>/
     public sealed class SideTradeReportID : StringField
@@ -17252,19 +17533,6 @@ namespace QuickFix.Fields
             :base(Tags.MDEntryForwardPoints) {}
         public MDEntryForwardPoints(Decimal val)
             :base(Tags.MDEntryForwardPoints, val) {}
-
-    }
-
-
-    /// <summary>
-    /// ManualOrderIndicator Field
-    /// </summary>/
-    public sealed class ManualOrderIndicator : BooleanField
-    {
-        public ManualOrderIndicator()
-            :base(Tags.ManualOrderIndicator) {}
-        public ManualOrderIndicator(Boolean val)
-            :base(Tags.ManualOrderIndicator, val) {}
 
     }
 
@@ -19093,19 +19361,6 @@ namespace QuickFix.Fields
             :base(Tags.SecurityGroup) {}
         public SecurityGroup(string val)
             :base(Tags.SecurityGroup, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegNumber Field
-    /// </summary>/
-    public sealed class LegNumber : IntField
-    {
-        public LegNumber()
-            :base(Tags.LegNumber) {}
-        public LegNumber(int val)
-            :base(Tags.LegNumber, val) {}
 
     }
 
@@ -21876,19 +22131,6 @@ namespace QuickFix.Fields
             :base(Tags.RefApplLastSeqNum) {}
         public RefApplLastSeqNum(int val)
             :base(Tags.RefApplLastSeqNum, val) {}
-
-    }
-
-
-    /// <summary>
-    /// LegPutOrCall Field
-    /// </summary>/
-    public sealed class LegPutOrCall : IntField
-    {
-        public LegPutOrCall()
-            :base(Tags.LegPutOrCall) {}
-        public LegPutOrCall(int val)
-            :base(Tags.LegPutOrCall, val) {}
 
     }
 
